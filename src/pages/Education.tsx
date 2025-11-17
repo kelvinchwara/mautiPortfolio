@@ -495,7 +495,8 @@ const Education = () => {
                     <Target className="h-6 w-6 sm:h-8 sm:w-8" style={{ color: COLORS.FOREST_GREEN }} />
                   </div>
                   <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>Skill Developer </h3>
-                  <p className="text-xs sm:text-sm text-gray-700 break-words">Focusing on leadership, technology integration, and innovative teaching</p>
+
+<p className="text-xs sm:text-sm text-gray-700 break-words">Focusing on leadership, technology integration, and innovative teaching</p>
                 </div>
 
                 <div className="text-center p-4 sm:p-6 rounded-lg sm:rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1 sm:col-span-2 lg:col-span-1" 
