@@ -100,34 +100,34 @@ const Contact = () => {
       {/* Hero Section with decorative elements */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full" style={{ backgroundColor: '#A37B5C' }}></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
+          <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-24 h-24 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
+          <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-32 h-32 sm:w-48 sm:h-48 rounded-full" style={{ backgroundColor: '#A37B5C' }}></div>
+          <div className="absolute top-1/3 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
         </div>
 
-        <div className="container mx-auto px-4 py-16 relative z-10">
+        <div className="container mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 py-6 xs:py-8 sm:py-12 md:py-16 relative z-10">
           <div className="max-w-6xl mx-auto">
-            
+
             {/* Header with Icon */}
-            <div className="text-center mb-8 sm:mb-12 px-4">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4 sm:mb-6 shadow-lg bg-white">
-                <Sparkles className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
+            <div className="text-center mb-6 xs:mb-8 sm:mb-12 px-2 xs:px-4">
+              <div className="inline-flex items-center justify-center w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-full mb-3 xs:mb-4 sm:mb-6 shadow-lg bg-white">
+                <Sparkles className="h-6 w-6 xs:h-8 xs:w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3" style={{ color: '#5E4A35' }}>
-                <Mail className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-1 xs:gap-2 sm:gap-3" style={{ color: '#5E4A35' }}>
+                <Mail className="h-6 w-6 xs:h-8 xs:w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
                 <span>Contact Information</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 px-4" style={{ color: '#5E4A35' }}>Let's connect and create something amazing together</p>
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl mb-4 xs:mb-6 sm:mb-8 px-2 xs:px-4" style={{ color: '#5E4A35' }}>Let's connect and create something amazing together</p>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-6 sm:mb-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 max-w-4xl mx-auto mb-4 xs:mb-6 sm:mb-8">
                 {quickStats.map((stat, index) => (
                   <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2">
-                    <CardContent className="p-4 sm:p-6 text-center">
+                    <CardContent className="p-3 xs:p-4 sm:p-6 text-center">
                       <div className="flex justify-center mb-2" style={{ color: stat.color }}>
                         {stat.icon}
                       </div>
-                      <div className="text-xl sm:text-2xl font-bold mb-1" style={{ color: '#5E4A35' }}>{stat.value}</div>
+                      <div className="text-lg xs:text-xl sm:text-2xl font-bold mb-1" style={{ color: '#5E4A35' }}>{stat.value}</div>
                       <div className="text-xs sm:text-sm" style={{ color: '#A37B5C' }}>{stat.label}</div>
                     </CardContent>
                   </Card>
@@ -136,28 +136,28 @@ const Contact = () => {
             </div>
 
             {/* Contact Methods Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 xs:gap-4 sm:gap-6 mb-6 xs:mb-8 sm:mb-12">
               {contactMethods.map((method, index) => (
                 <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 cursor-pointer group">
-                  <CardContent className="p-4 sm:p-6 text-center">
+                  <CardContent className="p-3 xs:p-4 sm:p-6 text-center">
                     <div
-                      className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
+                      className="inline-flex items-center justify-center w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 rounded-full mb-2 xs:mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
                       style={{ backgroundColor: method.bgColor }}
                     >
                       <div style={{ color: method.color }}>
                         {method.icon}
                       </div>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: '#5E4A35' }}>{method.title}</h3>
-                    <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: '#A37B5C' }}>{method.description}</p>
+                    <h3 className="text-base xs:text-lg sm:text-xl font-semibold mb-1 xs:mb-2" style={{ color: '#5E4A35' }}>{method.title}</h3>
+                    <p className="text-xs sm:text-sm mb-2 xs:mb-3 sm:mb-4" style={{ color: '#A37B5C' }}>{method.description}</p>
                     <Button
                       variant="outline"
-                      className="group-hover:bg-opacity-100 transition-all text-sm sm:text-base"
+                      className="group-hover:bg-opacity-100 transition-all text-xs xs:text-sm sm:text-base py-2 xs:py-2 sm:py-2"
                       style={{ borderColor: method.color, color: method.color }}
                       onClick={method.onClick}
                     >
                       {method.action}
-                      <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-1 xs:ml-2 h-3 w-3 xs:h-3 xs:w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -245,19 +245,19 @@ const Contact = () => {
                         </a>
                       </div>
                     </div>
-                    
+
                     {/* Location */}
-                    <div className="flex items-center p-4 rounded-xl hover:shadow-md transition-all cursor-pointer group border-l-4" 
+                    <div className="flex items-center p-3 sm:p-4 rounded-xl hover:shadow-md transition-all cursor-pointer group border-l-4"
                          style={{ backgroundColor: '#f5f1ed', borderLeftColor: '#5E4A35' }}>
-                      <div className="p-3 rounded-full mr-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: 'white' }}>
-                        <MapPin className="h-5 w-5" style={{ color: '#5E4A35' }} />
+                      <div className="p-2 sm:p-3 rounded-full mr-3 sm:mr-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: 'white' }}>
+                        <MapPin className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: '#5E4A35' }} />
                       </div>
                       <div className="flex-1">
-                        <p className="font-semibold text-sm mb-1" style={{ color: '#5E4A35' }}>
-                          <CheckCircle2 className="inline h-4 w-4 mr-1" style={{ color: '#5E4A35' }} />
+                        <p className="font-semibold text-xs sm:text-sm mb-1" style={{ color: '#5E4A35' }}>
+                          <CheckCircle2 className="inline h-3 w-3 sm:h-4 sm:w-4 mr-1" style={{ color: '#5E4A35' }} />
                           Current Location
                         </p>
-                        <p className="text-lg font-medium text-gray-700">401122, Chongqing, China</p>
+                        <p className="text-base sm:text-lg font-medium text-gray-700">401122, Chongqing, China</p>
                         <p className="text-xs mt-1" style={{ color: '#A37B5C' }}>
                           <Globe className="inline h-3 w-3 mr-1" />
                           Open to global opportunities
@@ -267,25 +267,25 @@ const Contact = () => {
                   </div>
 
                   {/* Social Media Section - Enhanced */}
-                  <div className="pt-6 border-t-2" style={{ borderColor: '#A37B5C' }}>
-                    <div className="flex items-center mb-4">
+                  <div className="pt-4 sm:pt-6 border-t-2" style={{ borderColor: '#A37B5C' }}>
+                    <div className="flex items-center mb-3 sm:mb-4">
                       <div className="p-2 rounded-lg mr-3" style={{ backgroundColor: '#f5f1ed' }}>
-                        <Sparkles className="h-5 w-5" style={{ color: '#A37B5C' }} />
+                        <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: '#A37B5C' }} />
                       </div>
-                      <h3 className="text-xl font-semibold" style={{ color: '#5E4A35' }}>
+                      <h3 className="text-lg sm:text-xl font-semibold" style={{ color: '#5E4A35' }}>
                         Connect on Social Media
                       </h3>
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
                       {socialLinks.map((social, index) => (
                         <a
                           key={index}
                           href={social.url}
-                          className="flex flex-col items-center p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-2 group"
+                          className="flex flex-col items-center p-3 sm:p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-2 group"
                           style={{ borderColor: '#f5f1ed' }}
                         >
-                          <div 
-                            className="p-3 rounded-full mb-2 group-hover:scale-110 transition-transform"
+                          <div
+                            className="p-2 sm:p-3 rounded-full mb-2 group-hover:scale-110 transition-transform"
                             style={{ backgroundColor: social.bgColor }}
                           >
                             <div style={{ color: social.color }}>
@@ -301,9 +301,9 @@ const Contact = () => {
                   </div>
 
                   {/* Availability Badge */}
-                  <div className="flex items-center justify-center p-4 rounded-xl" style={{ backgroundColor: '#e8f5e9' }}>
-                    <CheckCircle2 className="h-5 w-5 mr-2" style={{ color: '#4caf50' }} />
-                    <span className="font-medium" style={{ color: '#2e7d32' }}>
+                  <div className="flex items-center justify-center p-3 sm:p-4 rounded-xl" style={{ backgroundColor: '#e8f5e9' }}>
+                    <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 mr-2" style={{ color: '#4caf50' }} />
+                    <span className="font-medium text-sm sm:text-base" style={{ color: '#2e7d32' }}>
                       Currently Available for Opportunities
                     </span>
                   </div>
@@ -315,28 +315,28 @@ const Contact = () => {
             </div>
 
             {/* Professional Background Section */}
-            <Card className="mb-8 bg-white hover:shadow-2xl transition-all duration-300">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: '#5E4A35' }}>
+            <Card className="mb-6 sm:mb-8 bg-white hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-6 sm:p-8 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ color: '#5E4A35' }}>
                   Interested in My Professional Background?
                 </h3>
-                <p className="text-lg mb-6" style={{ color: '#A37B5C' }}>
+                <p className="text-base sm:text-lg mb-4 sm:mb-6" style={{ color: '#A37B5C' }}>
                   Explore my complete work history, achievements, and educational philosophy. Download my comprehensive CV or connect with my professional references.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                   <a
                     href="/MAUTIA%20ELIUD%20RESUME.pdf"
                     download
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-200 text-green-800 rounded-lg hover:bg-green-300 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-green-200 text-green-800 rounded-lg hover:bg-green-300 transition-colors text-sm sm:text-base"
                   >
-                    <DownloadCloud className="h-5 w-5" />
+                    <DownloadCloud className="h-4 w-4 sm:h-5 sm:w-5" />
                     Download Full CV
                   </a>
                   <a
                     href="#resources"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-200 text-green-800 rounded-lg hover:bg-green-300 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-green-200 text-green-800 rounded-lg hover:bg-green-300 transition-colors text-sm sm:text-base"
                   >
-                    <Users className="h-5 w-5" />
+                    <Users className="h-4 w-4 sm:h-5 sm:w-5" />
                     View Resources
                   </a>
                 </div>
