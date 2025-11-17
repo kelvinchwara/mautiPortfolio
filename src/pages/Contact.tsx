@@ -109,26 +109,26 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             
             {/* Header with Icon */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 shadow-lg bg-white">
-                <Sparkles className="h-10 w-10" style={{ color: '#A37B5C' }} />
+            <div className="text-center mb-8 sm:mb-12 px-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4 sm:mb-6 shadow-lg bg-white">
+                <Sparkles className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
               </div>
-              <h1 className="text-5xl font-bold mb-4 flex items-center justify-center gap-3" style={{ color: '#5E4A35' }}>
-                <Mail className="h-10 w-10" style={{ color: '#A37B5C' }} />
-                Contact Information
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3" style={{ color: '#5E4A35' }}>
+                <Mail className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: '#A37B5C' }} />
+                <span>Contact Information</span>
               </h1>
-              <p className="text-xl mb-8" style={{ color: '#5E4A35' }}>Let's connect and create something amazing together</p>
-              
+              <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 px-4" style={{ color: '#5E4A35' }}>Let's connect and create something amazing together</p>
+
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-6 sm:mb-8">
                 {quickStats.map((stat, index) => (
-                  <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <CardContent className="p-6 text-center">
+                  <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2">
+                    <CardContent className="p-4 sm:p-6 text-center">
                       <div className="flex justify-center mb-2" style={{ color: stat.color }}>
                         {stat.icon}
                       </div>
-                      <div className="text-2xl font-bold mb-1" style={{ color: '#5E4A35' }}>{stat.value}</div>
-                      <div className="text-sm" style={{ color: '#A37B5C' }}>{stat.label}</div>
+                      <div className="text-xl sm:text-2xl font-bold mb-1" style={{ color: '#5E4A35' }}>{stat.value}</div>
+                      <div className="text-xs sm:text-sm" style={{ color: '#A37B5C' }}>{stat.label}</div>
                     </CardContent>
                   </Card>
                 ))}
@@ -136,28 +136,28 @@ const Contact = () => {
             </div>
 
             {/* Contact Methods Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
               {contactMethods.map((method, index) => (
-                <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-                  <CardContent className="p-6 text-center">
-                    <div 
-                      className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 group-hover:scale-110 transition-transform"
+                <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 cursor-pointer group">
+                  <CardContent className="p-4 sm:p-6 text-center">
+                    <div
+                      className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
                       style={{ backgroundColor: method.bgColor }}
                     >
                       <div style={{ color: method.color }}>
                         {method.icon}
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2" style={{ color: '#5E4A35' }}>{method.title}</h3>
-                    <p className="text-sm mb-4" style={{ color: '#A37B5C' }}>{method.description}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: '#5E4A35' }}>{method.title}</h3>
+                    <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: '#A37B5C' }}>{method.description}</p>
                     <Button
                       variant="outline"
-                      className="group-hover:bg-opacity-100 transition-all"
+                      className="group-hover:bg-opacity-100 transition-all text-sm sm:text-base"
                       style={{ borderColor: method.color, color: method.color }}
                       onClick={method.onClick}
                     >
                       {method.action}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
                 </Card>
