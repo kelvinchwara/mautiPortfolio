@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliud Mautia - About Me</title>
+    <meta name="description" content="Learn more about Eliud Mautia, a highly motivated and innovative Mathematics educator with experience across IGCSE, A Level, IB Diploma, and 8.4.4. systems.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="src/style.css" rel="stylesheet">
+    <link href="src/script.js" rel="script">
+
+    <link rel="icon" href="media/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="media/img/favicon.ico">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Add some basic styling for the new elements.
+           Ideally, these would be in your external style.css file. */
+        .about-content-wrapper {
+            display: flex;
+            flex-direction: column; /* Stacks items on small screens */
+            gap: 2rem;
+            align-items: center; /* Center items vertically in column, horizontally in row */
+        }
+
+        .about-image {
+            flex-shrink: 0; /* Prevent image from shrinking */
+            max-width: 500px; /* Adjust size as needed */
+            height: 230px; /* Maintain aspect ratio */
+           
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-size: contain; /* or use 'cover' depending on your layout needs */
+        }
+
+        .about-text-content {
+            flex-grow: 1; /* Allows text to take available space */
+            text-align: center; /* Center text for smaller screens */
+        }
+
+        .skills-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background-color: #f0f0f0; /* Light background for skill tags */
+            padding: 0.75rem 1.25rem;
+            border-radius: 25px;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: BROWN
+            ; /* Example primary color */
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .about-content-wrapper {
+                flex-direction: row; /* Rows on larger screens */
+                text-align: left; /* Align text to left on larger screens */
+            }
+            .about-image {
+                margin-right: 2rem; /* Space between image and text */
+            }
+            .about-text-content {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+        <nav class="navbar-container">
+    <a href="index.html" class="logo">
+        <span class="letter">E</span><span class="letter">l</span><span class="letter">i</span><span class="letter">u</span><span class="letter">d</span>
+        <span class="letter"> </span>
+        <span class="letter">M</span><span class="letter">a</span><span class="letter">u</span><span class="letter">t</span><span class="letter">i</span><span class="letter">a</span>
+    </a>
+    <meta property="og:title" content="Eliud Mautia Portfolio" />
+    <meta property="og:description" content="A professional portfolio for Eliud Mautia." />
+    <meta property="og:type" content="website" />
+             <button class="hamburger-menu" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+    
+  </head>
+            <ul class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html"class="active">About Me</a>
+                <a href="skills.html">Skills</a>
+                <a href="educational-background.html">Educational Background</a>
+                <a href="professional-overview.html">Professional Overview</a>
+                <a href="references.html" >References</a>
+                <a href="contact.html">Contact Me</a>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="dynamic-section-hero" class="section-hero container"
+        >
+        <h2 style=" font-size: 25px;">About Me</h2>
+    </section>
+
+    <main class="container">
+        
+        <section id="about" class="section-card">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content-wrapper">
+                <img src="media/img/WhatsApp Image 2025-06-15 at 5.36.24 PM.jpeg" alt="Eliud Mautia's Professional Headshot" class="about-image">
+                <div class="about-text-content">
+                    <p>
+                        I am a highly motivated and innovative professional with a flexible mindset, adept at embracing new ideas and changes, and driven by a commitment to achieving results through teamwork. I excel in leadership, organization, and interpersonal communication, bringing extensive experience in Secondary Mathematics education across IGCSE, A Level, IB Diploma, and 8.4.4. systems. As a passionate educator, I employ an effective and positive teaching style, leveraging technology to cultivate independent learners.
+                    </p>
+                    <p>
+                        My advanced skills in communication, planning, socialization, and problem-solving empower me to excel as a mathematics educator. I aspire to secure a teaching position that fosters creativity and higher-order thinking through advanced teaching methods, enhancing student performance while promoting an environment of continuous learning, unlearning, and relearning.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+       <!-- New Section: Founder of Elton Soma School -->
+    <section style="
+        padding: 4rem 1rem;
+        background-color: #ffffff;
+        text-align: center;
+        border-radius: 15px;
+        margin: 0.9rem auto;
+        max-width: 1200px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    ">
+        <div class="page-container">
+            <h2 style="
+                font-size: 1.5rem; /* text-4xl */
+                font-weight: 700; /* font-bold */
+                color: #2d3748;
+                margin-bottom: 1.1rem;
+            ">
+                Founder of <span style="color:rgb(143, 94, 55);">Elton Soma School</span>
+            </h2>
+            <p style="
+                font-size: 1.1rem; /* text-lg */
+                line-height: 1.5;
+                color:rgb(109, 88, 67);
+                margin-bottom: 1rem;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            ">
+                Am not only a dedicated Mathematics educator but also the visionary founder of Elton Soma School. Driven by a passion to provide accessible, high-quality education,  Soma school is here to nurture young minds and foster love for learning, especially in the crucial fields of STEM.
+                Elton Soma School stands as a testament to the belief in holistic education, combining rigorous academics with character development and practical skills.
+            </p>
+            <a href="#elton-soma-school" style="
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 1.75rem; /* px-7 py-3 */
+                background: linear-gradient(to right, #4E3F30,rgb(89, 76, 100)); /* from-indigo-500 to-purple-600 */
+                color: #ffffff;
+                font-weight: 600;
+                border-radius: 9999px; /* rounded-full */
+                text-decoration: none;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+                transition: all 0.3s ease;
+            ">
+                Read more 
+                <i class="fas fa-external-link-alt" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </section>
+    
+
+       
+
+        
+
+        <section id="cta-resume" class="section-card cta-section">
+            <p>Ready to learn more about my professional journey and qualifications?</p>
+            <a href="" style= "background-color:rgb(139, 95, 58); color: white; text-decoration: none; border-radius: 10px; padding: 10px;">Download My Resume <i class="fas fa-download"></i></a>
+        </section>
+    </main>
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+       <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Educational background</a></li>
+        <li><a href="contact.html">Professional Overview</a></li>
+        <li><a href="contact.html">References</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Follow Me</h4>
+      <div class="social-icons">
+        <a href="" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+        <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+
+        <a href="" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="" target="_blank"><i class="fab fa-pinterest"></i></a> 
+        
+        
+      </div>
+    </div>
+    <div class="footer-column">
+       <h4>Contact</h4>
+      <p>Email: mautiaeliud@gmail.com</p>
+      <p>Phone: +254 720 059 892 / +86 130 3830 3477</p>
+    </div>
+    <div class="footer-column">
+      <h4>FAQs</h4>
+      <ul>
+        <li><a href="#">What projects have you worked on?</a></li>
+        <li><a href="#">How can I hire you?</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Eliud Mautia. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+    
+
+    <script src="src/script.js"></script>
+    
+</body>
+</html>
