@@ -30,7 +30,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-1">
             {navItems.map((item) => (
-              <Link key={item.path} to={item.path}>
+              <Link key={item.path} to={item.path} onClick={() => window.scrollTo(0, 0)}>
                 <Button
                   variant={isActive(item.path) ? "default" : "ghost"}
                   className={`flex items-center space-x-2 text-white hover:bg-white hover:text-gray-800 transition-all duration-200 ${
@@ -60,7 +60,7 @@ const Navigation = () => {
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <Link key={item.path} to={item.path} onClick={() => setIsOpen(false)}>
+                <Link key={item.path} to={item.path} onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}>
                   <Button
                     variant={isActive(item.path) ? "default" : "ghost"}
                     className={`w-full justify-start flex items-center space-x-2 text-white hover:bg-white hover:text-gray-800 ${
