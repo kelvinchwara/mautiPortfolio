@@ -451,25 +451,25 @@ const Contact = () => {
                     I'd love to hear from you and explore how we can work together.
                   </p>
                   
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <Button 
+                  <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+                    <Button
                       size="lg"
-                      className="text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center gap-2 px-8 py-6 text-lg"
+                      className="text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center gap-2 px-4 py-3 sm:px-8 sm:py-6 text-sm sm:text-lg w-full sm:w-auto"
                       style={{ backgroundColor: '#A37B5C' }}
                     >
-                      <MessageCircle className="h-5 w-5" />
+                      <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                       Start a Conversation
-                      <ArrowRight className="h-5 w-5" />
+                      <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                     </Button>
-                    <Button 
+                    <Button
                       size="lg"
-                      variant="outline" 
-                      className="flex items-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-8 py-6 text-lg"
+                      variant="outline"
+                      className="flex items-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-4 py-3 sm:px-8 sm:py-6 text-sm sm:text-lg w-full sm:w-auto"
                       style={{ borderColor: '#5E4A35', color: '#5E4A35' }}
                     >
-                      <Send className="h-5 w-5" />
+                      <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                       Schedule a Meeting
-                      <Clock className="h-5 w-5" />
+                      <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
                     </Button>
                   </div>
 

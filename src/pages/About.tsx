@@ -119,7 +119,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
     <div className="flex flex-col md:flex-row items-center max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
       {/* Enhanced Image with decorative rings */}
-      <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0 mb-6 sm:mb-8 md:mb-0 md:mr-10 relative">
+      <div className="w-28 h-28 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0 mb-4 xs:mb-6 sm:mb-8 md:mb-0 md:mr-10 relative">
         {/* Outer pulse ring */}
         <div className="absolute inset-0 rounded-full animate-ping opacity-20"
              style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
@@ -130,7 +130,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
 
         {/* Main avatar */}
         <div
-          className="absolute inset-0 w-full h-full rounded-full border-4 object-cover shadow-xl flex items-center justify-center text-2xl sm:text-3xl md:text-4xl font-bold text-white transition-transform hover:scale-105"
+          className="absolute inset-0 w-full h-full rounded-full border-4 object-cover shadow-xl flex items-center justify-center text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-white transition-transform hover:scale-105"
           style={{ backgroundColor: COLORS.BRONZE_DARK, borderColor: COLORS.BRONZE_LIGHT }}
         >
           EM
@@ -138,15 +138,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
 
         {/* Achievement badge */}
         <div className="absolute -bottom-2 -right-2 z-10">
-          <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full p-1.5 sm:p-2 shadow-lg animate-bounce">
-            <Trophy className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
+          <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full p-1 xs:p-1.5 sm:p-2 shadow-lg animate-bounce">
+            <Trophy className="h-3 w-3 xs:h-4 xs:w-4 sm:h-6 sm:w-6 text-white" />
           </div>
         </div>
 
         {/* Verified badge */}
         <div className="absolute -top-2 -right-2 z-10">
-          <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-full p-1.5 sm:p-2 shadow-lg">
-            <CheckCircle className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
+          <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-full p-1 xs:p-1.5 sm:p-2 shadow-lg">
+            <CheckCircle className="h-3 w-3 xs:h-4 xs:w-4 sm:h-6 sm:w-6 text-white" />
           </div>
         </div>
       </div>
@@ -696,14 +696,20 @@ const About: React.FC = () => {
               <div className="flex justify-center">
                 <Link to="/experience">
                   <Button
-                    size="lg"
-                    className="px-12 bg-white shadow-2xl hover:scale-[1.05] hover:bg-[#6AA84F] hover:text-white group"
-                    style={{ color: COLORS.BRONZE_DARK }}
-                  >
-                    <Calendar className="mr-3 h-5 w-5" />
-                    View Detailed Experience
-                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+    // Default size for small screens (e.g., 'default' or 'sm' for better fit)
+    size="default" 
+    // Default horizontal padding is reduced for mobile (e.g., px-6 or px-8)
+    className="px-6 sm:px-8 md:px-12 lg:size-lg 
+               bg-white shadow-xl hover:scale-[1.05] hover:bg-[#6AA84F] hover:text-white 
+               group w-full sm:w-auto text-sm sm:text-base transition-all"
+    style={{ color: COLORS.BRONZE_DARK }}
+>
+    {/* Icon size adjusted for mobile, then scaled up on medium screens */}
+    <Calendar className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5" />
+    View Detailed Experience
+    {/* Icon size adjusted for mobile, then scaled up on medium screens */}
+    <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+</Button>
                 </Link>
               </div>
             </div>
