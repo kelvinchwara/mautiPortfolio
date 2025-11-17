@@ -207,10 +207,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
           download
           className="inline-block"
         >
-          <Button
-            size="lg"
-            className="text-white shadow-xl hover:scale-[1.05] flex items-center mx-auto md:mx-0 group text-sm sm:text-base"
-            style={{ backgroundColor: COLORS.BRONZE_DARK, boxShadow: `0 8px 15px -3px ${COLORS.BRONZE_DARK}50` }}
+          <Button className="group inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-bold rounded-xl px-6 py-3 shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300"
+            style={{ boxShadow: '0 10px 20px rgba(212, 175, 55, 0.4)' }}
           >
             <Download className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:animate-bounce" />
             Download CV Now
