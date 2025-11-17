@@ -340,7 +340,7 @@ const BottomBar = () => (
   <div className="flex justify-center items-center gap-4 pt-6">
     <div className="flex flex-col items-center gap-2">
       <div className="flex items-center gap-2 text-gray-200 text-sm">
-        <span>© 2025 All Rights Reserved</span>
+        <span>© Eliud Mautia 2025 All Rights Reserved</span>
       </div>
 
       {/* Designer Credit */}
