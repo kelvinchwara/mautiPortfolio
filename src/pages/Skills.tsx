@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   MessageCircle, Brain, Users, Lightbulb, Target, BookOpen, Globe,
-  Award, Monitor, Languages, Download, ExternalLink, CheckCircle, Star,
-  Zap, Trophy, Heart, Rocket, Shield, Code, TrendingUp, Sparkles,
+  Award, Monitor, Languages, Download, CheckCircle, Star,
+  Zap, Trophy, Heart, Rocket, Shield, TrendingUp, Sparkles,
   BarChart, Settings, Compass, Flag, GraduationCap, ArrowRight,
-  Briefcase, Coffee, Calendar, FileText, Video, Clock, Building2, Puzzle
+  Briefcase, Calendar, FileText, Clock
 } from 'lucide-react';
 
 // --- SHIM COMPONENTS ---
@@ -37,59 +37,37 @@ interface BadgeProps {
   style?: React.CSSProperties;
 }
 
-interface ButtonProps {
-  children: React.ReactNode;
-  className?: string;
-  variant?: string;
-  style?: React.CSSProperties;
-  onClick?: () => void;
-}
-
-const Card: React.FC<CardProps> = ({ children, className }) => (
+const Card: React.FC<CardProps> = ({ children, className = '' }) => (
   <div className={`rounded-xl sm:rounded-2xl border border-white/20 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] backdrop-blur-md bg-white/90 ${className}`}>
     {children}
   </div>
 );
 
-const CardHeader: React.FC<CardHeaderProps> = ({ children, className }) => (
+const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => (
   <div className={`p-4 sm:p-5 md:p-6 border-b border-gray-100 ${className}`}>
     {children}
   </div>
 );
 
-const CardTitle: React.FC<CardTitleProps> = ({ children, className }) => (
-  <h2 className={`text-lg sm:text-xl md:text-2xl font-bold ${className}`}>
+const CardTitle: React.FC<CardTitleProps> = ({ children, className = '', style }) => (
+  <h2 className={`text-lg sm:text-xl md:text-2xl font-bold ${className}`} style={style}>
     {children}
   </h2>
 );
 
-const CardContent: React.FC<CardContentProps> = ({ children, className }) => (
+const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) => (
   <div className={`p-4 sm:p-5 md:p-6 ${className}`}>
     {children}
   </div>
 );
 
-const Badge: React.FC<BadgeProps> = ({ children, className, variant, style }) => (
+const Badge: React.FC<BadgeProps> = ({ children, className = '', style }) => (
   <span
     className={`inline-flex items-center rounded-full px-2 py-0.5 sm:px-3 sm:py-1 text-xs font-medium ${className}`}
     style={style}
   >
     {children}
   </span>
-);
-
-const Button: React.FC<ButtonProps> = ({ children, className, variant, style, onClick }) => (
-  <button
-    className={`
-      font-semibold rounded-lg sm:rounded-xl px-4 py-2 sm:px-6 sm:py-3 transition duration-300 ease-in-out uppercase tracking-wider text-sm sm:text-base
-      ${variant === 'outline' ? 'bg-transparent' : ''}
-      ${className}
-    `}
-    style={style}
-    onClick={onClick}
-  >
-    {children}
-  </button>
 );
 
 // --- COLOR PALETTE ---
@@ -102,8 +80,6 @@ const COLORS = {
   CREAM: '#F5F1E8',
   GOLD: '#D4AF37',
 };
-
-
 
 // --- COMPETENCY CARD COMPONENT ---
 
@@ -122,7 +98,6 @@ const CompetencyCard: React.FC<CompetencyCardProps> = ({ name, icon, index }) =>
       className="flex items-center p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 hover:shadow-xl transition-all cursor-pointer group relative overflow-hidden"
       style={{ borderColor: `${color}30` }}
     >
-      {/* Decorative corner */}
       <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 opacity-0 group-hover:opacity-10 transition-opacity"
            style={{ background: `linear-gradient(135deg, transparent 50%, ${color} 50%)` }}></div>
 
@@ -177,7 +152,7 @@ interface TechSkillBadgeProps {
 }
 
 const TechSkillBadge: React.FC<TechSkillBadgeProps> = ({ tech, index }) => {
-  const icons = [Monitor, Code, Settings, Globe, BarChart];
+  const icons = [Monitor, Settings, BarChart, Globe, Calendar];
   const Icon = icons[index % icons.length];
   
   return (
@@ -198,7 +173,7 @@ interface CertificationItemProps {
   index: number;
 }
 
-const CertificationItem: React.FC<CertificationItemProps> = ({ cert, index }) => (
+const CertificationItem: React.FC<CertificationItemProps> = ({ cert }) => (
   <div className="flex items-center p-2 sm:p-3 border-l-4 rounded-r-lg hover:bg-gray-50 transition-colors group" 
        style={{ borderColor: COLORS.GOLD }}>
     <div className="p-1.5 sm:p-2 rounded-full mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0" 
@@ -331,7 +306,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen relative" style={{ 
+    <div className="min-h-screen pt-20 relative" style={{ 
       background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #f0e6d2 100%)`,
       backgroundAttachment: 'fixed'
     }}>
@@ -540,7 +515,6 @@ const Skills = () => {
 
           {/* Certifications & Education Grid */}
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
-            
             {/* Certifications - Enhanced */}
             <Card className="bg-white relative overflow-hidden">
               <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -610,10 +584,10 @@ const Skills = () => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <span className="font-semibold block text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>{edu}</span>
-                        <Badge className="mt-2 text-white text-xs" style={{ backgroundColor: index === 0 ? COLORS.BRONZE_LIGHT : COLORS.FOREST_GREEN }}>
-                          <Clock className="h-3 w-3 mr-1" />
-                          {index === 0 ? 'ongoing' : 'completed'}
-                        </Badge>
+                          <Badge className="mt-2 text-white text-xs" style={{ backgroundColor: COLORS.FOREST_GREEN }}>
+                            <CheckCircle className="h-3 w-3 mr-1" />
+                            Completed
+                          </Badge>
                         </div>
                       </div>
                     </div>
@@ -644,8 +618,7 @@ const Skills = () => {
 
             <CardContent className="p-4 sm:p-6 md:p-8 relative z-10">
               <div className="text-center mb-6 sm:mb-8">
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-3 sm:mb-4 shadow-lg"
-                     style={{ background: `linear-gradient(135deg, $${COLORS.BRONZE_LIGHT},$$ {COLORS.FOREST_GREEN})` }}>
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-3 sm:mb-4 shadow-lg bg-gradient-to-br from-green-400 to-green-600">
                   <TrendingUp className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                 </div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4 break-words" style={{ color: COLORS.BRONZE_DARK }}>
@@ -930,113 +903,17 @@ const Skills = () => {
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md">
                   <Trophy className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">10+ Years Experience</span>
+                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Award-Winning Educator</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md">
-                  <Globe className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_LIGHT }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">International Expertise</span>
+                  <Users className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_DARK }} />
+                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Team Leader</span>
                 </div>
-              </div>
-
-              {/* Decorative bottom accent */}
-              <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
-                <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-                <Heart className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse flex-shrink-0" style={{ color: COLORS.GOLD }} />
-                <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Quick Stats Footer */}
-          <div className="mt-8 sm:mt-10 md:mt-12 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-center relative overflow-hidden"
-               style={{ background: `linear-gradient(135deg, $${COLORS.BRONZE_DARK},$$ {COLORS.BRONZE_LIGHT})` }}>
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute top-0 right-0 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-white"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-white"></div>
-            </div>
-
-            <div className="relative z-10">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 flex flex-wrap items-center justify-center gap-2">
-                <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
-                <span className="break-words">Skills That Drive Results</span>
-              </h3>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/20 transition-all">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">12+</div>
-                  <div className="text-xs sm:text-sm text-white/90 font-medium">Core Competencies</div>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/20 transition-all">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">5+</div>
-                  <div className="text-xs sm:text-sm text-white/90 font-medium">Tech Platforms</div>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/20 transition-all">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">3</div>
-                  <div className="text-xs sm:text-sm text-white/90 font-medium">Languages</div>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl hover:bg-white/20 transition-all">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1">4+</div>
-                  <div className="text-xs sm:text-sm text-white/90 font-medium">Certifications</div>
-                </div>
-              </div>
-
-              <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-white/90 max-w-2xl mx-auto">
-                A comprehensive skill portfolio refined through diverse international teaching experiences
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Inspirational Quote */}
-          <div className="mt-8 sm:mt-10 md:mt-12 text-center px-3 sm:px-4">
-            <div className="inline-block p-4 sm:p-6 md:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 border-dashed max-w-3xl"
-                 style={{ borderColor: COLORS.GOLD }}>
-              <div className="flex items-center justify-center mb-3 sm:mb-4">
-                <div className="p-2 sm:p-2.5 md:p-3 rounded-full" style={{ backgroundColor: `${COLORS.GOLD}20` }}>
-                  <Lightbulb className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: COLORS.GOLD }} />
-                </div>
-              </div>
-              <blockquote className="text-base sm:text-lg md:text-xl font-medium italic mb-2 sm:mb-3 break-words" 
-                          style={{ color: COLORS.BRONZE_DARK }}>
-                "Education is not the filling of a pail, but the lighting of a fire."
-              </blockquote>
-              <p className="text-xs sm:text-sm text-gray-600 font-semibold">- W.B. Yeats</p>
-              
-              <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
-                <div className="w-8 h-0.5 sm:w-12 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-                <Sparkles className="h-4 w-4 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-                <div className="w-8 h-0.5 sm:w-12 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
-
-      {/* Floating Action Button - Mobile friendly */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50">
-        <a
-          href="/MAUTIA%20ELIUD%20RESUME.pdf"
-          download
-          className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full shadow-2xl hover:scale-110 transition-all group"
-          style={{ backgroundColor: COLORS.FOREST_GREEN }}
-          title="Download Resume"
-        >
-          <Download className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white group-hover:animate-bounce" />
-        </a>
-      </div>
-
-      {/* Scroll Progress Indicator */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50 overflow-hidden">
-        <div 
-          className="h-full transition-all duration-300"
-          style={{ 
-            backgroundColor: COLORS.FOREST_GREEN,
-            width: '0%' // This would be controlled by scroll position in a real implementation
-          }}
-        ></div>
       </div>
     </div>
   );
