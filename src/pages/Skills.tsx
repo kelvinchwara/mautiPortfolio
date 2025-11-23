@@ -281,7 +281,8 @@ const Skills = () => {
   ];
 
   const education = [
-    "M.Ed., University of Liverpool John Moores", "B.Ed., Nairobi"
+    { degree: "M.Ed., University of Liverpool John Moores", status: "Ongoing" },
+    { degree: "B.Ed., Nairobi", status: "Completed" }
   ];
 
   const teachingSkills = [
@@ -583,10 +584,13 @@ const Skills = () => {
                           <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.BRONZE_DARK }} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="font-semibold block text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>{edu}</span>
-                          <Badge className="mt-2 text-white text-xs" style={{ backgroundColor: COLORS.FOREST_GREEN }}>
+                          <span className="font-semibold block text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>{edu.degree}</span>
+                          <Badge 
+                            className="mt-2 text-white text-xs" 
+                            style={{ backgroundColor: edu.status === "Ongoing" ? COLORS.FOREST_GREEN : COLORS.FOREST_GREEN }}
+                          >
                             <CheckCircle className="h-3 w-3 mr-1" />
-                            Completed
+                            {edu.status}
                           </Badge>
                         </div>
                       </div>
