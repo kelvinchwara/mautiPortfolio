@@ -37,7 +37,7 @@ const FOOTER_DATA = {
   stats: [
     { icon: Award, value: '10+', label: 'Years Experience' },
     { icon: Users, value: '1000+', label: 'Students Taught' },
-    { icon: Globe, value: '3', label: 'Languages' },
+    { icon: Globe, value: '2', label: 'Languages' },
     { icon: Star, value: 'IB', label: 'Certified' },
   ],
 

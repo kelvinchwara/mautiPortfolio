@@ -10,13 +10,15 @@ import ContactForm from '@/components/ContactForm';
 
 const Contact = () => {
   const references = [
-    {
+   {
       name: "Mr. Garry James",
       title: "Head of Secondary",
-      organization: "Yew Chung International School, Chongqing China",
-      email: "garry.james@ycis.com",
-      icon: <GraduationCap className="h-5 w-5" />
+      organization: "Yew Chung International School Chongqing, China",
+      email: " garry.james@ycis.com",
+      phone: "+86 132 7269 8550",
+      icon: <Users className="h-5 w-5" />
     },
+     
     {
       name: "Ms. Prachi Gupta",
       title: "Deputy Head of Secondary",
