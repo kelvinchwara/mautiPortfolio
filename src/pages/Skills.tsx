@@ -250,24 +250,25 @@ const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ title, descriptio
 
 const Skills = () => {
   const competencies = [
-    { name: "Communication (Verbal & Written)", icon: <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Analytical Thinking & Data Mining", icon: <Brain className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Innovation & Conflict Resolution", icon: <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Leadership & Coaching", icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Problem Solving & Decision Making", icon: <Target className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Cultural Awareness & Inclusivity", icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Tech Integration & Growth Mindset", icon: <Monitor className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Lifelong Learning & Interpersonal Skills", icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Collaboration & Emotional Intelligence", icon: <Heart className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Planning, Reflection & Organization", icon: <Calendar className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Inquiry-Based & Project Learning", icon: <Compass className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Curriculum Design & Lesson Planning", icon: <FileText className="h-4 w-4 sm:h-5 sm:w-5" /> }
+    { name: " Efficient & Effective Verbal & Written Communication Skills", icon: <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Adaptable Teaching Methodologies for Diverse Learning Needs, Analytical & Data Mining Skills", icon: <Brain className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Passionate, Innovative & Conflict Resolution Skills", icon: <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Leadership, Management & Coaching Skills", icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: " Problem Solving & Decision Making Skills", icon: <Target className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: " Culturally Aware, Inclusive, Adaptability, Resilience & Result Driven Skills", icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: " Curious, Growth Oriented & Technology Integration Skills", icon: <Monitor className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Life Long Learning, Skill Connectors & Interpersonal Relations Skills", icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Collaborative, Global Minded & Emotional Intelligence Skills", icon: <Heart className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Open Minded, Reflective, Planning & Organisational skills", icon: <Calendar className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Project-Based Learning & Inquiry-Based Instruction Skills.", icon: <Compass className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Lesson Development, Curriculum Design & Planning Skills.", icon: <FileText className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Proficient in Safeguarding,Child Protection & Pastoral Care", icon: <Shield className="h-4 w-4 sm:h-5 sm:w-5" /> }
   ];
 
   const languages = [
     { name: "English", level: "Fluent", flag: "🇺🇸", percentage: 100 },
     { name: "Swahili", level: "Fluent", flag: "🇰🇪", percentage: 100 },
-    { name: "Mandarin", level: "Conversational", flag: "🇨🇳", percentage: 70 }
+    
   ];
 
   const techSkills = [
@@ -766,7 +767,7 @@ const Skills = () => {
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_DARK}20`, color: COLORS.BRONZE_DARK }}>
-                          3 Languages
+                          2 Languages
                         </Badge>
                         <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_DARK}20`, color: COLORS.BRONZE_DARK }}>
                           Cultural Competence

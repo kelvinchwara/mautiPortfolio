@@ -27,18 +27,19 @@ const experienceData = [
     company: "Yew Chung International School",
     location: "Chongqing, China",
     period: "Aug 2023 - Present",
-    duration: "1+ years",
+    duration: "2+ years",
     status: "Current Position",
     type: "Full-time",
     icon: Star,
     color: COLORS.primary,
     responsibilities: [
-      "Delivering comprehensive instruction in IGCSE, AA, and AI IBDP Mathematics at both Standard and Higher Levels",
-      "Conducting continuous assessment of student progress, maintaining records per school requirements",
-      "Developing differentiated instructional materials for diverse student needs",
-      "Participating in curriculum development and review processes",
-      "Integrating technology into teaching methodologies",
-      "Collaborating with colleagues, parents, and students"
+      "Delivering comprehensive instruction in IGCSE, AA, and AI IBDP Mathematics at both Standard and Higher Levels, ensuring alignment with educational standards",
+      "Conducting continuous assessment of student progress, meticulously maintaining records in accordance with school and examination board  requirements",
+      " Developing and implementing differentiated instructional materials to cater to diverse student needs and learning styles",
+      " Actively participating in curriculum development and review processes to enhance the quality and relevance of the mathematics program ",
+      "Integrating technology effectively into teaching methodologies to enhance Approaches to Learning and Approaches to Teaching, fostering digital literacy and advanced problem-solving skills",
+      " Collaborating closely with colleagues, parents, and students to foster a supportive and productive learning environment",
+      " Actively Contributing to the creation of a cohesive educational community through effective communication and shared best practices"
     ],
     achievements: ["IBDP Program", "Technology Integration", "Curriculum Development"]
   },
@@ -53,12 +54,13 @@ const experienceData = [
     icon: Trophy,
     color: COLORS.secondary,
     responsibilities: [
-      "Taught IGCSE, AA, and AI IBDP Mathematics at Standard and Higher levels",
-      "Researched and integrated effective teaching aids",
-      "Supported school volleyball and football teams",
-      "Led parent-teacher conferences",
-      "Conducted life skills training during PHSE sessions",
-      "Maintained communication with students and parents"
+      "Taught IGCSE, AA, and AI IBDP Mathematics at both Standard and Higher  levels, adapting teaching methods to cater to diverse student needs",
+      "Researched and integrated effective teaching aids to increase classroom  engagement and facilitate complex concept comprehension",
+      "Contributed to extracurricular activities by supporting the school volleyball  and football teams, enhancing teamwork and school spirit",
+      "Led parent-teacher conferences, providing detailed insights into student academic performance and strengthening partnerships with parents",
+      "Conducted life skills training and stress management guidance during PHSE  sessions to support student well-being and personal development",
+      "Maintained consistent communication with students and parents regarding academic progress, fostering a transparent and collaborative educational  environment"
+
     ],
     achievements: ["Sports Coaching", "Parent Engagement", "Life Skills Training"]
   },
@@ -73,12 +75,14 @@ const experienceData = [
     icon: Award,
     color: COLORS.primary,
     responsibilities: [
-      "Taught IGCSE and A-Level Mathematics",
-      "Conducted after-school remedial classes",
-      "Implemented Think, Pair, Share strategy",
-      "Coached students in regional 'Mathletics' competition",
-      "Introduced innovative teaching methods"
+        "Taught IGCSE and A-Level Mathematics, focusing on enhancing student proficiency and academic success",
+        "Conducted after-school remedial classes to strengthen students' critical thinking and problem-solving abilities",
+        "Implemented interactive, discussion-based lessons using the Think, Pair, Share strategy to deepen conceptual understanding",
+        "Coached and led KS3 and IGCSE students in the regional 'Mathletics' competition, fostering teamwork and a competitive spirit",
+       "Introduced innovative teaching methods into the curriculum, creating a dynamic and engaging learning experience"
     ],
+
+    
     achievements: ["Mathletics Competition", "Innovative Methods", "Remedial Programs"]
   },
   {
@@ -88,19 +92,61 @@ const experienceData = [
     location: "Nairobi, Kenya",
     period: "Jan 2018 - Jul 2019",
     duration: "1.5 years",
-    type: "Full-time • Leadership",
+    type: "Full-time ",
     icon: Target,
     color: COLORS.secondary,
-    responsibilities: [
-      "Led development of mathematics curricula for multiple systems",
-      "Directed recruitment and assessment of teaching staff",
-      "Taught Mathematics at IGCSE, IB, and A-Level",
-      "Managed school operations",
-      "Implemented student welfare programs"
-    ],
+responsibilities: [
+  "Led the development and review of mathematics curricula for IGCSE (CIE & EDEXCEL), IB, GCSE, and the Kenyan 8.4.4 educational system, ensuring alignment with educational standards.",
+  "Directed the recruitment and assessment of teaching staff, attracting high-caliber educators and supporting their ongoing professional development.",
+  "Taught Mathematics at IGCSE, IB, and A-Level, demonstrating strong subject mastery and a commitment to student achievement.",
+  "Managed school operations by coordinating resources and staff to facilitate smooth and effective educational delivery.",
+  "Implemented student welfare programs, fostering a supportive and engaging learning environment that promotes student well-being."
+],
+    
     achievements: ["Leadership Role", "Staff Recruitment", "Multi-curriculum"]
+  },
+  {
+    id: 5,
+    title: "HOD | Teacher of Mathematics",
+    company: " Maumau Girls School ",
+    location: "Tana River, Kenya",
+    period: "May 2015 - Dec 2017",
+    duration: "2.5 years",
+    type: "Full-time ",
+    icon: Users,
+    color: COLORS.primary,
+responsibilities: [
+  "Led strategic initiatives within the Mathematics department, significantly improving KCSE mathematics results in 2015",
+  "Fostered collaboration with the Humanities department by serving a dual role as an effective Geography Teacher",
+  "Established and directed the school's music club, nurturing students' musical talents and interests",
+  "Coached the drama club, achieving notable success at the Coast region drama festivals in Mombasa"
+],
+    achievements: ["KCSE Improvement", "Extracurricular Leadership", "Dual Teaching Role"]
+  },
+
+  {
+    id: 6,
+    title: " Teacher on Practice",
+    company: " Consolata School ",
+    location: " Nairobi, Kenya",
+    period: "May 2014 - Aug 2014",
+    duration: "4 months",
+    type: "Full-time ",
+    icon: Users,
+    color: COLORS.primary,  
+responsibilities: [
+  "Developed and implemented Mathematics and Geography curricula, enhancing students’ critical thinking and problem-solving abilities",
+  "Designed and delivered tailored lessons to meet diverse learning needs and styles in Mathematics and Geography",
+  "Conducted extra classes focused on problem-solving skills, significantly improving students’ ability to tackle complex questions",
+  "Facilitated discussion-based lessons to foster deep comprehension, active participation, and engagement with subject matter",
+  "Implemented life skills training, peer guidance, and counseling to empower students with effective stress management techniques"
+],
+    achievements: ["Curriculum Development", "Extra Classes", "Life Skills Training"]
+  
+      
   }
 ];
+    
 
 const statsData = [
   { icon: Clock, label: 'Years Experience', value: '10+', color: COLORS.primary },

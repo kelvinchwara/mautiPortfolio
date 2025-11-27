@@ -376,17 +376,23 @@ const About: React.FC = () => {
                   <p className="text-gray-700 leading-relaxed text-base flex items-start">
                     <Shield className="h-5 w-5 mr-2 mt-1 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
                     <span>
-                      I am a highly motivated and innovative professional with a flexible mindset, 
-                      adept at embracing new ideas and changes, and driven by a commitment to 
-                      achieving results through teamwork.
+                       I am a highly motivated and innovative professional with a flexible mindset,
+ adept at embracing new ideas and changes, and driven by a commitment to
+ achieving results through teamwork. I excel in leadership, organization, and
+ interpersonal communication, bringing extensive experience in Secondary
+ Mathematics education across IGCSE, A Level, IB Diploma, and 8.4.4. systems.
+ As a passionate educator, I employ an effective and positive teaching style,
+ leveraging technology to cultivate independent learners.
                     </span>
                   </p>
                   <p className="text-gray-700 leading-relaxed text-base flex items-start">
                     <Heart className="h-5 w-5 mr-2 mt-1 flex-shrink-0" style={{ color: COLORS.BRONZE_LIGHT }} />
                     <span>
-                      As a passionate educator, I employ an effective and positive teaching style, 
-                      leveraging technology to cultivate independent learners with advanced skills in 
-                      communication, planning, and problem solving.
+                     My advanced skills in communication, planning, socialization, and problem
+solving empower me to excel as a mathematics educator. I aspire to secure a
+ teaching position that fosters creativity and higher-order thinking through
+ advanced teaching methods, enhancing student performance while promoting
+ an environment of continuous learning, unlearning, and relearning.
                     </span>
                   </p>
                 </div>
@@ -426,9 +432,8 @@ const About: React.FC = () => {
                 
                 <p className="text-gray-700 leading-relaxed mb-6 text-base">
                   <Rocket className="inline h-5 w-5 mr-2" style={{ color: COLORS.GOLD }} />
-                  Not only a dedicated Mathematics educator but also the visionary founder of Elton Soma School. 
-                  Driven by a passion to provide accessible, high-quality education, nurturing 
-                  young minds and fostering love for learning, especially in STEM fields.
+                  Established Elton Soma School in Kenya to provide quality STEM education, fostering innovation and critical thinking among students. The school emphasizes holistic development and prepares students for global challenges through a robust curriculum and extracurricular activities.
+                  
                 </p>
                 
                 <a href="https://soma-school.onrender.com/" target="_blank" rel="noopener noreferrer" className="block mb-4">
@@ -492,13 +497,7 @@ const About: React.FC = () => {
                     </div>
                     <p><strong>Cambridge International (CIE) Certification:</strong> Experienced in teaching IGCSE and A-Level Mathematics with strong track record in student results.</p>
                   </li>
-                  <li className="flex items-start border-l-4 pl-4 py-3 hover:bg-gray-50 rounded-r-lg transition-colors" 
-                      style={{ borderColor: COLORS.FOREST_GREEN }}>
-                    <div className="p-2 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                      <GraduationCap className="h-5 w-5" style={{ color: COLORS.FOREST_GREEN }} />
-                    </div>
-                    <p><strong>Master's Degree:</strong> Holds a Master of Education Arts, enhancing pedagogical and leadership skills.</p>
-                  </li>
+                 
                   <li className="flex items-start border-l-4 pl-4 py-3 hover:bg-gray-50 rounded-r-lg transition-colors" 
                       style={{ borderColor: COLORS.FOREST_GREEN }}>
                     <div className="p-2 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
@@ -550,10 +549,10 @@ const About: React.FC = () => {
                     </h3>
                   </div>
                   <div className="space-y-2">
-                    <LanguageInfo flag="🇺🇸" language="English" proficiency="Fluent/Native" color={COLORS.BRONZE_DARK} percentage={100} />
-                    <LanguageInfo flag="🇰🇪" language="Kiswahili" proficiency="Native" color={COLORS.BRONZE_LIGHT} percentage={100} />
-                    <LanguageInfo flag="🇨🇳" language="Mandarin" proficiency="Conversational" color={COLORS.FOREST_GREEN} percentage={70} />
-                  </div>
+                    <LanguageInfo flag="🇺🇸" language="English" proficiency="" color={COLORS.BRONZE_DARK} percentage={100} />
+                    <LanguageInfo flag="🇰🇪" language="Kiswahili" proficiency="" color={COLORS.BRONZE_LIGHT} percentage={100} />
+                    
+                    </div>
                 </CardContent>
               </Card>
             </div>

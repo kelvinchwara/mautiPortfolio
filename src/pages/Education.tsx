@@ -5,6 +5,7 @@ import {
   Code, MessageCircle, FileText, Video, Coffee, Rocket, Shield, Brain, Puzzle, Compass, 
   Flag, Settings, BarChart, LineChart, CheckCircle, ArrowRight, MapPin, Globe
 } from 'lucide-react';
+import { Description } from '@radix-ui/react-toast';
 
 // --- SHIM COMPONENTS ---
 
@@ -287,7 +288,7 @@ const Education = () => {
       institution: "University of Nairobi",
       location: "Nairobi, Kenya",
       year: "2018",
-      description: "Bachelors of Education (Arts), Specialized in Mathematics."
+      description: "Earned a Bachelor of Education (Arts) with a specialization in Mathematics."
     }
   ];
 
@@ -306,13 +307,17 @@ const Education = () => {
       title: "Model United Nations Faculty Advisor",
       organization: "Yew Chung International School",
       period: "Nov 2023 - Present",
-      description: "Helping club members engage in UN simulations, learning about UN principles, SDGs, and debating world issues."
+      description: "Helping the club members under Model United Nation simulation engage and learn more about the principles of the United Nations, SustainableDevelopment Goals (SDG's) and how it functions thus giving them an opportunity to research and debate world issues and their sustainable solutions."
     },
     {
       title: "Secondary House Coordinator",
       organization: "YCIS Chongqing",
       period: "Aug 2024 - Present",
-      description: "Coordinating house activities, fostering inclusive environment, and promoting unity within the school community."
+      description: [ " As the coordinator of Secondary House Activities, I am dedicated to ensuring that our house system effectively serves the interests of all community members while fostering an inclusive environment. By meticulously planning and organizing events, I aim to create opportunities for every member of our school to engage and participate fully   . ",
+      
+        
+      ,,,"My focus is on promoting a sense of belonging and unity, ensuring that all voices are heard and respected. Through collaborative efforts and continuous improvement, I strive to enhance the overall experience within our community, making it a welcoming and supportive space for everyone"
+      ]
     }
   ];
 

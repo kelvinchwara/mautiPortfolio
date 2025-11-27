@@ -370,9 +370,9 @@ const LanguagesSection = () => (
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <LanguageBadge flag="🇺🇸" language="English" level="Fluent/Native" color={COLORS.BRONZE_DARK} proficiency={100} />
-          <LanguageBadge flag="🇰🇪" language="Kiswahili" level="Native" color={COLORS.BRONZE_LIGHT} proficiency={100} />
-          <LanguageBadge flag="🇨🇳" language="Mandarin" level="Conversational" color={COLORS.BRONZE_DARK} proficiency={70} />
+          <LanguageBadge flag="🇺🇸" language="English" level="" color={COLORS.BRONZE_DARK} proficiency={100} />
+          <LanguageBadge flag="🇰🇪" language="Kiswahili" level="" color={COLORS.BRONZE_LIGHT} proficiency={100} />
+          
         </div>
 
         {/* Additional language-related badges */}
