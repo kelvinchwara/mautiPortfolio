@@ -4,6 +4,7 @@ import {
   Star, Trophy, Target, Sparkles, TrendingUp, Clock, Building2, Heart, Lightbulb, Zap,
   Code, MessageCircle, FileText, Video, Coffee, Rocket, Shield, Brain, Puzzle, Compass, 
   Flag, Settings, BarChart, LineChart, CheckCircle, ArrowRight, MapPin, Globe
+  
 } from 'lucide-react';
 import { Description } from '@radix-ui/react-toast';
 
