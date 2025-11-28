@@ -5,7 +5,7 @@ import {
   Star, Trophy, Target, Sparkles, Clock, Building2, Heart, Lightbulb, Zap,
   GraduationCap, Code, MessageCircle, Compass, Flag, Settings, BarChart, Puzzle,
 } from 'lucide-react';
-import About from './iii';
+
 
 // Mock components for shadcn/ui elements to keep the file self-contained
 const Badge = ({ children, className = '', style = {} }) => (
