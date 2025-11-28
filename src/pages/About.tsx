@@ -1,15 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Button } from 'lucide-react'; // Simulating shadcn Button
 import {
   Mail, Phone, MapPin, Download, BookOpen, Users, Award, Globe, CheckCircle, ArrowRight, Briefcase,
-  Star, Trophy, Target, Sparkles, TrendingUp, Clock, Building2, Heart, Lightbulb, Zap,
-  GraduationCap, Code, MessageCircle, Calendar, FileText, Video, Coffee, Rocket,
-  Shield, Brain, Puzzle, Compass, Flag, Settings, BarChart, LineChart
+  Star, Trophy, Target, Sparkles, Clock, Building2, Heart, Lightbulb, Zap,
+  GraduationCap, Code, MessageCircle, Compass, Flag, Settings, BarChart, Puzzle,
 } from 'lucide-react';
+import About from './iii';
 
+// Mock components for shadcn/ui elements to keep the file self-contained
+const Badge = ({ children, className = '', style = {} }) => (
+  <span 
+    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${className}`} 
+    style={style}
+  >
+    {children}
+  </span>
+);
+
+const Card = ({ children, className = '' }) => (
+  <div className={`rounded-xl border bg-card text-card-foreground shadow-sm ${className}`}>
+    {children}
+  </div>
+);
+
+const CardContent = ({ children, className = '' }) => (
+  <div className={`p-6 pt-0 ${className}`}>
+    {children}
+  </div>
+);
 
 // --- COLOR PALETTE ---
 
@@ -31,17 +49,17 @@ interface InfoItemProps {
 }
 
 const InfoItem: React.FC<InfoItemProps> = ({ icon: Icon, text, href, iconColor = COLORS.BRONZE_DARK }) => (
-  <div className="flex items-center text-gray-700 group hover:bg-gray-50 p-2 rounded-lg transition-colors">
-    <div className="p-2 rounded-full mr-3 group-hover:scale-110 transition-transform" 
-         style={{ backgroundColor: `${iconColor}20` }}>
+  <div className="flex items-start text-gray-700 group hover:bg-gray-50 p-2 rounded-lg transition-colors">
+    <div className="p-2 rounded-full mr-3 mt-0.5 group-hover:scale-110 transition-transform flex-shrink-0"
+      style={{ backgroundColor: `${iconColor}20` }}>
       <Icon className="h-4 w-4 flex-shrink-0" style={{ color: iconColor }} />
     </div>
     {href ? (
-      <a href={href} className="hover:underline transition-colors break-all font-medium" style={{ color: COLORS.BRONZE_DARK }}>
+      <a href={href} className="hover:underline transition-colors break-all font-medium text-sm sm:text-base" style={{ color: COLORS.BRONZE_DARK }}>
         {text}
       </a>
     ) : (
-      <span className="break-all">{text}</span>
+      <span className="break-all text-sm sm:text-base">{text}</span>
     )}
   </div>
 );
@@ -57,13 +75,13 @@ interface LanguageInfoProps {
 const LanguageInfo: React.FC<LanguageInfoProps> = ({ flag, language, proficiency, color, percentage }) => (
   <div className="py-3 border-b border-gray-100 last:border-b-0">
     <div className="flex items-center justify-between mb-2">
-      <Badge className="text-white text-sm font-medium shadow-md" style={{ backgroundColor: color }}>
+      <Badge className="text-white text-xs sm:text-sm font-medium shadow-md" style={{ backgroundColor: color }}>
         <span className="mr-2 text-base">{flag}</span> {language}
       </Badge>
-      <span className="text-sm font-medium text-gray-700">{proficiency}</span>
+      <span className="text-xs sm:text-sm font-medium text-gray-700">{proficiency}</span>
     </div>
     <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-      <div 
+      <div
         className="h-full rounded-full transition-all duration-500"
         style={{ width: `${percentage}%`, backgroundColor: color }}
       ></div>
@@ -79,7 +97,7 @@ interface HighlightCardProps {
 
 const HighlightCard: React.FC<HighlightCardProps> = ({ value, label, icon: Icon }) => (
   <div
-    className="text-center p-6 bg-white rounded-xl shadow-lg border-b-4 border-l-2 transition-all hover:scale-[1.05] hover:shadow-2xl backdrop-blur-md bg-white/85 group"
+    className="text-center p-4 xs:p-6 bg-white rounded-xl shadow-lg border-b-4 border-l-2 transition-all hover:scale-[1.05] hover:shadow-2xl backdrop-blur-md bg-white/85 group"
     style={{
       borderBottomColor: COLORS.FOREST_GREEN,
       borderLeftColor: COLORS.FOREST_GREEN,
@@ -88,26 +106,26 @@ const HighlightCard: React.FC<HighlightCardProps> = ({ value, label, icon: Icon 
       borderRightWidth: 0,
     }}
   >
-    <div className="p-3 rounded-full w-fit mx-auto mb-3 group-hover:scale-110 transition-transform" 
-         style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-      <Icon className="h-8 w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
+    <div className="p-2 xs:p-3 rounded-full w-fit mx-auto mb-2 xs:mb-3 group-hover:scale-110 transition-transform"
+      style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
+      <Icon className="h-6 w-6 xs:h-8 xs:w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
     </div>
-    <p className="text-3xl font-extrabold mb-1" style={{ color: COLORS.BRONZE_DARK }}>
+    <p className="text-2xl xs:text-3xl font-extrabold mb-1" style={{ color: COLORS.BRONZE_DARK }}>
       {value}
     </p>
-    <p className="text-sm font-medium text-gray-600 uppercase tracking-wider">{label}</p>
+    <p className="text-xs xs:text-sm font-medium text-gray-600 uppercase tracking-wider">{label}</p>
   </div>
 );
 
-// --- NEW HERO SECTION COMPONENT ---
+// --- HERO SECTION COMPONENT ---
 
 interface HeroSectionProps {
   COLORS: typeof COLORS;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
-  <div className="mb-12 sm:mb-16 md:mb-20 pt-12 sm:pt-16 pb-8 sm:pb-12 bg-white rounded-3xl shadow-2xl border-t-8 relative overflow-hidden"
-       style={{ borderTopColor: COLORS.BRONZE_LIGHT }}>
+  <div className="mb-12 sm:mb-16 md:mb-20 pt-8 sm:pt-12 pb-6 sm:pb-10 bg-white rounded-xl sm:rounded-3xl shadow-2xl border-t-8 relative overflow-hidden"
+    style={{ borderTopColor: COLORS.BRONZE_LIGHT }}>
 
     {/* Decorative background elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
@@ -119,14 +137,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
     <div className="flex flex-col md:flex-row items-center max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
 
       {/* Enhanced Image with decorative rings */}
-      <div className="w-28 h-28 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0 mb-4 xs:mb-6 sm:mb-8 md:mb-0 md:mr-10 relative">
+      <div className="w-24 h-24 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0 mb-4 xs:mb-6 sm:mb-8 md:mb-0 md:mr-10 relative">
         {/* Outer pulse ring */}
         <div className="absolute inset-0 rounded-full animate-ping opacity-20"
-             style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+          style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
 
         {/* Middle decorative ring */}
         <div className="absolute inset-2 rounded-full border-4 opacity-30 animate-pulse"
-             style={{ borderColor: COLORS.FOREST_GREEN }}></div>
+          style={{ borderColor: COLORS.FOREST_GREEN }}></div>
 
         {/* Main avatar */}
         <div
@@ -137,14 +155,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
         </div>
 
         {/* Achievement badge */}
-        <div className="absolute -bottom-2 -right-2 z-10">
+        <div className="absolute -bottom-1 -right-1 z-10">
           <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full p-1 xs:p-1.5 sm:p-2 shadow-lg animate-bounce">
             <Trophy className="h-3 w-3 xs:h-4 xs:w-4 sm:h-6 sm:w-6 text-white" />
           </div>
         </div>
 
         {/* Verified badge */}
-        <div className="absolute -top-2 -right-2 z-10">
+        <div className="absolute -top-1 -right-1 z-10">
           <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-full p-1 xs:p-1.5 sm:p-2 shadow-lg">
             <CheckCircle className="h-3 w-3 xs:h-4 xs:w-4 sm:h-6 sm:w-6 text-white" />
           </div>
@@ -152,28 +170,28 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
       </div>
 
       {/* Content */}
-      <div className="text-center md:text-left">
+      <div className="text-center md:text-left w-full">
         {/* Status Badge */}
         <div className="mb-3 sm:mb-4 flex flex-wrap items-center justify-center md:justify-start gap-2">
           <Badge className="text-white text-xs sm:text-sm font-medium shadow-md animate-pulse px-2 py-1 sm:px-3 sm:py-1.5"
-                 style={{ backgroundColor: COLORS.FOREST_GREEN }}>
+            style={{ backgroundColor: COLORS.FOREST_GREEN }}>
             <Star className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
             Expert Global Educator
           </Badge>
           <Badge className="text-white text-xs sm:text-sm font-medium shadow-md px-2 py-1 sm:px-3 sm:py-1.5"
-                 style={{ backgroundColor: COLORS.GOLD }}>
+            style={{ backgroundColor: COLORS.GOLD }}>
             <Award className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
             IB Examiner
           </Badge>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-3 sm:mb-4 flex items-center justify-center md:justify-start gap-2 sm:gap-3"
-            style={{ color: COLORS.BRONZE_DARK }}>
+          style={{ color: COLORS.BRONZE_DARK }}>
           <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" style={{ color: COLORS.GOLD }} />
           Eliud Mautia
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 sm:mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-xl text-gray-700 mb-4 sm:mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
           Nurturing <strong className="relative inline-block" style={{ color: COLORS.FOREST_GREEN }}>
             <Lightbulb className="inline h-4 w-4 sm:h-5 sm:w-5 mr-1" />
             Mathematical Excellence
@@ -202,15 +220,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
           download
           className="inline-block"
         >
-          <Button
-            size="lg"
-            className="text-white shadow-xl hover:scale-[1.05] flex items-center mx-auto md:mx-0 group text-sm sm:text-base"
+          <button
+            // size="lg" (Simulated by padding)
+            className="text-white shadow-xl hover:scale-[1.05] flex items-center mx-auto md:mx-0 group text-sm sm:text-base px-6 py-3 rounded-xl transition-all duration-300 font-semibold"
             style={{ backgroundColor: COLORS.BRONZE_DARK, boxShadow: `0 8px 15px -3px ${COLORS.BRONZE_DARK}50` }}
           >
             <Download className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 group-hover:animate-bounce" />
             Download CV Now
             <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          </button>
         </a>
       </div>
     </div>
@@ -227,18 +245,18 @@ interface SkillCardProps {
 }
 
 const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, description, color }) => (
-  <div className="text-center p-6 rounded-2xl border-2 border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.05] backdrop-blur-md bg-white/85 group relative overflow-hidden"
-       style={{ borderColor: color }}>
+  <div className="text-center p-6 rounded-2xl border-2 border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] backdrop-blur-md bg-white/85 group relative overflow-hidden"
+    style={{ borderColor: color }}>
     {/* Decorative corner */}
     <div className="absolute top-0 right-0 w-20 h-20 opacity-5 group-hover:opacity-10 transition-opacity"
-         style={{ background: `linear-gradient(135deg, transparent 50%, ${color} 50%)` }}></div>
+      style={{ background: `linear-gradient(135deg, transparent 50%, ${color} 50%)` }}></div>
 
     <div className="relative z-10">
       <div className="p-4 rounded-full w-fit mx-auto mb-4 group-hover:scale-110 transition-transform"
-           style={{ backgroundColor: `${color}20` }}>
-        <Icon className="h-12 w-12" style={{ color }} />
+        style={{ backgroundColor: `${color}20` }}>
+        <Icon className="h-10 w-10 sm:h-12 sm:w-12" style={{ color }} />
       </div>
-      <h3 className="text-xl font-bold mb-3 flex items-center justify-center gap-2" style={{ color: COLORS.BRONZE_DARK }}>
+      <h3 className="text-lg sm:text-xl font-bold mb-3 flex items-center justify-center gap-2" style={{ color: COLORS.BRONZE_DARK }}>
         {title}
         <CheckCircle className="h-5 w-5" style={{ color }} />
       </h3>
@@ -249,20 +267,21 @@ const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, description, c
 
 const SkillsSection: React.FC = () => (
   <div className="mb-16">
-    <div className="text-center mb-12">
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg bg-white">
-        <Brain className="h-8 w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
+    <div className="text-center mb-10 sm:mb-12">
+      <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6 shadow-lg bg-white">
+        <Brain className="h-7 w-7 sm:h-8 sm:w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
       </div>
-      <h2 className="text-4xl font-extrabold mb-4 flex items-center justify-center gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-        <Zap className="h-10 w-10" style={{ color: COLORS.FOREST_GREEN }} />
+      <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+        <Zap className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: COLORS.FOREST_GREEN }} />
         Core Skills & Expertise
       </h2>
-      <p className="text-lg max-w-2xl mx-auto text-gray-700">
+      <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-700 px-2">
         A comprehensive skill set built through years of dedicated teaching and continuous professional development
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Responsive grid: 1 column on mobile, 2 on tablet, 3 on desktop */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       <SkillCard
         icon={BookOpen}
         title="Mathematics Expertise"
@@ -307,20 +326,21 @@ const SkillsSection: React.FC = () => (
 
 const HighlightsSection: React.FC = () => (
   <div className="mb-16">
-    <div className="text-center mb-12">
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-600">
-        <Trophy className="h-8 w-8 text-white" />
+    <div className="text-center mb-10 sm:mb-12">
+      <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6 shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-600">
+        <Trophy className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
       </div>
-      <h2 className="text-4xl font-extrabold mb-4 flex items-center justify-center gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-        <BarChart className="h-10 w-10" style={{ color: COLORS.FOREST_GREEN }} />
+      <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+        <BarChart className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: COLORS.FOREST_GREEN }} />
         Career Highlights
       </h2>
-      <p className="text-lg max-w-2xl mx-auto text-gray-700">
+      <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-700 px-2">
         Proven track record of excellence in international mathematics education
       </p>
     </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {/* Responsive grid: 2 columns on mobile, 4 on tablet/desktop */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
       <HighlightCard value="10+" label="Years Experience" icon={Clock} />
       <HighlightCard value="1000+" label="Students Taught" icon={Users} />
       <HighlightCard value="4+" label="Institutions" icon={Building2} />
@@ -330,9 +350,9 @@ const HighlightsSection: React.FC = () => (
 );
 
 
-const About: React.FC = () => {
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen font-['Inter', sans-serif] antialiased pt-16 pb-12 relative" style={{
+    <div className="min-h-screen font-['Inter', sans-serif] antialiased pt-8 pb-12 relative" style={{
       background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #f0e6d2 100%)`,
       backgroundAttachment: 'fixed'
     }}>
@@ -343,7 +363,7 @@ const About: React.FC = () => {
         <div className="absolute top-1/2 right-1/4 w-32 h-32 rounded-full animate-pulse" style={{ backgroundColor: COLORS.BRONZE_DARK }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           
           {/* --- HERO SECTION --- */}
@@ -356,27 +376,28 @@ const About: React.FC = () => {
           <HighlightsSection />
 
           {/* Professional Summary & Founder */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Responsive grid: 1 column on mobile, 2 on tablet/desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
             <Card className="bg-white relative overflow-hidden group">
               {/* Decorative element */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity" 
-                   style={{ background: `linear-gradient(135deg, transparent 50%, ${COLORS.BRONZE_LIGHT} 50%)` }}></div>
+                style={{ background: `linear-gradient(135deg, transparent 50%, ${COLORS.BRONZE_LIGHT} 50%)` }}></div>
               
-              <CardContent className="p-8 relative z-10">
+              <CardContent className="p-6 sm:p-8 relative z-10 pt-6 sm:pt-6">
                 <div className="flex items-center mb-4">
                   <div className="p-3 rounded-full mr-3" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
                     <Users className="h-6 w-6" style={{ color: COLORS.BRONZE_LIGHT }} />
                   </div>
-                  <h2 className="text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                  <h2 className="text-xl sm:text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                     Professional Summary
                   </h2>
                 </div>
                 
                 <div className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed text-base flex items-start">
+                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base flex items-start">
                     <Shield className="h-5 w-5 mr-2 mt-1 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
                     <span>
-                       I am a highly motivated and innovative professional with a flexible mindset,
+                        I am a highly motivated and innovative professional with a flexible mindset,
  adept at embracing new ideas and changes, and driven by a commitment to
  achieving results through teamwork. I excel in leadership, organization, and
  interpersonal communication, bringing extensive experience in Secondary
@@ -385,11 +406,11 @@ const About: React.FC = () => {
  leveraging technology to cultivate independent learners.
                     </span>
                   </p>
-                  <p className="text-gray-700 leading-relaxed text-base flex items-start">
+                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base flex items-start">
                     <Heart className="h-5 w-5 mr-2 mt-1 flex-shrink-0" style={{ color: COLORS.BRONZE_LIGHT }} />
                     <span>
-                     My advanced skills in communication, planning, socialization, and problem
-solving empower me to excel as a mathematics educator. I aspire to secure a
+                      My advanced skills in communication, planning, socialization, and problem
+ solving empower me to excel as a mathematics educator. I aspire to secure a
  teaching position that fosters creativity and higher-order thinking through
  advanced teaching methods, enhancing student performance while promoting
  an environment of continuous learning, unlearning, and relearning.
@@ -418,34 +439,34 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
             <Card className="bg-white relative overflow-hidden group">
               {/* Decorative element */}
               <div className="absolute top-0 left-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity" 
-                   style={{ background: `linear-gradient(225deg, transparent 50%, ${COLORS.FOREST_GREEN} 50%)` }}></div>
+                style={{ background: `linear-gradient(225deg, transparent 50%, ${COLORS.FOREST_GREEN} 50%)` }}></div>
               
-              <CardContent className="p-8 relative z-10">
+              <CardContent className="p-6 sm:p-8 relative z-10 pt-6 sm:pt-6">
                 <div className="flex items-center mb-4">
                   <div className="p-3 rounded-full mr-3" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
                     <Building2 className="h-6 w-6" style={{ color: COLORS.FOREST_GREEN }} />
                   </div>
-                  <h2 className="text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                  <h2 className="text-xl sm:text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                     Founder of Elton Soma School
                   </h2>
                 </div>
                 
-                <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
                   <Rocket className="inline h-5 w-5 mr-2" style={{ color: COLORS.GOLD }} />
                   Established Elton Soma School in Kenya to provide quality STEM education, fostering innovation and critical thinking among students. The school emphasizes holistic development and prepares students for global challenges through a robust curriculum and extracurricular activities.
                   
                 </p>
                 
                 <a href="https://soma-school.onrender.com/" target="_blank" rel="noopener noreferrer" className="block mb-4">
-                  <Button 
-                    size="sm"
-                    className="text-white w-full shadow-md hover:shadow-lg hover:scale-[1.03] group/btn"
+                  <button 
+                    // size="sm" (Simulated by padding)
+                    className="text-white w-full shadow-md hover:shadow-lg hover:scale-[1.03] group/btn px-4 py-2 rounded-lg font-medium text-sm transition-all"
                     style={{ backgroundColor: COLORS.FOREST_GREEN }} 
                   >
                     <Globe className="h-4 w-4 mr-2" />
                     Visit School Website 
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                  </button>
                 </a>
 
                 {/* School highlights */}
@@ -464,25 +485,26 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
           </div>
 
           {/* Key Certifications & Core Info Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {/* Responsive grid: 1 column on mobile/tablet (due to nested layout), 3 columns on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
             
-            {/* Certifications Section */}
+            {/* Certifications Section - takes 2/3 space on desktop */}
             <Card className="bg-white md:col-span-2 relative overflow-hidden">
               <div className="absolute inset-0 opacity-5 pointer-events-none">
                 <div className="absolute bottom-0 right-0 w-48 h-48 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
               </div>
 
-              <CardContent className="p-8 relative z-10">
+              <CardContent className="p-6 sm:p-8 relative z-10 pt-6 sm:pt-6">
                 <div className="flex items-center mb-6">
                   <div className="p-3 rounded-full mr-3 shadow-lg" style={{ backgroundColor: COLORS.GOLD }}>
                     <Award className="h-6 w-6 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                  <h2 className="text-xl sm:text-2xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                     Key Certifications & Expertise
                   </h2>
                 </div>
 
-                <ul className="space-y-4 text-base text-gray-700">
+                <ul className="space-y-4 text-sm sm:text-base text-gray-700">
                   <li className="flex items-start border-l-4 pl-4 py-3 hover:bg-gray-50 rounded-r-lg transition-colors" 
                       style={{ borderColor: COLORS.FOREST_GREEN }}>
                     <div className="p-2 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
@@ -497,7 +519,7 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
                     </div>
                     <p><strong>Cambridge International (CIE) Certification:</strong> Experienced in teaching IGCSE and A-Level Mathematics with strong track record in student results.</p>
                   </li>
-                 
+                  
                   <li className="flex items-start border-l-4 pl-4 py-3 hover:bg-gray-50 rounded-r-lg transition-colors" 
                       style={{ borderColor: COLORS.FOREST_GREEN }}>
                     <div className="p-2 rounded-full mr-3 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
@@ -509,19 +531,19 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
               </CardContent>
             </Card>
 
-            {/* Contact & Language Card (Single Column) */}
-            <div className="md:col-span-1 space-y-8">
+            {/* Contact & Language Card (Single Column) - takes 1/3 space on desktop */}
+            <div className="md:col-span-1 space-y-6 sm:space-y-8">
               {/* Contact Information */}
               <Card className="bg-white shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity" 
-                     style={{ background: `radial-gradient(circle, ${COLORS.BRONZE_LIGHT} 0%, transparent 70%)` }}></div>
+                      style={{ background: `radial-gradient(circle, ${COLORS.BRONZE_LIGHT} 0%, transparent 70%)` }}></div>
                 
-                <CardContent className="p-6 relative z-10">
+                <CardContent className="p-6 relative z-10 pt-6">
                   <div className="flex items-center mb-4">
                     <div className="p-2 rounded-full mr-2 shadow-md" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}>
                       <Phone className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                    <h3 className="text-lg sm:text-xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                       Contact Information
                     </h3>
                   </div>
@@ -537,22 +559,21 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
               {/* Languages */}
               <Card className="bg-white shadow-2xl relative overflow-hidden group">
                 <div className="absolute bottom-0 left-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity" 
-                     style={{ background: `radial-gradient(circle, ${COLORS.FOREST_GREEN} 0%, transparent 70%)` }}></div>
+                      style={{ background: `radial-gradient(circle, ${COLORS.FOREST_GREEN} 0%, transparent 70%)` }}></div>
                 
-                <CardContent className="p-6 relative z-10">
+                <CardContent className="p-6 relative z-10 pt-6">
                   <div className="flex items-center mb-4">
                     <div className="p-2 rounded-full mr-2 shadow-md" style={{ backgroundColor: COLORS.FOREST_GREEN }}>
                       <Globe className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                    <h3 className="text-lg sm:text-xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                       Languages
                     </h3>
                   </div>
                   <div className="space-y-2">
-                    <LanguageInfo flag="🇺🇸" language="English" proficiency="" color={COLORS.BRONZE_DARK} percentage={100} />
-                    <LanguageInfo flag="🇰🇪" language="Kiswahili" proficiency="" color={COLORS.BRONZE_LIGHT} percentage={100} />
-                    
-                    </div>
+                    <LanguageInfo flag="🇺🇸" language="English" proficiency="Native/Bilingual Proficiency" color={COLORS.BRONZE_DARK} percentage={100} />
+                    <LanguageInfo flag="🇰🇪" language="Kiswahili" proficiency="Native Proficiency" color={COLORS.BRONZE_LIGHT} percentage={100} />
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -565,157 +586,54 @@ solving empower me to excel as a mathematics educator. I aspire to secure a
               <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
             </div>
 
-            <CardContent className="p-8 relative z-10">
+            <CardContent className="p-6 sm:p-8 relative z-10 pt-6 sm:pt-6">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-lg" 
-                     style={{ background: `linear-gradient(135deg, $${COLORS.BRONZE_LIGHT},$$ {COLORS.FOREST_GREEN})` }}>
-                  <Lightbulb className="h-8 w-8 text-white" />
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full mb-4 shadow-lg" 
+                      style={{ background: `linear-gradient(135deg, ${COLORS.BRONZE_LIGHT}, ${COLORS.FOREST_GREEN})` }}>
+                  <Lightbulb className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h2 className="text-3xl font-extrabold mb-4 flex items-center justify-center gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+                <h2 className="text-3xl font-extrabold mb-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
                   <Heart className="h-8 w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
                   Teaching Philosophy
                 </h2>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              {/* Responsive grid: 1 column on mobile, 3 on tablet/desktop */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center p-6 rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.BRONZE_LIGHT}30`, backgroundColor: 'white' }}>
+                      style={{ borderColor: `${COLORS.BRONZE_LIGHT}30`, backgroundColor: 'white' }}>
                   <div className="p-3 rounded-full w-fit mx-auto mb-3" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
                     <Target className="h-8 w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
                   </div>
                   <h3 className="text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>Student-Centered</h3>
-                  <p className="text-sm text-gray-700">Fostering independent learning and critical thinking in every student</p>
+                  <p className="text-sm text-gray-700">Fostering independent learning and critical thinking in every student.</p>
                 </div>
 
                 <div className="text-center p-6 rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.FOREST_GREEN}30`, backgroundColor: 'white' }}>
+                      style={{ borderColor: `${COLORS.FOREST_GREEN}30`, backgroundColor: 'white' }}>
                   <div className="p-3 rounded-full w-fit mx-auto mb-3" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
                     <Zap className="h-8 w-8" style={{ color: COLORS.FOREST_GREEN }} />
                   </div>
                   <h3 className="text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>Innovation-Driven</h3>
-                  <p className="text-sm text-gray-700">Leveraging technology and modern teaching methods for engagement</p>
+                  <p className="text-sm text-gray-700">Leveraging technology and modern teaching methods for engagement.</p>
                 </div>
 
                 <div className="text-center p-6 rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.GOLD}30`, backgroundColor: 'white' }}>
+                      style={{ borderColor: `${COLORS.GOLD}30`, backgroundColor: 'white' }}>
                   <div className="p-3 rounded-full w-fit mx-auto mb-3" style={{ backgroundColor: `${COLORS.GOLD}20` }}>
                     <Star className="h-8 w-8" style={{ color: COLORS.GOLD }} />
                   </div>
                   <h3 className="text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>Excellence-Focused</h3>
-                  <p className="text-sm text-gray-700">Maintaining highest standards in mathematics education</p>
+                  <p className="text-sm text-gray-700">Maintaining highest standards in mathematics education and achievement.</p>
                 </div>
               </div>
             </CardContent>
           </Card>
-
-          {/* Additional Achievements Section */}
-          <Card className="bg-gradient-to-br from-white to-gray-50 mb-12 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-1/4 right-1/4 w-40 h-40 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-            </div>
-
-            <CardContent className="p-8 relative z-10">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-600">
-                  <Star className="h-8 w-8 text-white" />
-                </div>
-                <h2 className="text-3xl font-extrabold mb-4" style={{ color: COLORS.BRONZE_DARK }}>
-                  Key Achievements & Impact
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-start p-4 rounded-xl hover:bg-white transition-colors border-l-4" 
-                     style={{ borderColor: COLORS.FOREST_GREEN }}>
-                  <div className="p-2 rounded-full mr-4 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                    <TrendingUp className="h-6 w-6" style={{ color: COLORS.FOREST_GREEN }} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>Student Success</h4>
-                    <p className="text-sm text-gray-700">Consistently achieving high pass rates and excellent student outcomes across all curricula</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start p-4 rounded-xl hover:bg-white transition-colors border-l-4" 
-                     style={{ borderColor: COLORS.BRONZE_LIGHT }}>
-                  <div className="p-2 rounded-full mr-4 flex-shrink-0" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-                    <Rocket className="h-6 w-6" style={{ color: COLORS.BRONZE_LIGHT }} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>Educational Innovation</h4>
-                    <p className="text-sm text-gray-700">Founded Elton Soma School to expand access to quality STEM education</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start p-4 rounded-xl hover:bg-white transition-colors border-l-4" 
-                     style={{ borderColor: COLORS.GOLD }}>
-                  <div className="p-2 rounded-full mr-4 flex-shrink-0" style={{ backgroundColor: `${COLORS.GOLD}20` }}>
-                    <Award className="h-6 w-6" style={{ color: COLORS.GOLD }} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>Professional Recognition</h4>
-                    <p className="text-sm text-gray-700">Selected as IB DP Mathematics Examiner, contributing to global educational standards</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start p-4 rounded-xl hover:bg-white transition-colors border-l-4" 
-                     style={{ borderColor: COLORS.FOREST_GREEN }}>
-                  <div className="p-2 rounded-full mr-4 flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                    <Globe className="h-6 w-6" style={{ color: COLORS.FOREST_GREEN }} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>International Impact</h4>
-                    <p className="text-sm text-gray-700">Teaching experience across 3 countries, enriching diverse student communities</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Final CTA */}
-          <div className="text-center mt-12 p-12 rounded-3xl relative overflow-hidden" 
-               style={{ background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK} 0%, ${COLORS.BRONZE_LIGHT} 100%)` }}>
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-white"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-white"></div>
-            </div>
-
-            <div className="relative z-10">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 bg-white shadow-lg">
-                <Briefcase className="h-8 w-8" style={{ color: COLORS.BRONZE_DARK }} />
-              </div>
-              
-              <p className="text-2xl font-bold mb-2 text-white">
-                Ready to Explore More?
-              </p>
-              <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
-                Discover detailed professional experience, qualifications, and the journey that shaped this educational career
-              </p>
-              
-              <div className="flex justify-center">
-                <Link to="/experience">
-                  <Button
-    // Default size for small screens (e.g., 'default' or 'sm' for better fit)
-    size="default" 
-    // Default horizontal padding is reduced for mobile (e.g., px-6 or px-8)
-    className="px-6 sm:px-8 md:px-12 lg:size-lg 
-               bg-white shadow-xl hover:scale-[1.05] hover:bg-[#6AA84F] hover:text-white 
-               group w-full sm:w-auto text-sm sm:text-base transition-all"
-    style={{ color: COLORS.BRONZE_DARK }}
->
-    {/* Icon size adjusted for mobile, then scaled up on medium screens */}
-    <Calendar className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5" />
-    View Detailed Experience
-    {/* Icon size adjusted for mobile, then scaled up on medium screens */}
-    <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
-</Button>
-                </Link>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
+      
+      
     </div>
   );
 };

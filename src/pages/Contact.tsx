@@ -54,7 +54,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />, url: '#', color: '#0077B5', bgColor: '#E7F3F8' },
+    { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />, url: ' https://www.linkedin.com/in/eliud-mautia-5245274b?lipi=urn%3Ali…', color: '#0077B5', bgColor: '#E7F3F8' },
     { name: 'Twitter', icon: <Twitter className="h-5 w-5 sm:h-6 sm:w-6" />, url: '#', color: '#1DA1F2', bgColor: '#E8F5FD' },
     { name: 'Facebook', icon: <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />, url: '#', color: '#4267B2', bgColor: '#E9F0FB' },
   ];
