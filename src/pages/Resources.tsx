@@ -38,7 +38,7 @@ const certificateData = [
     accent: COLORS.FOREST_GREEN,
     //
     // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Child Protection Refresher 2025_Download.pdf
-    link: "static/certificates/Mautia_Eliud_Child_Protection_Refresher_2025.pdf",
+    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Child_Protection_Refresher_2025.pdf",
   },
   {
     title: "Differentiation in Practice",
@@ -47,7 +47,7 @@ const certificateData = [
     icon: "BookOpen",
     accent: COLORS.BRONZE_LIGHT,
     // C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Eliud Mautia - Differentiation in Practice - 2025-10-07 052252.pdf
-    link: "static/certificates/Eliud_Mautia_Differentiation_in_Practice.pdf", 
+    link: ".../mautiPortfolio/public/media/img/Eliud_Mautia_Differentiation_in_Practice.pdf", 
   },
   {
     title: "Supporting Children & Young People on the Autistic Spectrum",
@@ -56,7 +56,7 @@ const certificateData = [
     icon: "Brain",
     accent: COLORS.BEIGE,
     // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Eliud Mautia - Supporting Children and Young People on the Autistic Spectrum - 2025-10-07 052254.pdf
-    link: "static/certificates/Eliud_Mautia_Autistic_Spectrum_Support.pdf",
+    link: ".../mautiPortfolio/public/media/img/Eliud_Mautia_Autistic_Spectrum_Support.pdf",
   },
   {
     title: "Child-on-Child Abuse for International Schools",
@@ -65,7 +65,7 @@ const certificateData = [
     icon: "Users",
     accent: COLORS.BRONZE_DARK,
     // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Child-on-Child Abuse for International Schools_Download.pdf
-    link: "static/certificates/Mautia_Eliud_Child_on_Child_Abuse.pdf",
+    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Child_on_Child_Abuse.pdf",
   },
   {
     title: "Staff Wellbeing for International Schools",
@@ -75,7 +75,7 @@ const certificateData = [
     accent: COLORS.GOLD,
     //
     // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Staff Wellbeing for International Schools_Download.pdf
-    link: "static/certificates/Mautia_Eliud_Staff_Wellbeing.pdf",
+    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Staff_Wellbeing.pdf",
   },
 ];
 
