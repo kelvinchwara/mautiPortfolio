@@ -36,9 +36,8 @@ const certificateData = [
     date: "September 2, 2025",
     icon: "Shield", // Lucide Icon Name
     accent: COLORS.FOREST_GREEN,
-    //
-    // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Child Protection Refresher 2025_Download.pdf
-    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Child_Protection_Refresher_2025.pdf",
+    // Note: The links are relative paths.
+    link: "/mautiPortfolio/public/media/img/Mautia_Eliud_Child_Protection_Refresher_2025.pdf",
   },
   {
     title: "Differentiation in Practice",
@@ -46,8 +45,7 @@ const certificateData = [
     date: "October 7, 2025",
     icon: "BookOpen",
     accent: COLORS.BRONZE_LIGHT,
-    // C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Eliud Mautia - Differentiation in Practice - 2025-10-07 052252.pdf
-    link: ".../mautiPortfolio/public/media/img/Eliud_Mautia_Differentiation_in_Practice.pdf", 
+    link: "/public/media/img/Eliud_Mautia_Differentiation_in_Practice.pdf", 
   },
   {
     title: "Supporting Children & Young People on the Autistic Spectrum",
@@ -55,8 +53,7 @@ const certificateData = [
     date: "October 7, 2025",
     icon: "Brain",
     accent: COLORS.BEIGE,
-    // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Eliud Mautia - Supporting Children and Young People on the Autistic Spectrum - 2025-10-07 052254.pdf
-    link: ".../mautiPortfolio/public/media/img/Eliud_Mautia_Autistic_Spectrum_Support.pdf",
+    link: "/media/img/Eliud_Mautia_Autistic_Spectrum_Support.pdf",
   },
   {
     title: "Child-on-Child Abuse for International Schools",
@@ -64,8 +61,7 @@ const certificateData = [
     date: "October 3, 2023",
     icon: "Users",
     accent: COLORS.BRONZE_DARK,
-    // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Child-on-Child Abuse for International Schools_Download.pdf
-    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Child_on_Child_Abuse.pdf",
+    link: "img/Mautia_Eliud_Child_on_Child_Abuse.pdf",
   },
   {
     title: "Staff Wellbeing for International Schools",
@@ -73,9 +69,7 @@ const certificateData = [
     date: "December 18, 2023",
     icon: "Heart",
     accent: COLORS.GOLD,
-    //
-    // Mapped from C:\Users\sagin\Desktop\New folder (5)\mautiPortfolio\static\certificates\Mautia Eliud_Staff Wellbeing for International Schools_Download.pdf
-    link: ".../mautiPortfolio/public/media/img/Mautia_Eliud_Staff_Wellbeing.pdf",
+    link: "/mautiPortfolio/public/media/img/Mautia_Eliud_Staff_Wellbeing.pdf",
   },
 ];
 
@@ -153,6 +147,13 @@ const Heart = ({ size = 24, className = "", style = {} }) => (
   </svg>
 );
 
+// Helper function to create a sanitized filename
+const createDownloadFilename = (title) => {
+    // Remove non-alphanumeric characters, replace spaces with underscores, and add .pdf extension
+    return title.replace(/[^a-zA-Z0-9\s]/g, '').trim().replace(/\s+/g, '_') + '.pdf';
+};
+
+
 // --- MAIN COMPONENT (Renamed to Resources) ---
 const Resources = () => {
   return (
@@ -215,7 +216,7 @@ const Resources = () => {
       </section>
 
 
-      {/* CERTIFICATES SECTION - MODIFIED WITH DYNAMIC BADGE */}
+      {/* CERTIFICATES SECTION - MODIFIED WITH DOWNLOAD ATTRIBUTE */}
       <section className="mb-12">
         <h2 
           className="text-2xl sm:text-3xl font-bold mb-6 text-center sm:text-left border-b pb-2"
@@ -269,17 +270,17 @@ const Resources = () => {
                   <span className="font-semibold">Date:</span> {cert.date}
                 </p>
                 
-                {/* LINK/BUTTON FOR VIEWING */}
+                {/* MODIFIED: Added 'download' attribute and changed text to 'Download Certificate' */}
                 {cert.link ? (
                   <a
                     href={cert.link}
-                    target="_blank" 
+                    download={createDownloadFilename(cert.title)} // FORCES DOWNLOAD
                     rel="noopener noreferrer"
                     className="mt-auto px-4 py-2 text-sm rounded-lg text-white font-semibold self-start transition duration-200 hover:bg-opacity-80 active:scale-[0.98] shadow-md flex items-center justify-center"
                     style={{ backgroundColor: COLORS.FOREST_GREEN, minWidth: '130px' }}
                   >
                     <IconComponent name="LinkIcon" color="white" size={16} className="mr-1" />
-                    View Certificate
+                    Download Certificate
                   </a>
                 ) : (
                   <button

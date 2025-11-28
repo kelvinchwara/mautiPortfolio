@@ -228,6 +228,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ COLORS }) => (
         {/* Primary CTA - Rule 5: w-full on mobile, w-auto on larger screens */}
         <a
           href="/MAUTIA%20ELIUD%20RESUME.pdf"
+          
+          //
           download
           className="inline-block w-full sm:w-auto"
         >
