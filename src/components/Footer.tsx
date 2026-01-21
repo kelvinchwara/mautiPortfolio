@@ -374,23 +374,7 @@ const ContactSection = () => (
   </div>
 );
 
-// Decorative Divider
-const DecorativeDivider = () => (
-  <div className="relative my-8">
-    <div className="absolute inset-0 flex items-center">
-      <div className="w-full border-t border-white/30" />
-    </div>
-    <div className="relative flex justify-center">
-      <div className="px-6 bg-transparent">
-        <div className="flex items-center gap-2">
-          <Heart className="h-5 w-5 text-white opacity-70" />
-          <span className="text-white text-sm opacity-70">Crafted with passion</span>
-          <Heart className="h-5 w-5 text-white opacity-70" />
-        </div>
-      </div>
-    </div>
-  </div>
-);
+
 
 // Bottom Bar Component
 const BottomBar = () => (
@@ -398,26 +382,21 @@ const BottomBar = () => (
     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
       <div className="flex flex-col items-center md:items-start gap-2">
         <div className="flex items-center gap-2 text-gray-200 text-sm">
-          <span>© Eliud Mautia 2025 All Rights Reserved</span>
+          <span>© Eliud Mautia 2026 All Rights Reserved</span>
         </div>
 
         {/* Designer Credit */}
         <div className="flex items-center gap-2 text-gray-300 text-xs">
           <Palette className="h-3 w-3" style={{ color: COLORS.GOLD }} />
           <span>Designed by</span>
-          <a
-            href="https://www.linkedin.com/in/kelvin-chwara"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold hover:text-white transition-colors underline decoration-dotted"
-          >
-            Kelvin Chwara
-          </a>
+          <span className="font-semibold hover:text-white transition-colors">
+            One-Tech Solutions Ltd
+          </span>
         </div>
       </div>
 
-      {/* Legal Links */}
-      <div className="flex gap-4 text-sm">
+      {/* Legal Links - Hidden on very small screens */}
+      <div className="hidden sm:flex gap-4 text-sm">
         {FOOTER_DATA.legal.map((item, idx) => (
           <a
             key={idx}
@@ -435,7 +414,7 @@ const BottomBar = () => (
         className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white text-sm font-medium border border-white/20 hover:scale-105"
       >
         <ArrowRight className="h-4 w-4 rotate-[-90deg]" />
-        Back to Top
+        <span className="hidden sm:inline">Back to Top</span>
       </button>
     </div>
   </div>
@@ -473,7 +452,6 @@ const Footer = () => {
           <ContactSection />
         </div>
 
-        <DecorativeDivider />
         <BottomBar />
         
       </div>

@@ -139,23 +139,6 @@ const IconComponent = ({ name, color, size = 24, className = "", style = {} }) =
   }
 };
 
-const HeartIcon = ({ size = 24, className = "", style = {} }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-    className={className}
-    style={style}
-  >
-    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-  </svg>
-);
-
 const createDownloadFilename = (title) => {
   return title.replace(/[^a-zA-Z0-9\s]/g, '').trim().replace(/\s+/g, '_') + '.pdf';
 };
@@ -182,51 +165,51 @@ const Resources = () => {
   return (
     <div className="min-h-screen font-['Inter']" style={{ backgroundColor: COLORS.CREAM }}>
       {/* HEADER SECTION */}
-      <header className="relative overflow-hidden">
+      <header className="relative overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 right-10 w-64 h-64 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-          <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
+          <div className="absolute top-10 right-10 w-32 sm:w-64 h-32 sm:h-64 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
+          <div className="absolute bottom-10 left-10 w-24 sm:w-48 h-24 sm:h-48 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-10">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-              <Award className="h-5 w-5" style={{ color: COLORS.GOLD }} />
-              <span className="text-sm font-medium" style={{ color: COLORS.BRONZE_DARK }}>Professional Development Hub</span>
+        <div className="max-w-7xl mx-auto py-8 sm:py-12 md:py-16 relative z-10">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
+              <Award className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
+              <span className="text-xs sm:text-sm font-medium" style={{ color: COLORS.BRONZE_DARK }}>Professional Development Hub</span>
             </div>
             
             <h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 sm:mb-4"
               style={{ color: COLORS.BRONZE_DARK }}
             >
               My Professional Resources
             </h1>
             <p 
-              className="text-lg sm:text-xl font-medium max-w-3xl mx-auto"
+              className="text-base sm:text-lg lg:text-xl font-medium max-w-3xl mx-auto px-2"
               style={{ color: COLORS.BRONZE_LIGHT }}
             >
               A curated collection of my achievements, certifications, teaching resources, and professional development materials.
             </p>
-            <div className="h-1 w-24 mx-auto mt-6 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
+            <div className="h-0.5 sm:h-1 w-16 sm:w-24 mx-auto mt-4 sm:mt-6 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-8 sm:mb-12">
             {statsData.map((stat, index) => (
               <div 
                 key={index} 
-                className="text-center p-4 rounded-xl bg-white shadow-lg border-2 transition-all hover:scale-105"
+                className="text-center p-3 sm:p-4 rounded-xl bg-white shadow-lg border-2 transition-all hover:scale-105"
                 style={{ borderColor: COLORS.BEIGE }}
               >
-                <div className="flex justify-center mb-2">
-                  <div className="p-2 rounded-full" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                    <stat.icon className="h-5 w-5" style={{ color: COLORS.FOREST_GREEN }} />
+                <div className="flex justify-center mb-1.5 sm:mb-2">
+                  <div className="p-1.5 sm:p-2 rounded-full" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
+                    <stat.icon className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.FOREST_GREEN }} />
                   </div>
                 </div>
-                <p className="text-2xl font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1" style={{ color: COLORS.BRONZE_DARK }}>
                   {stat.value}
                 </p>
-                <p className="text-xs font-medium" style={{ color: COLORS.BRONZE_LIGHT }}>
+                <p className="text-xs sm:text-sm font-medium" style={{ color: COLORS.BRONZE_LIGHT }}>
                   {stat.label}
                 </p>
               </div>
@@ -235,37 +218,38 @@ const Resources = () => {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
         {/* Search and Filter Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-12 border-2" style={{ borderColor: COLORS.BEIGE }}>
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 sm:mb-12 border-2" style={{ borderColor: COLORS.BEIGE }}>
+          <div className="flex flex-col md:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
             {/* Search Input */}
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
               <input
                 type="text"
                 placeholder="Search resources..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-colors"
+                className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 rounded-lg border-2 focus:outline-none focus:border-opacity-100 transition-colors text-sm sm:text-base"
                 style={{ borderColor: COLORS.BEIGE, backgroundColor: COLORS.CREAM }}
               />
             </div>
             
             {/* Filter Button */}
-            <div className="flex items-center gap-2 px-4 py-3 rounded-lg border-2" style={{ borderColor: COLORS.BEIGE, backgroundColor: COLORS.CREAM }}>
-              <Filter className="h-5 w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
-              <span className="text-sm font-medium" style={{ color: COLORS.BRONZE_DARK }}>Filter by Category</span>
+            <div className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border-2 text-sm sm:text-base" style={{ borderColor: COLORS.BEIGE, backgroundColor: COLORS.CREAM }}>
+              <Filter className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
+              <span className="font-medium hidden sm:inline" style={{ color: COLORS.BRONZE_DARK }}>Filter by Category</span>
+              <span className="font-medium sm:hidden" style={{ color: COLORS.BRONZE_DARK }}>Filter</span>
             </div>
           </div>
 
           {/* Category Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all hover:scale-105 ${
                   selectedCategory === category
                     ? 'text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -282,10 +266,10 @@ const Resources = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex gap-2 mb-8 border-b-2 pb-4" style={{ borderColor: COLORS.BEIGE }}>
+        <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 border-b-2 pb-3 sm:pb-4" style={{ borderColor: COLORS.BEIGE }}>
           <button
             onClick={() => setActiveTab('certificates')}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
+            className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base ${
               activeTab === 'certificates'
                 ? 'text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -295,12 +279,13 @@ const Resources = () => {
               border: activeTab !== 'certificates' ? `2px solid ${COLORS.BEIGE}` : 'none'
             }}
           >
-            <Award className="h-4 w-4" />
-            Certificates
+            <Award className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Certificates</span>
+            <span className="sm:hidden">Certs</span>
           </button>
           <button
             onClick={() => setActiveTab('videos')}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
+            className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base ${
               activeTab === 'videos'
                 ? 'text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -310,12 +295,13 @@ const Resources = () => {
               border: activeTab !== 'videos' ? `2px solid ${COLORS.BEIGE}` : 'none'
             }}
           >
-            <Video className="h-4 w-4" />
-            Video Tutorials
+            <Video className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Video Tutorials</span>
+            <span className="sm:hidden">Videos</span>
           </button>
           <button
             onClick={() => setActiveTab('skills')}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all ${
+            className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base ${
               activeTab === 'skills'
                 ? 'text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -325,44 +311,45 @@ const Resources = () => {
               border: activeTab !== 'skills' ? `2px solid ${COLORS.BEIGE}` : 'none'
             }}
           >
-            <Star className="h-4 w-4" />
-            Skill Endorsements
+            <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span className="hidden sm:inline">Skill Endorsements</span>
+            <span className="sm:hidden">Skills</span>
           </button>
         </div>
 
         {/* KEY SKILL ENDORSEMENTS */}
         {activeTab === 'skills' && (
-          <section className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg" style={{ backgroundColor: `${COLORS.GOLD}30` }}>
-                <Star className="h-5 w-5" style={{ color: COLORS.GOLD }} />
+          <section className="mb-8 sm:mb-12">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: `${COLORS.GOLD}30` }}>
+                <Star className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
                 Key Skill Endorsements
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {skillEndorsements.map((skillItem, index) => (
                 <div 
                   key={index} 
-                  className="p-6 rounded-xl shadow-xl transition duration-300 transform hover:scale-[1.05] bg-white border-2 flex flex-col items-center text-center"
+                  className="p-4 sm:p-5 lg:p-6 rounded-xl shadow-xl transition duration-300 transform hover:scale-[1.05] bg-white border-2 flex flex-col items-center text-center"
                   style={{ 
                     borderColor: skillItem.color,
                     boxShadow: `0 4px 6px -1px ${COLORS.BRONZE_LIGHT}40, 0 2px 4px -2px ${COLORS.BRONZE_LIGHT}40`,
                   }}
                 >
                   <div 
-                    className="p-4 mb-4 rounded-full shadow-lg" 
+                    className="p-3 sm:p-3.5 lg:p-4 mb-3 sm:mb-4 rounded-full shadow-lg" 
                     style={{ backgroundColor: skillItem.color }}
                   >
-                    <IconComponent name={skillItem.icon} color="white" size={28} />
+                    <IconComponent name={skillItem.icon} color="white" size={20} />
                   </div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
                     {skillItem.skill}
                   </h3>
                   <span 
-                    className="text-sm font-semibold py-2 px-4 rounded-full"
+                    className="text-xs sm:text-sm font-semibold py-1.5 sm:py-2 px-2.5 sm:px-4 rounded-full"
                     style={{ backgroundColor: skillItem.color, color: 'white', opacity: 0.9 }}
                   >
                     {skillItem.level}
@@ -375,21 +362,23 @@ const Resources = () => {
 
         {/* CERTIFICATES SECTION */}
         {activeTab === 'certificates' && (
-          <section className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg" style={{ backgroundColor: `${COLORS.FOREST_GREEN}30` }}>
-                <Award className="h-5 w-5" style={{ color: COLORS.FOREST_GREEN }} />
+          <section className="mb-8 sm:mb-12">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: `${COLORS.FOREST_GREEN}30` }}>
+                  <Award className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.FOREST_GREEN }} />
+                </div>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                  Certificates of Completion
+                </h2>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
-                Certificates of Completion
-              </h2>
-              <Badge className="ml-auto" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20`, color: COLORS.FOREST_GREEN }}>
+              <Badge className="text-xs sm:text-sm" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20`, color: COLORS.FOREST_GREEN }}>
                 {filteredCertificates.length} certificates
               </Badge>
             </div>
             
             {filteredCertificates.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredCertificates.map((cert, index) => {
                   const isLinkAvailable = !!cert.link;
                   const statusText = isLinkAvailable ? "Available" : "Coming Soon";
@@ -398,7 +387,7 @@ const Resources = () => {
                   return (
                     <div 
                       key={index} 
-                      className="p-5 rounded-xl shadow-xl transition duration-300 transform hover:scale-[1.02] flex flex-col bg-white relative border-2"
+                      className="p-4 sm:p-5 rounded-xl shadow-xl transition duration-300 transform hover:scale-[1.02] flex flex-col bg-white relative border-2"
                       style={{ 
                         borderColor: cert.accent,
                         boxShadow: `0 4px 6px -1px ${COLORS.BRONZE_LIGHT}40, 0 2px 4px -2px ${COLORS.BRONZE_LIGHT}40`,
@@ -406,7 +395,7 @@ const Resources = () => {
                     >
                       {/* Category Badge */}
                       <span 
-                        className="absolute top-0 right-0 m-4 text-xs font-semibold py-1 px-3 rounded-full uppercase tracking-wider shadow-md"
+                        className="absolute top-0 right-0 m-3 sm:m-4 text-xs font-semibold py-1 px-2 sm:px-3 rounded-full uppercase tracking-wider shadow-md"
                         style={{ backgroundColor: cert.accent, color: 'white', opacity: 0.9 }}
                       >
                         {cert.category}
@@ -414,40 +403,40 @@ const Resources = () => {
 
                       {/* Status Badge */}
                       <span 
-                        className="absolute bottom-0 right-0 m-4 text-xs font-semibold py-1 px-3 rounded-full shadow-md"
+                        className="absolute bottom-0 right-0 m-3 sm:m-4 text-xs font-semibold py-1 px-2 sm:px-3 rounded-full shadow-md"
                         style={{ backgroundColor: statusColor, color: 'white', opacity: 0.9 }}
                       >
                         {statusText}
                       </span>
 
-                      <div className="flex items-start mb-4 pr-20">
+                      <div className="flex items-start mb-3 sm:mb-4 pr-16 sm:pr-20">
                         <div 
-                          className="p-3 rounded-full mr-4 shadow-md flex-shrink-0" 
+                          className="p-2 sm:p-3 rounded-full mr-3 sm:mr-4 shadow-md flex-shrink-0" 
                           style={{ backgroundColor: cert.accent }}
                         >
-                          <IconComponent name={cert.icon} color="white" size={24} />
+                          <IconComponent name={cert.icon} color="white" size={20} />
                         </div>
                         <div>
                           <h3 
-                            className="text-lg font-bold leading-tight mb-1" 
+                            className="text-base sm:text-lg font-bold leading-tight mb-1 sm:mb-2" 
                             style={{ color: COLORS.BRONZE_DARK }}
                           >
                             {cert.title}
                           </h3>
-                          <p className="text-sm mb-2" style={{ color: COLORS.BRONZE_LIGHT }}>
+                          <p className="text-xs sm:text-sm mb-1 sm:mb-2" style={{ color: COLORS.BRONZE_LIGHT }}>
                             {cert.description}
                           </p>
                         </div>
                       </div>
                       
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center gap-2 text-sm" style={{ color: COLORS.BRONZE_DARK }}>
-                          <BookOpen className="h-4 w-4" style={{ color: COLORS.BRONZE_LIGHT }} />
+                      <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                        <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: COLORS.BRONZE_DARK }}>
+                          <BookOpen className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: COLORS.BRONZE_LIGHT }} />
                           <span className="font-semibold">Issuer:</span>
                           <span>{cert.issuer}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm" style={{ color: COLORS.BRONZE_DARK }}>
-                          <Clock className="h-4 w-4" style={{ color: COLORS.BRONZE_LIGHT }} />
+                        <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: COLORS.BRONZE_DARK }}>
+                          <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: COLORS.BRONZE_LIGHT }} />
                           <span className="font-semibold">Date:</span>
                           <span>{cert.date}</span>
                         </div>
@@ -458,17 +447,18 @@ const Resources = () => {
                           href={cert.link}
                           download={createDownloadFilename(cert.title)}
                           rel="noopener noreferrer"
-                          className="mt-auto px-4 py-3 text-sm rounded-lg text-white font-semibold self-start transition duration-200 hover:bg-opacity-80 active:scale-[0.98] shadow-md flex items-center justify-center"
-                          style={{ backgroundColor: COLORS.FOREST_GREEN, minWidth: '150px' }}
+                          className="mt-auto px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg text-white font-semibold self-start transition duration-200 hover:bg-opacity-80 active:scale-[0.98] shadow-md flex items-center justify-center"
+                          style={{ backgroundColor: COLORS.FOREST_GREEN, minWidth: '130px' }}
                         >
-                          <Download className="h-4 w-4 mr-2" />
-                          Download Certificate
+                          <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
+                          <span className="hidden sm:inline">Download Certificate</span>
+                          <span className="sm:hidden">Download</span>
                         </a>
                       ) : (
                         <button
                           disabled
-                          className="mt-auto px-4 py-3 text-sm rounded-lg text-white font-semibold self-start opacity-50 cursor-not-allowed flex items-center justify-center"
-                          style={{ backgroundColor: COLORS.BRONZE_LIGHT, minWidth: '150px' }}
+                          className="mt-auto px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg text-white font-semibold self-start opacity-50 cursor-not-allowed flex items-center justify-center"
+                          style={{ backgroundColor: COLORS.BRONZE_LIGHT, minWidth: '130px' }}
                         >
                           Coming Soon
                         </button>
@@ -478,12 +468,12 @@ const Resources = () => {
                 })}
               </div>
             ) : (
-              <div className="text-center py-12 bg-white rounded-xl border-2" style={{ borderColor: COLORS.BEIGE }}>
-                <Search className="h-16 w-16 mx-auto mb-4" style={{ color: COLORS.BRONZE_LIGHT }} />
-                <h3 className="text-xl font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
+              <div className="text-center py-8 sm:py-12 bg-white rounded-xl border-2 px-4" style={{ borderColor: COLORS.BEIGE }}>
+                <Search className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-3 sm:mb-4" style={{ color: COLORS.BRONZE_LIGHT }} />
+                <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
                   No certificates found
                 </h3>
-                <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+                <p className="text-sm sm:text-base text-gray-600">Try adjusting your search or filter criteria</p>
               </div>
             )}
           </section>
@@ -492,20 +482,22 @@ const Resources = () => {
         {/* VIDEO TUTORIALS SECTION */}
         {activeTab === 'videos' && (
           <section>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}30` }}>
-                <Video className="h-5 w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}30` }}>
+                  <Video className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.BRONZE_LIGHT }} />
+                </div>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
+                  Video Tutorials
+                </h2>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: COLORS.BRONZE_DARK }}>
-                Video Tutorials
-              </h2>
-              <Badge className="ml-auto" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20`, color: COLORS.BRONZE_LIGHT }}>
+              <Badge className="text-xs sm:text-sm" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20`, color: COLORS.BRONZE_LIGHT }}>
                 {filteredVideos.length} tutorials
               </Badge>
             </div>
 
             {filteredVideos.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredVideos.map((video, index) => (
                   <div 
                     key={index} 
@@ -517,20 +509,20 @@ const Resources = () => {
                   >
                     {/* Video Thumbnail */}
                     <div 
-                      className="h-40 w-full flex items-center justify-center relative"
+                      className="h-32 sm:h-40 w-full flex items-center justify-center relative"
                       style={{ backgroundColor: COLORS.BRONZE_DARK }}
                     >
                       <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-4 left-4 w-8 h-8 rounded-full bg-white"></div>
-                        <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-white"></div>
+                        <div className="absolute top-4 left-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white"></div>
+                        <div className="absolute bottom-4 right-4 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white"></div>
                       </div>
-                      <MessageCircle className="h-12 w-12" style={{ color: COLORS.GOLD }} />
-                      <div className="absolute bottom-2 right-2 px-2 py-1 rounded text-xs font-semibold bg-black/50 text-white">
+                      <MessageCircle className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: COLORS.GOLD }} />
+                      <div className="absolute bottom-2 right-2 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-semibold bg-black/50 text-white">
                         {video.duration}
                       </div>
                     </div>
                     
-                    <div className="p-4">
+                    <div className="p-3 sm:p-4">
                       <div className="mb-2">
                         <Badge 
                           className="text-xs"
@@ -539,28 +531,29 @@ const Resources = () => {
                           {video.category}
                         </Badge>
                       </div>
-                      <h3 className="text-base font-semibold mb-3 line-clamp-2" style={{ color: COLORS.BRONZE_DARK }}>
+                      <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3 line-clamp-2" style={{ color: COLORS.BRONZE_DARK }}>
                         {video.title}
                       </h3>
                       <button
-                        className="w-full px-4 py-2.5 text-sm rounded-lg text-white font-medium transition duration-200 hover:bg-opacity-90 active:scale-[0.98] shadow-md flex items-center justify-center gap-2"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg text-white font-medium transition duration-200 hover:bg-opacity-90 active:scale-[0.98] shadow-md flex items-center justify-center gap-1.5 sm:gap-2"
                         style={{ backgroundColor: COLORS.BRONZE_LIGHT }}
                         onClick={() => console.log(`Placeholder: Starting tutorial for ${video.title}`)} 
                       >
-                        <Video className="h-4 w-4" />
-                        Watch Now
+                        <Video className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                        <span className="hidden sm:inline">Watch Now</span>
+                        <span className="sm:hidden">Watch</span>
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 bg-white rounded-xl border-2" style={{ borderColor: COLORS.BEIGE }}>
-                <Search className="h-16 w-16 mx-auto mb-4" style={{ color: COLORS.BRONZE_LIGHT }} />
-                <h3 className="text-xl font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
+              <div className="text-center py-8 sm:py-12 bg-white rounded-xl border-2 px-4" style={{ borderColor: COLORS.BEIGE }}>
+                <Search className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-3 sm:mb-4" style={{ color: COLORS.BRONZE_LIGHT }} />
+                <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: COLORS.BRONZE_DARK }}>
                   No videos found
                 </h3>
-                <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+                <p className="text-sm sm:text-base text-gray-600">Try adjusting your search or filter criteria</p>
               </div>
             )}
           </section>

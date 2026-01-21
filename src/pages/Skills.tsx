@@ -38,13 +38,13 @@ interface BadgeProps {
 }
 
 const Card: React.FC<CardProps> = ({ children, className = '' }) => (
-  <div className={`rounded-xl sm:rounded-2xl border border-white/20 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] backdrop-blur-md bg-white/90 ${className}`}>
+  <div className={`rounded-xl sm:rounded-2xl border-2 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] backdrop-blur-md bg-white/90 ${className}`}>
     {children}
   </div>
 );
 
 const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => (
-  <div className={`p-4 sm:p-5 md:p-6 border-b border-gray-100 ${className}`}>
+  <div className={`p-4 sm:p-5 md:p-6 border-b-2 ${className}`}>
     {children}
   </div>
 );
@@ -81,6 +81,73 @@ const COLORS = {
   GOLD: '#D4AF37',
 };
 
+// --- STATS CARD COMPONENT ---
+
+interface StatsCardProps {
+  value: string;
+  label: string;
+  icon: React.ComponentType<any>;
+  color: string;
+}
+
+const StatsCard: React.FC<StatsCardProps> = ({ value, label, icon: Icon, color }) => (
+  <div className="text-center p-4 sm:p-5 md:p-6 rounded-xl bg-white border-2 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+    <div className="flex justify-center mb-2 sm:mb-3">
+      <div className="p-2 sm:p-2.5 md:p-3 rounded-full" style={{ backgroundColor: `${color}20` }}>
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" style={{ color }} />
+      </div>
+    </div>
+    <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: COLORS.BRONZE_DARK }}>
+      {value}
+    </div>
+    <div className="text-xs sm:text-sm text-gray-600 font-medium">{label}</div>
+  </div>
+);
+
+// --- SKILL CATEGORY CARD COMPONENT ---
+
+interface SkillCategoryCardProps {
+  title: string;
+  description: string;
+  icon: React.ComponentType<any>;
+  color: string;
+  skills: string[];
+}
+
+const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ title, description, icon: Icon, color, skills }) => (
+  <Card className="bg-white relative overflow-hidden group">
+    <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 opacity-0 group-hover:opacity-10 transition-opacity rounded-full"
+         style={{ backgroundColor: color }}></div>
+    
+    <CardHeader>
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="p-2 sm:p-2.5 rounded-full shadow-md group-hover:scale-110 transition-transform flex-shrink-0"
+             style={{ backgroundColor: `${color}20` }}>
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" style={{ color }} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <CardTitle className="text-base sm:text-lg md:text-xl" style={{ color: COLORS.BRONZE_DARK }}>
+            {title}
+          </CardTitle>
+          <p className="text-xs sm:text-sm text-gray-600 mt-1">{description}</p>
+        </div>
+      </div>
+    </CardHeader>
+    
+    <CardContent>
+      <div className="space-y-2 sm:space-y-2.5">
+        {skills.map((skill, index) => (
+          <div key={index} 
+               className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors group/item">
+            <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" style={{ color }} />
+            <span className="text-xs sm:text-sm text-gray-700 group-hover/item:text-gray-900 break-words">{skill}</span>
+          </div>
+        ))}
+      </div>
+    </CardContent>
+  </Card>
+);
+
 // --- COMPETENCY CARD COMPONENT ---
 
 interface CompetencyCardProps {
@@ -96,10 +163,10 @@ const CompetencyCard: React.FC<CompetencyCardProps> = ({ name, icon, index }) =>
   return (
     <div
       className="flex items-center p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 hover:shadow-xl transition-all cursor-pointer group relative overflow-hidden"
-      style={{ borderColor: `${color}30` }}
+      style={{ borderColor: `${color}40` }}
     >
-      <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 opacity-0 group-hover:opacity-10 transition-opacity"
-           style={{ background: `linear-gradient(135deg, transparent 50%, ${color} 50%)` }}></div>
+      <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 opacity-0 group-hover:opacity-10 transition-opacity rounded-full"
+           style={{ backgroundColor: color }}></div>
 
       <div className="relative z-10 flex items-center w-full gap-2 sm:gap-3">
         <div className="p-2 sm:p-3 rounded-full group-hover:scale-110 transition-transform flex-shrink-0"
@@ -124,8 +191,9 @@ interface LanguageCardProps {
 }
 
 const LanguageCard: React.FC<LanguageCardProps> = ({ name, level, flag, percentage }) => (
-  <div className="p-3 sm:p-4 bg-gradient-to-r from-white to-gray-50 rounded-lg sm:rounded-xl hover:shadow-lg transition-all group">
-    <div className="flex items-center justify-between mb-2 sm:mb-3 flex-wrap gap-2">
+  <div className="p-4 sm:p-5 bg-gradient-to-r from-white to-gray-50 rounded-lg sm:rounded-xl border-2 hover:shadow-lg transition-all group"
+       style={{ borderColor: COLORS.BEIGE }}>
+    <div className="flex items-center justify-between mb-3 sm:mb-4 flex-wrap gap-2">
       <div className="flex items-center gap-2 sm:gap-3">
         <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform">{flag}</span>
         <span className="font-bold text-base sm:text-lg break-words" style={{ color: COLORS.BRONZE_DARK }}>{name}</span>
@@ -135,12 +203,13 @@ const LanguageCard: React.FC<LanguageCardProps> = ({ name, level, flag, percenta
         {level}
       </Badge>
     </div>
-    <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden">
+    <div className="w-full h-2 sm:h-2.5 bg-gray-200 rounded-full overflow-hidden">
       <div 
         className="h-full rounded-full transition-all duration-500"
         style={{ width: `${percentage}%`, backgroundColor: COLORS.BRONZE_LIGHT }}
       ></div>
     </div>
+    <div className="text-xs sm:text-sm text-gray-600 mt-2 text-right font-medium">{percentage}%</div>
   </div>
 );
 
@@ -152,138 +221,56 @@ interface TechSkillBadgeProps {
 }
 
 const TechSkillBadge: React.FC<TechSkillBadgeProps> = ({ tech, index }) => {
-  const icons = [Monitor, Settings, BarChart, Globe, Calendar];
-  const Icon = icons[index % icons.length];
+  const colors = [COLORS.BRONZE_LIGHT, COLORS.FOREST_GREEN, COLORS.GOLD, COLORS.BRONZE_DARK];
+  const color = colors[index % colors.length];
   
   return (
     <Badge 
-      className="mr-2 mb-2 text-white hover:scale-110 transition-transform cursor-pointer shadow-md group text-xs"
-      style={{ backgroundColor: COLORS.BRONZE_LIGHT }}
+      className="text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2 shadow-md hover:scale-105 transition-transform cursor-default border-2"
+      style={{ 
+        backgroundColor: `${color}15`, 
+        color: color,
+        borderColor: `${color}40`
+      }}
     >
-      <Icon className="h-3 w-3 mr-1 group-hover:rotate-12 transition-transform flex-shrink-0" />
-      <span className="break-words">{tech}</span>
+      {tech}
     </Badge>
   );
 };
 
-// --- CERTIFICATION ITEM ---
-
-interface CertificationItemProps {
-  cert: string;
-  index: number;
-}
-
-const CertificationItem: React.FC<CertificationItemProps> = ({ cert }) => (
-  <div className="flex items-center p-2 sm:p-3 border-l-4 rounded-r-lg hover:bg-gray-50 transition-colors group" 
-       style={{ borderColor: COLORS.GOLD }}>
-    <div className="p-1.5 sm:p-2 rounded-full mr-2 sm:mr-3 group-hover:scale-110 transition-transform flex-shrink-0" 
-         style={{ backgroundColor: `${COLORS.GOLD}20` }}>
-      <Trophy className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
-    </div>
-    <span className="flex-1 text-xs sm:text-sm break-words" style={{ color: COLORS.BRONZE_DARK }}>{cert}</span>
-    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" 
-                 style={{ color: COLORS.FOREST_GREEN }} />
-  </div>
-);
-
-// --- STATS CARD ---
-
-interface StatsCardProps {
-  value: string;
-  label: string;
-  icon: React.ComponentType<any>;
-  color: string;
-}
-
-const StatsCard: React.FC<StatsCardProps> = ({ value, label, icon: Icon, color }) => (
-  <div className="text-center p-3 sm:p-4 md:p-6 bg-white rounded-lg sm:rounded-xl shadow-lg border-b-4 transition-all hover:scale-105 hover:shadow-2xl group"
-       style={{ borderBottomColor: color }}>
-    <div className="p-2 sm:p-2.5 md:p-3 rounded-full w-fit mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" 
-         style={{ backgroundColor: `${color}20` }}>
-      <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8" style={{ color }} />
-    </div>
-    <p className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-1" style={{ color: COLORS.BRONZE_DARK }}>
-      {value}
-    </p>
-    <p className="text-xs sm:text-sm font-medium text-gray-600 uppercase tracking-wider break-words">{label}</p>
-  </div>
-);
-
-// --- SKILL CATEGORY CARD ---
-
-interface SkillCategoryCardProps {
-  title: string;
-  description: string;
-  icon: React.ComponentType<any>;
-  color: string;
-  skills: string[];
-}
-
-const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ title, description, icon: Icon, color, skills }) => (
-  <Card className="bg-white relative overflow-hidden">
-    <div className="absolute inset-0 opacity-5 pointer-events-none">
-      <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 rounded-full" style={{ backgroundColor: color }}></div>
-    </div>
-
-    <CardHeader className="relative z-10">
-      <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-        <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg flex-shrink-0" style={{ backgroundColor: color }}>
-          <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-        </div>
-        <span className="break-words">{title}</span>
-      </CardTitle>
-      <p className="text-xs sm:text-sm text-gray-600 mt-2">{description}</p>
-    </CardHeader>
-    
-    <CardContent className="relative z-10">
-      <div className="space-y-2">
-        {skills.map((skill, idx) => (
-          <div key={idx} className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors">
-            <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color }} />
-            <span className="text-xs sm:text-sm text-gray-700 break-words">{skill}</span>
-          </div>
-        ))}
-      </div>
-    </CardContent>
-  </Card>
-);
+// --- MAIN SKILLS COMPONENT ---
 
 const Skills = () => {
   const competencies = [
-    { name: " Efficient & Effective Verbal & Written Communication Skills", icon: <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Adaptable Teaching Methodologies for Diverse Learning Needs, Analytical & Data Mining Skills", icon: <Brain className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Efficient & Effective Verbal & Written Communication Skills", icon: <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Adaptable Teaching Methodologies for Diverse Learning Needs", icon: <Brain className="h-4 w-4 sm:h-5 sm:w-5" /> },
     { name: "Passionate, Innovative & Conflict Resolution Skills", icon: <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5" /> },
     { name: "Leadership, Management & Coaching Skills", icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: " Problem Solving & Decision Making Skills", icon: <Target className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: " Culturally Aware, Inclusive, Adaptability, Resilience & Result Driven Skills", icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: " Curious, Growth Oriented & Technology Integration Skills", icon: <Monitor className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Life Long Learning, Skill Connectors & Interpersonal Relations Skills", icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Problem Solving & Decision Making Skills", icon: <Target className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Culturally Aware, Inclusive, Adaptability & Resilience Skills", icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Curious, Growth Oriented & Technology Integration Skills", icon: <Monitor className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Life Long Learning & Interpersonal Relations Skills", icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" /> },
     { name: "Collaborative, Global Minded & Emotional Intelligence Skills", icon: <Heart className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Open Minded, Reflective, Planning & Organisational skills", icon: <Calendar className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Project-Based Learning & Inquiry-Based Instruction Skills.", icon: <Compass className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Lesson Development, Curriculum Design & Planning Skills.", icon: <FileText className="h-4 w-4 sm:h-5 sm:w-5" /> },
-    { name: "Proficient in Safeguarding,Child Protection & Pastoral Care", icon: <Shield className="h-4 w-4 sm:h-5 sm:w-5" /> }
+    { name: "Open Minded, Reflective, Planning & Organizational Skills", icon: <Calendar className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Project-Based Learning & Inquiry-Based Instruction Skills", icon: <Compass className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Lesson Development, Curriculum Design & Planning Skills", icon: <FileText className="h-4 w-4 sm:h-5 sm:w-5" /> },
+    { name: "Proficient in Safeguarding, Child Protection & Pastoral Care", icon: <Shield className="h-4 w-4 sm:h-5 sm:w-5" /> }
   ];
 
   const languages = [
-    { name: "English", level: "Fluent", flag: "🇺🇸", percentage: 100 },
+    { name: "English", level: "Fluent", flag: "🇬🇧", percentage: 100 },
     { name: "Swahili", level: "Fluent", flag: "🇰🇪", percentage: 100 },
-    
+    { name: "Chinese", level: "Intermediate", flag: "🇨🇳", percentage: 60 },
   ];
 
   const techSkills = [
     "Microsoft Office Suite", "Google Workspace", "Moodle & Google Classroom",
-    "GeoGebra & Desmos", "Excel & SPSS"
+    "GeoGebra & Desmos", "Excel & SPSS", "Power BI"
   ];
 
   const certifications = [
     "IB DP AA & AI Workshops", "Cambridge IGCSE & A-Level Training",
     "Online Teaching Practices Certificate", "First Aid & CPR"
-  ];
-
-  const education = [
-    { degree: "M.Ed., University of Liverpool John Moores", status: "Ongoing" },
-    { degree: "B.Ed., Nairobi", status: "Completed" }
   ];
 
   const teachingSkills = [
@@ -308,622 +295,244 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 relative" style={{ 
-      background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #f0e6d2 100%)`,
-      backgroundAttachment: 'fixed'
+    <div className="min-h-screen font-['Inter']" style={{ 
+      backgroundColor: COLORS.CREAM
     }}>
-      {/* Decorative floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-        <div className="absolute bottom-20 sm:bottom-40 right-10 sm:right-20 w-28 h-28 sm:w-48 sm:h-48 rounded-full animate-pulse" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-        <div className="absolute top-1/2 left-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full animate-pulse" style={{ backgroundColor: COLORS.GOLD }}></div>
-      </div>
+      {/* HEADER SECTION */}
+      <header className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-6 sm:pb-8">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: COLORS.GOLD }}></div>
+          <div className="absolute bottom-10 right-10 w-28 h-28 sm:w-48 sm:h-48 rounded-full animate-pulse" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
+          <div className="absolute top-1/2 left-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full animate-pulse" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+        </div>
 
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-12 md:py-16 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          
-          {/* Enhanced Header */}
-          <div className="text-center mb-8 sm:mb-12 md:mb-16 relative px-2 sm:px-4">
-            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-4 sm:mb-5 md:mb-6 shadow-2xl bg-gradient-to-br from-blue-400 to-blue-600 animate-bounce">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-4 sm:mb-5 shadow-xl bg-gradient-to-br from-blue-400 to-blue-600">
               <Brain className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-              <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-              <span className="break-words">Professional Skills & Expertise</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 sm:mb-4" style={{ color: COLORS.BRONZE_DARK }}>
+              Professional Skills & Expertise
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
+            <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
               Comprehensive skill set cultivated through years of dedication to educational excellence and continuous professional growth
             </p>
             
-            {/* Decorative line */}
             <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
               <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
               <Zap className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
               <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
             </div>
           </div>
+        </div>
+      </header>
 
-          {/* Stats Overview */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12 md:mb-16">
-            <StatsCard value="12+" label="Core Skills" icon={Target} color={COLORS.BRONZE_LIGHT} />
-            <StatsCard value="3" label="Languages" icon={Languages} color={COLORS.FOREST_GREEN} />
-            <StatsCard value="5+" label="Tech Tools" icon={Monitor} color={COLORS.GOLD} />
-            <StatsCard value="4+" label="Certifications" icon={Award} color={COLORS.BRONZE_DARK} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+        {/* Stats Overview */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12 md:mb-16">
+          <StatsCard value="13+" label="Core Skills" icon={Target} color={COLORS.BRONZE_LIGHT} />
+          <StatsCard value="3" label="Languages" icon={Languages} color={COLORS.FOREST_GREEN} />
+          <StatsCard value="6+" label="Tech Tools" icon={Monitor} color={COLORS.GOLD} />
+          <StatsCard value="4+" label="Certifications" icon={Award} color={COLORS.BRONZE_DARK} />
+        </div>
+
+        {/* Skill Categories Overview */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-12">
+          <SkillCategoryCard
+            title="Teaching Excellence"
+            description="Core pedagogical competencies"
+            icon={BookOpen}
+            color={COLORS.BRONZE_LIGHT}
+            skills={teachingSkills}
+          />
+          <SkillCategoryCard
+            title="Leadership & Management"
+            description="Guiding teams to success"
+            icon={Users}
+            color={COLORS.FOREST_GREEN}
+            skills={leadershipSkills}
+          />
+          <SkillCategoryCard
+            title="Technical Proficiency"
+            description="Modern educational tools"
+            icon={Monitor}
+            color={COLORS.GOLD}
+            skills={technicalSkills}
+          />
+        </div>
+
+        {/* Key Competencies */}
+        <Card className="mb-8 sm:mb-12 bg-white relative overflow-hidden border-2" style={{ borderColor: COLORS.BEIGE }}>
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full"
+                 style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
           </div>
 
-          {/* Skill Categories Overview */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
-            <SkillCategoryCard
-              title="Teaching Excellence"
-              description="Core pedagogical competencies"
-              icon={BookOpen}
-              color={COLORS.BRONZE_LIGHT}
-              skills={teachingSkills}
-            />
-            <SkillCategoryCard
-              title="Leadership & Management"
-              description="Guiding teams to success"
-              icon={Users}
-              color={COLORS.FOREST_GREEN}
-              skills={leadershipSkills}
-            />
-            <SkillCategoryCard
-              title="Technical Proficiency"
-              description="Modern educational tools"
-              icon={Monitor}
-              color={COLORS.GOLD}
-              skills={technicalSkills}
-            />
-          </div>
-
-          {/* Key Competencies - Enhanced */}
-          <Card className="mb-8 sm:mb-10 md:mb-12 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full" 
-                   style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+          <CardHeader style={{ borderColor: COLORS.BEIGE }}>
+            <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-4">
+              <CardTitle className="flex items-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+                <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg bg-gradient-to-br from-purple-400 to-purple-600 flex-shrink-0">
+                  <Brain className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
+                </div>
+                <span className="break-words">Key Competencies</span>
+              </CardTitle>
+              <Badge className="text-white shadow-md text-xs" style={{ backgroundColor: COLORS.BRONZE_DARK }}>
+                <CheckCircle className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
+                {competencies.length} Essential Skills
+              </Badge>
             </div>
+            <p className="text-xs sm:text-sm text-gray-600 mt-2">
+              A comprehensive toolkit for modern educational excellence
+            </p>
+          </CardHeader>
 
-            <CardHeader className="relative z-10">
-              <div className="flex items-center justify-between flex-wrap gap-3 sm:gap-4">
-                <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg bg-gradient-to-br from-purple-400 to-purple-600 flex-shrink-0">
-                    <Brain className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                  </div>
-                  <span className="break-words">Key Competencies</span>
-                </CardTitle>
-                <Badge className="text-white shadow-md text-xs" style={{ backgroundColor: COLORS.BRONZE_DARK }}>
-                  <CheckCircle className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
-                  {competencies.length} Essential Skills
-                </Badge>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
+              {competencies.map((competency, index) => (
+                <CompetencyCard
+                  key={index}
+                  {...competency}
+                  index={index}
+                />
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Languages & Tech Skills */}
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          {/* Languages */}
+          <Card className="bg-white border-2" style={{ borderColor: COLORS.BEIGE }}>
+            <CardHeader style={{ borderColor: COLORS.BEIGE }}>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-2 sm:p-2.5 rounded-full shadow-md bg-gradient-to-br from-blue-400 to-blue-600 flex-shrink-0">
+                  <Languages className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <CardTitle className="text-base sm:text-lg md:text-xl" style={{ color: COLORS.BRONZE_DARK }}>
+                    Language Proficiency
+                  </CardTitle>
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1">Multilingual communication skills</p>
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                A comprehensive toolkit for modern educational excellence
-              </p>
             </CardHeader>
-            
-            <CardContent className="relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                {competencies.map((skill, index) => (
-                  <CompetencyCard key={index} name={skill.name} icon={skill.icon} index={index} />
+            <CardContent>
+              <div className="space-y-3 sm:space-y-4">
+                {languages.map((lang, index) => (
+                  <LanguageCard key={index} {...lang} />
                 ))}
               </div>
             </CardContent>
           </Card>
 
-          {/* Languages & Tech Skills Grid */}
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
-            
-            {/* Languages - Enhanced */}
-            <Card className="bg-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-              </div>
-
-              <CardHeader className="relative z-10">
-                <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg flex-shrink-0" style={{ backgroundColor: COLORS.FOREST_GREEN }}>
-                    <Languages className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                  </div>
-                  <span>Languages</span>
-                </CardTitle>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                  Multilingual capabilities for diverse educational contexts
-                </p>
-              </CardHeader>
-              
-              <CardContent className="relative z-10">
-                <div className="space-y-3 sm:space-y-4">
-                  {languages.map((lang, index) => (
-                    <LanguageCard key={index} {...lang} />
-                  ))}
+          {/* Tech Skills */}
+          <Card className="bg-white border-2" style={{ borderColor: COLORS.BEIGE }}>
+            <CardHeader style={{ borderColor: COLORS.BEIGE }}>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-2 sm:p-2.5 rounded-full shadow-md bg-gradient-to-br from-green-400 to-green-600 flex-shrink-0">
+                  <Monitor className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
-
-                {/* Language highlight */}
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 border-dashed" 
-                     style={{ borderColor: COLORS.FOREST_GREEN, backgroundColor: `${COLORS.FOREST_GREEN}10` }}>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <Globe className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
-                    <div>
-                      <p className="font-bold text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Global Communication</p>
-                      <p className="text-xs sm:text-sm text-gray-600">Connecting with diverse student communities worldwide</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Technology Skills - Enhanced */}
-            <Card className="bg-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-              </div>
-
-              <CardHeader className="relative z-10">
-                <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg flex-shrink-0" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}>
-                    <Monitor className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                  </div>
-                  <span>Technology Skills</span>
-                </CardTitle>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                  Modern tools for enhanced learning experiences
-                </p>
-              </CardHeader>
-              
-              <CardContent className="relative z-10">
-                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                  {techSkills.map((tech, index) => (
-                    <TechSkillBadge key={index} tech={tech} index={index} />
-                  ))}
-                </div>
-
-                {/* Tech proficiency breakdown */}
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs sm:text-sm flex-wrap gap-2">
-                    <span className="font-medium text-gray-700">Digital Platforms</span>
-                    <Badge style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20`, color: COLORS.BRONZE_DARK }} className="text-xs">
-                      Expert
-                    </Badge>
-                  </div>
-                  <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: '95%', backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-xs sm:text-sm flex-wrap gap-2">
-                    <span className="font-medium text-gray-700">Math Software</span>
-                    <Badge style={{ backgroundColor: `${COLORS.FOREST_GREEN}20`, color: COLORS.FOREST_GREEN }} className="text-xs">
-                      Advanced
-                    </Badge>
-                  </div>
-                  <div className="w-full h-1.5 sm:h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full rounded-full" style={{ width: '90%', backgroundColor: COLORS.FOREST_GREEN }}></div>
-                  </div>
-                </div>
-
-                {/* Tech highlight */}
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 border-dashed" 
-                     style={{ borderColor: COLORS.BRONZE_LIGHT, backgroundColor: `${COLORS.BRONZE_LIGHT}10` }}>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <Zap className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.BRONZE_LIGHT }} />
-                    <div>
-                      <p className="font-bold text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Tech-Enhanced Learning</p>
-                      <p className="text-xs sm:text-sm text-gray-600">Integrating digital tools for maximum engagement</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Certifications & Education Grid */}
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
-            {/* Certifications - Enhanced */}
-            <Card className="bg-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-              </div>
-
-              <CardHeader className="relative z-10">
-                <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex-shrink-0">
-                    <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                  </div>
-                  <span>Certifications</span>
-                </CardTitle>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                  Professional credentials and specialized training
-                </p>
-              </CardHeader>
-              
-              <CardContent className="relative z-10">
-                <div className="space-y-2 sm:space-y-3">
-                  {certifications.map((cert, index) => (
-                    <CertificationItem key={index} cert={cert} index={index} />
-                  ))}
-                </div>
-
-                {/* Certification stats */}
-                <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2 sm:gap-3">
-                  <div className="text-center p-2 sm:p-3 rounded-lg" style={{ backgroundColor: `${COLORS.GOLD}10` }}>
-                    <Trophy className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-1" style={{ color: COLORS.GOLD }} />
-                    <div className="text-xs font-medium text-gray-700 break-words">IB Certified</div>
-                  </div>
-                  <div className="text-center p-2 sm:p-3 rounded-lg" style={{ backgroundColor: `${COLORS.FOREST_GREEN}10` }}>
-                    <Shield className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-1" style={{ color: COLORS.FOREST_GREEN }} />
-                    <div className="text-xs font-medium text-gray-700">Verified</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Education - Enhanced */}
-            <Card className="bg-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 pointer-events-none">
-                <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.BRONZE_DARK }}></div>
-              </div>
-
-              <CardHeader className="relative z-10">
-                <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg flex-shrink-0" style={{ backgroundColor: COLORS.BRONZE_DARK }}>
-                    <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                  </div>
-                  <span>Education</span>
-                </CardTitle>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                  Academic foundation in educational excellence
-                </p>
-              </CardHeader>
-              
-              <CardContent className="relative z-10">
-                <div className="space-y-3 sm:space-y-4">
-                  {education.map((edu, index) => (
-                    <div key={index} className="p-3 sm:p-4 border-l-4 rounded-r-xl hover:bg-gray-50 transition-colors group" 
-                         style={{ borderColor: COLORS.BRONZE_DARK }}>
-                      <div className="flex items-start gap-2 sm:gap-3">
-                        <div className="p-1.5 sm:p-2 rounded-full group-hover:scale-110 transition-transform flex-shrink-0" 
-                             style={{ backgroundColor: `${COLORS.BRONZE_DARK}20` }}>
-                          <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.BRONZE_DARK }} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <span className="font-semibold block text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>{edu.degree}</span>
-                          <Badge 
-                            className="mt-2 text-white text-xs" 
-                            style={{ backgroundColor: edu.status === "Ongoing" ? COLORS.FOREST_GREEN : COLORS.FOREST_GREEN }}
-                          >
-                            <CheckCircle className="h-3 w-3 mr-1" />
-                            {edu.status}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Education highlight */}
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 border-dashed" 
-                     style={{ borderColor: COLORS.BRONZE_DARK, backgroundColor: `${COLORS.BRONZE_DARK}10` }}>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <Rocket className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.BRONZE_DARK }} />
-                    <div className="min-w-0">
-                      <p className="font-bold text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Continuous Learning</p>
-                      <p className="text-xs sm:text-sm text-gray-600">Committed to lifelong professional development</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Skill Development Journey */}
-          <Card className="mb-8 sm:mb-10 md:mb-12 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-0 right-0 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-            </div>
-
-            <CardContent className="p-4 sm:p-6 md:p-8 relative z-10">
-              <div className="text-center mb-6 sm:mb-8">
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-3 sm:mb-4 shadow-lg bg-gradient-to-br from-green-400 to-green-600">
-                  <TrendingUp className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-3 sm:mb-4 break-words" style={{ color: COLORS.BRONZE_DARK }}>
-                  Professional Development Journey
-                </h2>
-                <p className="text-xs sm:text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
-                  A commitment to continuous growth and skill enhancement throughout my career
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-                <div className="text-center p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.BRONZE_LIGHT}30`, backgroundColor: 'white' }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full w-fit mx-auto mb-2 sm:mb-3" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-                    <BookOpen className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: COLORS.BRONZE_LIGHT }} />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold mb-2 break-words" style={{ color: COLORS.BRONZE_DARK }}>Continuous Learning</h3>
-                  <p className="text-xs sm:text-sm text-gray-700">Actively pursuing new methodologies and educational innovations</p>
-                </div>
-
-                <div className="text-center p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.FOREST_GREEN}30`, backgroundColor: 'white' }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full w-fit mx-auto mb-2 sm:mb-3" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                    <Users className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: COLORS.FOREST_GREEN }} />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold mb-2 break-words" style={{ color: COLORS.BRONZE_DARK }}>Collaborative Growth</h3>
-                  <p className="text-xs sm:text-sm text-gray-700">Learning from peers and mentoring future educators</p>
-                </div>
-
-                <div className="text-center p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1" 
-                     style={{ borderColor: `${COLORS.GOLD}30`, backgroundColor: 'white' }}>
-                  <div className="p-2 sm:p-2.5 md:p-3 rounded-full w-fit mx-auto mb-2 sm:mb-3" style={{ backgroundColor: `${COLORS.GOLD}20` }}>
-                    <Target className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: COLORS.GOLD }} />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold mb-2 break-words" style={{ color: COLORS.BRONZE_DARK }}>Goal-Oriented</h3>
-                  <p className="text-xs sm:text-sm text-gray-700">Setting and achieving ambitious professional objectives</p>
+                <div className="flex-1 min-w-0">
+                  <CardTitle className="text-base sm:text-lg md:text-xl" style={{ color: COLORS.BRONZE_DARK }}>
+                    Technical Skills
+                  </CardTitle>
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1">Educational technology proficiency</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Skills in Action */}
-          <Card className="mb-8 sm:mb-10 md:mb-12 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-1/2 left-1/4 w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-            </div>
-
-            <CardHeader className="relative z-10">
-              <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg bg-gradient-to-br from-green-400 to-green-600 flex-shrink-0">
-                  <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                </div>
-                <span>Skills in Action</span>
-              </CardTitle>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                Real-world application of expertise in educational settings
-              </p>
             </CardHeader>
-
-            <CardContent className="relative z-10">
-              <div className="grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
-                <div className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-2 hover:shadow-lg transition-all" 
-                     style={{ borderColor: `${COLORS.BRONZE_LIGHT}30` }}>
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-                      <Users className="h-5 w-5 sm:h-6 sm:w-6" style={{ color: COLORS.BRONZE_LIGHT }} />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-bold mb-2 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Classroom Leadership</h4>
-                      <p className="text-xs sm:text-sm text-gray-700 mb-3">
-                        Leading diverse classrooms with cultural sensitivity and innovative teaching approaches
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20`, color: COLORS.BRONZE_DARK }}>
-                          IB Curriculum
-                        </Badge>
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20`, color: COLORS.BRONZE_DARK }}>
-                          Cambridge
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-2 hover:shadow-lg transition-all" 
-                     style={{ borderColor: `${COLORS.FOREST_GREEN}30` }}>
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
-                      <Monitor className="h-5 w-5 sm:h-6 sm:w-6" style={{ color: COLORS.FOREST_GREEN }} />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-bold mb-2 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Technology Integration</h4>
-                      <p className="text-xs sm:text-sm text-gray-700 mb-3">
-                        Leveraging educational technology to create engaging and effective learning experiences
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20`, color: COLORS.FOREST_GREEN }}>
-                          LMS Expert
-                        </Badge>
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20`, color: COLORS.FOREST_GREEN }}>
-                          Digital Tools
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-2 hover:shadow-lg transition-all" 
-                     style={{ borderColor: `${COLORS.GOLD}30` }}>
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0" style={{ backgroundColor: `${COLORS.GOLD}20` }}>
-                      <Brain className="h-5 w-5 sm:h-6 sm:w-6" style={{ color: COLORS.GOLD }} />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-bold mb-2 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Data-Driven Decisions</h4>
-                      <p className="text-xs sm:text-sm text-gray-700 mb-3">
-                        Using analytics and assessment data to inform instruction and improve student outcomes
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.GOLD}20`, color: COLORS.GOLD }}>
-                          SPSS
-                        </Badge>
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.GOLD}20`, color: COLORS.GOLD }}>
-                          Excel Analytics
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border-2 hover:shadow-lg transition-all" 
-                     style={{ borderColor: `${COLORS.BRONZE_DARK}30` }}>
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="p-2 sm:p-2.5 md:p-3 rounded-full flex-shrink-0" style={{ backgroundColor: `${COLORS.BRONZE_DARK}20` }}>
-                      <Globe className="h-5 w-5 sm:h-6 sm:w-6" style={{ color: COLORS.BRONZE_DARK }} />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-bold mb-2 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Global Perspective</h4>
-                      <p className="text-xs sm:text-sm text-gray-700 mb-3">
-                        Bringing international experience and multicultural awareness to every classroom
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_DARK}20`, color: COLORS.BRONZE_DARK }}>
-                          2 Languages
-                        </Badge>
-                        <Badge className="text-xs" style={{ backgroundColor: `${COLORS.BRONZE_DARK}20`, color: COLORS.BRONZE_DARK }}>
-                          Cultural Competence
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <CardContent>
+              <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                {techSkills.map((tech, index) => (
+                  <TechSkillBadge key={index} tech={tech} index={index} />
+                ))}
               </div>
             </CardContent>
           </Card>
-
-          {/* Professional Growth Timeline */}
-          <Card className="mb-8 sm:mb-10 md:mb-12 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-            </div>
-
-            <CardHeader className="relative z-10">
-              <CardTitle className="flex items-center flex-wrap gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                <div className="p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg bg-gradient-to-br from-orange-400 to-orange-600 flex-shrink-0">
-                  <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
-                </div>
-                <span>Professional Growth Timeline</span>
-              </CardTitle>
-            </CardHeader>
-
-            <CardContent className="relative z-10">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex gap-3 sm:gap-4 group">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" 
-                         style={{ backgroundColor: COLORS.GOLD }}>
-                      <Star className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <div className="w-1 h-full bg-gray-200 mt-2"></div>
-                  </div>
-                  <div className="flex-1 pb-6 sm:pb-8 min-w-0">
-                    <Badge className="mb-2 text-white text-xs" style={{ backgroundColor: COLORS.GOLD }}>
-                      2014 - 2018
-                    </Badge>
-                    <h4 className="font-bold mb-1 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Foundation Building</h4>
-                    <p className="text-xs sm:text-sm text-gray-700">Bachelor's degree and initial teaching experience in Kenya</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 sm:gap-4 group">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" 
-                         style={{ backgroundColor: COLORS.FOREST_GREEN }}>
-                      <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <div className="w-1 h-full bg-gray-200 mt-2"></div>
-                  </div>
-                  <div className="flex-1 pb-6 sm:pb-8 min-w-0">
-                    <Badge className="mb-2 text-white text-xs" style={{ backgroundColor: COLORS.FOREST_GREEN }}>
-                      2019 - 2022
-                    </Badge>
-                    <h4 className="font-bold mb-1 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>International Experience</h4>
-                    <p className="text-xs sm:text-sm text-gray-700">Teaching IB and Cambridge curricula, professional certifications</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 sm:gap-4 group">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" 
-                         style={{ backgroundColor: COLORS.BRONZE_LIGHT }}>
-                      <Rocket className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <div className="w-1 h-full bg-gray-200 mt-2"></div>
-                  </div>
-                  <div className="flex-1 pb-6 sm:pb-8 min-w-0">
-                    <Badge className="mb-2 text-white text-xs" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}>
-                      2023 - Present
-                    </Badge>
-                    <h4 className="font-bold mb-1 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Leadership & Advanced Studies</h4>
-                    <p className="text-xs sm:text-sm text-gray-700">Master's program, House Coordinator, MUN Faculty Advisor</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 sm:gap-4 group">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" 
-                         style={{ backgroundColor: COLORS.BRONZE_DARK }}>
-                      <Flag className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <Badge className="mb-2 text-white text-xs" style={{ backgroundColor: COLORS.BRONZE_DARK }}>
-                      Future
-                    </Badge>
-                    <h4 className="font-bold mb-1 text-sm sm:text-base break-words" style={{ color: COLORS.BRONZE_DARK }}>Continuing Excellence</h4>
-                    <p className="text-xs sm:text-sm text-gray-700">Committed to lifelong learning and educational innovation</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* CTA Section - Enhanced */}
-          <Card className="bg-gradient-to-br from-white to-gray-50 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-              <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-            </div>
-
-            <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 text-center relative z-10">
-              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-4 sm:mb-5 md:mb-6 shadow-xl bg-gradient-to-br from-purple-400 to-purple-600">
-                <FileText className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
-              </div>
-
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-                <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-                <span className="break-words">Ready to Explore My Full Profile?</span>
-              </h3>
-              <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
-                Discover how my comprehensive skill set can contribute to your educational institution's success
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <a
-                  href="/MAUTIA%20ELIUD%20RESUME.pdf"
-                  download
-                  className="text-white hover:scale-105 transition-transform flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl shadow-xl group font-semibold text-sm sm:text-base"
-                  style={{ backgroundColor: COLORS.BRONZE_DARK }}
-                >
-                  <Download className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
-                  <span className="whitespace-nowrap">Download Resume</span>
-                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                </a>
-              </div>
-
-              {/* Additional info */}
-              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md">
-                  <Shield className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Verified Credentials</span>
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md">
-                  <Trophy className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Award-Winning Educator</span>
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md">
-                  <Users className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_DARK }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Team Leader</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
         </div>
+
+        {/* Certifications */}
+        <Card className="mb-8 sm:mb-12 bg-white border-2" style={{ borderColor: COLORS.BEIGE }}>
+          <CardHeader style={{ borderColor: COLORS.BEIGE }}>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="p-2 sm:p-2.5 rounded-full shadow-md bg-gradient-to-br from-yellow-400 to-orange-500 flex-shrink-0">
+                <Award className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <CardTitle className="text-base sm:text-lg md:text-xl" style={{ color: COLORS.BRONZE_DARK }}>
+                  Professional Certifications
+                </CardTitle>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1">Recognized credentials and achievements</p>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {certifications.map((cert, index) => (
+                <div key={index} 
+                     className="flex items-center gap-3 p-3 sm:p-4 rounded-lg border-2 hover:shadow-lg transition-all"
+                     style={{ borderColor: `${COLORS.GOLD}30`, backgroundColor: `${COLORS.GOLD}5` }}>
+                  <div className="p-2 rounded-full flex-shrink-0" style={{ backgroundColor: COLORS.GOLD }}>
+                    <Trophy className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="text-sm sm:text-base font-medium text-gray-800 break-words">{cert}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* CTA Section */}
+        <Card className="bg-gradient-to-br from-white to-gray-50 relative overflow-hidden shadow-2xl border-2" style={{ borderColor: COLORS.BEIGE }}>
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+            <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
+          </div>
+
+          <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 text-center relative z-10">
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-4 sm:mb-5 md:mb-6 shadow-xl bg-gradient-to-br from-purple-400 to-purple-600">
+              <FileText className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+            </div>
+
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+              <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+              <span className="break-words">Ready to Explore My Full Profile?</span>
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
+              Discover how my comprehensive skill set can contribute to your educational institution's success
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <a
+                href="/MAUTIA%20ELIUD%20RESUME.pdf"
+                download
+                className="text-white hover:scale-105 transition-transform flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl shadow-xl group font-semibold text-sm sm:text-base"
+                style={{ backgroundColor: COLORS.BRONZE_DARK }}
+              >
+                <Download className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
+                <span className="whitespace-nowrap">Download Resume</span>
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </a>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Shield className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Verified Credentials</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Trophy className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Award-Winning Educator</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Users className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_DARK }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Team Leader</span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
 };
 
 export default Skills;
-
-
