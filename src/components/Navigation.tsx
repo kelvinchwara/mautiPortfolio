@@ -67,43 +67,12 @@ const Navigation = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Link 
-                  key={item.path} 
-                  to={item.path} 
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  <Button
-                    variant={isActive(item.path) ? "default" : "ghost"}
-                    className={`flex items-center gap-2 text-white hover:bg-white/20 hover:text-white transition-all duration-200 border-2 border-transparent hover:border-white/30 ${
-                      isActive(item.path) ? 'bg-white text-gray-800 shadow-lg scale-105' : ''
-                    }`}
-                  >
-                    {item.icon}
-                    <span>{item.label}</span>
-                  </Button>
-                </Link>
-              ))}
-            </div>
-
-            {/* Desktop Action Buttons */}
-            <div className="hidden lg:flex items-center gap-3">
-              <Button
-                className="flex items-center gap-2 text-white bg-white/20 hover:bg-white/30 border-2 border-white/30 hover:border-white/50 transition-all duration-200 hover:scale-105"
-                onClick={() => window.open('/MAUTIA%20ELIUD%20RESUME.pdf', '_blank')}
-              >
-                <Download className="h-4 w-4" />
-                <span className="hidden sm:inline">Resume</span>
-              </Button>
-            </div>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="sm"
-              className="lg:hidden text-white hover:bg-white/20 hover:text-white transition-all duration-200 border-2 border-white/30"
+              className="text-white hover:bg-white/20 hover:text-white transition-all duration-200 border-2 border-white/30"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -115,7 +84,7 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm animate-fadeIn"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm animate-fadeIn"
           onClick={() => setIsOpen(false)}
         >
           <div 
@@ -202,7 +171,7 @@ const Navigation = () => {
                     </Button>
                   </Link>
                   <Button
-                    className="w-full flex items-center justify-center gap-2 text-white bg-white hover:bg-gray-100 hover:text-gray-800 transition-all duration-200 shadow-lg"
+                    className="w-full flex items-center justify-center gap-2 text-white bg-white/20 border-2 border-white/30 shadow-lg"
                     onClick={() => {
                       window.open('/MAUTIA%20ELIUD%20RESUME.pdf', '_blank');
                       setIsOpen(false);
@@ -242,8 +211,18 @@ const Navigation = () => {
             {/* Mobile Footer */}
             <div className="sticky bottom-0 p-4 border-t-2 border-white/20 backdrop-blur-sm bg-gradient-to-r from-transparent to-white/10">
               <div className="text-center text-xs text-white/70">
-                <div className="mb-1">© Eliud Mautia 2025</div>
-                <div>Designed by Kelvin Chwara</div>
+                <div className="mb-1">© Eliud Mautia 2026 All Rights Reserved</div>
+                <div className="flex items-center justify-center gap-1">
+                  <span>Designed by</span>
+                  <a 
+                    href="https://wa.me/254791639902?text=Hello%20Kelvin%20sagini,%20i%20need%20your%20website%20services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:text-white transition-colors underline hover:no-underline"
+                  >
+                    One-Tech Solutions Ltd
+                  </a>
+                </div>
               </div>
             </div>
           </div>

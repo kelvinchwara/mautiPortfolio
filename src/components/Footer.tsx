@@ -92,11 +92,6 @@ const FOOTER_DATA = {
     { icon: Coffee, text: 'Passionate About Mathematics' },
   ],
 
-  legal: [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Sitemap', href: '#' },
-  ],
 };
 
 // ============================================================================
@@ -160,11 +155,11 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, href, children }) => {
   const content = (
-    <div className="flex items-center gap-3 text-gray-100 hover:text-white transition-all duration-300 group py-2">
-      <div className="p-2 rounded-lg bg-white/10 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
-        <Icon className="h-4 w-4" />
+    <div className="flex items-center gap-2 sm:gap-3 text-gray-100 hover:text-white transition-all duration-300 group py-1 sm:py-2">
+      <div className="p-1.5 sm:p-2 rounded-lg bg-white/10 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+        <Icon className="h-3 sm:h-4 w-3 sm:w-4" />
       </div>
-      <span className="text-sm">{children}</span>
+      <span className="text-xs sm:text-sm break-all">{children}</span>
     </div>
   );
 
@@ -204,11 +199,11 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ icon: Icon, value, label }) => (
-  <div className="text-center p-4 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 group border border-white/10">
-    <div className="flex justify-center mb-2 group-hover:scale-110 transition-transform">
-      <Icon className="h-6 w-6 text-white" />
+  <div className="text-center p-2 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 group border border-white/10">
+    <div className="flex justify-center mb-1 sm:mb-2 group-hover:scale-110 transition-transform">
+      <Icon className="h-4 sm:h-6 w-4 sm:w-6 text-white" />
     </div>
-    <div className="text-2xl font-bold text-white mb-1">{value}</div>
+    <div className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">{value}</div>
     <div className="text-xs text-gray-200">{label}</div>
   </div>
 );
@@ -216,41 +211,42 @@ const StatCard: React.FC<StatCardProps> = ({ icon: Icon, value, label }) => (
 // Profile Section Component
 const ProfileSection = () => (
   <div className="lg:col-span-1">
-    <div className="flex items-center gap-3 mb-4">
+    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
       <div 
-        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30"
+        className="w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30 flex-shrink-0"
         style={{ background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK}, ${COLORS.FOREST_GREEN})` }}
       >
-        <GraduationCap className="h-7 w-7 text-white" />
+        <GraduationCap className="h-5 sm:h-7 w-5 sm:w-7 text-white" />
       </div>
-      <div>
-        <h3 className="text-xl font-bold text-white">{FOOTER_DATA.profile.name}</h3>
+      <div className="min-w-0">
+        <h3 className="text-base sm:text-xl font-bold text-white">{FOOTER_DATA.profile.name}</h3>
         <div className="flex items-center gap-1 text-xs text-gray-200">
-          <Sparkles className="h-3 w-3" />
-          <span>{FOOTER_DATA.profile.title}</span>
+          <Sparkles className="h-3 w-3 flex-shrink-0" />
+          <span className="truncate">{FOOTER_DATA.profile.title}</span>
         </div>
       </div>
     </div>
     
-    <p className="text-gray-100 text-sm mb-4 leading-relaxed">
+    <p className="text-gray-100 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
       {FOOTER_DATA.profile.description}
     </p>
 
     {/* Achievement Badges */}
-    <div className="flex flex-wrap gap-2 mb-4">
+    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
       {FOOTER_DATA.profile.badges.map((badge, idx) => (
         <div 
           key={idx}
-          className="px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs font-medium text-white flex items-center gap-1.5 border border-white/20"
+          className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs font-medium text-white flex items-center gap-1 sm:gap-1.5 border border-white/20 text-nowrap"
         >
-          <badge.icon className="h-3 w-3" />
-          {badge.label}
+          <badge.icon className="h-3 w-3 flex-shrink-0" />
+          <span className="hidden sm:inline">{badge.label}</span>
+          <span className="sm:hidden">{badge.label.substring(0, 1)}</span>
         </div>
       ))}
     </div>
 
     {/* Social Links */}
-    <div className="flex gap-3">
+    <div className="flex gap-2 sm:gap-3">
       {FOOTER_DATA.socialLinks.map((social, idx) => (
         <SocialButton key={idx} {...social} />
       ))}
@@ -261,11 +257,11 @@ const ProfileSection = () => (
 // Quick Links Section
 const QuickLinksSection = () => (
   <div>
-    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <Zap className="h-5 w-5" style={{ color: COLORS.GOLD }} />
-      Quick Links
+    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
+      <Zap className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+      <span className="text-nowrap">Quick Links</span>
     </h3>
-    <ul className="space-y-1 text-sm">
+    <ul className="space-y-1 text-xs sm:text-sm">
       {FOOTER_DATA.quickLinks.map((link) => (
         <li key={link.name}>
           <FooterLink to={link.to} icon={link.icon}>
@@ -280,11 +276,11 @@ const QuickLinksSection = () => (
 // Resources Section
 const ResourcesSection = () => (
   <div>
-    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <BookOpen className="h-5 w-5" style={{ color: COLORS.GOLD }} />
-      Resources
+    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
+      <BookOpen className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+      <span className="text-nowrap">Resources</span>
     </h3>
-    <ul className="space-y-1 text-sm mb-6">
+    <ul className="space-y-1 text-xs sm:text-sm mb-3 sm:mb-6">
       {FOOTER_DATA.resources.map((link) => (
         <li key={link.name}>
           <FooterLink to={link.to} icon={link.icon}>
@@ -295,37 +291,16 @@ const ResourcesSection = () => (
     </ul>
 
     {/* Download Resume Button */}
-    <div className="mb-4">
+    <div className="mb-3 sm:mb-4">
       <a
         href="/MAUTIA%20ELIUD%20RESUME.pdf"
         download
-        className="flex items-center gap-2 px-4 py-3 bg-white text-gray-800 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg text-sm font-semibold group border border-white/30"
+        className="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-white text-gray-800 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg text-xs sm:text-sm font-semibold group border border-white/30"
       >
-        <Download className="h-4 w-4 group-hover:animate-bounce" />
-        Download CV
-        <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+        <Download className="h-3 sm:h-4 w-3 sm:w-4 group-hover:animate-bounce" />
+        <span className="sm:inline">Download CV</span>
+        <span className="hidden sm:inline"><ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></span>
       </a>
-    </div>
-
-    {/* Newsletter Signup */}
-    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-      <h4 className="text-white font-semibold text-sm mb-2 flex items-center gap-2">
-        <Send className="h-4 w-4" />
-        Stay Updated
-      </h4>
-      <div className="flex gap-2">
-        <input
-          type="email"
-          placeholder="Your email"
-          className="flex-1 px-3 py-2 rounded bg-white/20 text-white placeholder-gray-300 text-sm border border-white/20 focus:outline-none focus:border-white/40"
-        />
-        <button 
-          className="px-3 py-2 rounded text-white text-sm font-medium transition-all hover:scale-105"
-          style={{ backgroundColor: COLORS.FOREST_GREEN }}
-        >
-          <Send className="h-4 w-4" />
-        </button>
-      </div>
     </div>
   </div>
 );
@@ -333,11 +308,11 @@ const ResourcesSection = () => (
 // Contact Section
 const ContactSection = () => (
   <div>
-    <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <MessageCircle className="h-5 w-5" style={{ color: COLORS.GOLD }} />
-      Get in Touch
+    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
+      <MessageCircle className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+      <span className="text-nowrap">Get in Touch</span>
     </h3>
-    <div className="space-y-3 mb-6">
+    <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-6">
       <ContactItem icon={Mail} href={`mailto:${FOOTER_DATA.contact.email}`}>
         {FOOTER_DATA.contact.email}
       </ContactItem>
@@ -351,26 +326,6 @@ const ContactSection = () => (
         {FOOTER_DATA.contact.availability}
       </ContactItem>
     </div>
-
-    {/* Quick Contact Form */}
-    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-      <h4 className="text-white font-semibold text-sm mb-3 flex items-center gap-2">
-        <MessageCircle className="h-4 w-4" />
-        Quick Message
-      </h4>
-      <textarea
-        placeholder="Type your message..."
-        className="w-full px-3 py-2 rounded bg-white/20 text-white placeholder-gray-300 text-sm border border-white/20 focus:outline-none focus:border-white/40 mb-2 resize-none"
-        rows={3}
-      />
-      <button 
-        className="w-full px-4 py-2 rounded-lg text-white text-sm font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2"
-        style={{ backgroundColor: COLORS.BRONZE_LIGHT }}
-      >
-        <Send className="h-4 w-4" />
-        Send Message
-      </button>
-    </div>
   </div>
 );
 
@@ -378,44 +333,39 @@ const ContactSection = () => (
 
 // Bottom Bar Component
 const BottomBar = () => (
-  <div className="pt-8">
-    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-      <div className="flex flex-col items-center md:items-start gap-2">
-        <div className="flex items-center gap-2 text-gray-200 text-sm">
+  <div className="pt-6 sm:pt-8">
+    <div className="flex flex-col gap-4 sm:gap-6 items-center">
+      {/* Copyright and Designer Credit - Centered */}
+      <div className="flex flex-col items-center gap-1 sm:gap-2 text-center">
+        <div className="flex items-center gap-1 text-gray-200 text-xs sm:text-sm">
           <span>© Eliud Mautia 2026 All Rights Reserved</span>
         </div>
 
-        {/* Designer Credit */}
-        <div className="flex items-center gap-2 text-gray-300 text-xs">
-          <Palette className="h-3 w-3" style={{ color: COLORS.GOLD }} />
+        {/* Designer Credit - WhatsApp Link */}
+        <div className="flex items-center gap-1 sm:gap-2 text-gray-300 text-xs">
+          <Palette className="h-3 w-3 flex-shrink-0" style={{ color: COLORS.GOLD }} />
           <span>Designed by</span>
-          <span className="font-semibold hover:text-white transition-colors">
+          <a 
+            href="https://wa.me/254791639902?text=Hello%20Kelvin%20sagini,%20i%20need%20your%20website%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold hover:text-white transition-colors cursor-pointer underline hover:no-underline"
+          >
             One-Tech Solutions Ltd
-          </span>
+          </a>
         </div>
       </div>
 
-      {/* Legal Links - Hidden on very small screens */}
-      <div className="hidden sm:flex gap-4 text-sm">
-        {FOOTER_DATA.legal.map((item, idx) => (
-          <a
-            key={idx}
-            href={item.href}
-            className="text-gray-300 hover:text-white transition-colors"
-          >
-            {item.name}
-          </a>
-        ))}
-      </div>
-
       {/* Back to Top */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white text-sm font-medium border border-white/20 hover:scale-105"
-      >
-        <ArrowRight className="h-4 w-4 rotate-[-90deg]" />
-        <span className="hidden sm:inline">Back to Top</span>
-      </button>
+      <div className="flex justify-center">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white text-xs sm:text-sm font-medium border border-white/20 hover:scale-105"
+        >
+          <ArrowRight className="h-3 sm:h-4 w-3 sm:w-4 rotate-[-90deg]" />
+          <span>Back to Top</span>
+        </button>
+      </div>
     </div>
   </div>
 );
@@ -435,17 +385,17 @@ const Footer = () => {
       <DecorativeBackground />
       <WaveDivider />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 pb-8 sm:pb-12 relative z-10">
         
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-8 sm:mb-12">
           {FOOTER_DATA.stats.map((stat, idx) => (
             <StatCard key={idx} {...stat} />
           ))}
         </div>
 
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           <ProfileSection />
           <QuickLinksSection />
           <ResourcesSection />
