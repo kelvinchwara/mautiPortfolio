@@ -60,7 +60,7 @@ const FOOTER_DATA = {
   socialLinks: [
     {
       icon: Linkedin,
-      href: 'https://www.linkedin.com/in/eliudmautia-5245274b',
+      href: 'https://www.linkedin.com/in/eliud-mautia-5245274b?lipi=urn%3Ali',
       label: 'LinkedIn',
       color: COLORS.BLUE
     },
