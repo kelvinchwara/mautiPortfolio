@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 23% 95%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 90%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 25% 27%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+
+  pre, code {
+    @apply font-mono;
+  }
+}
+
+/* Portfolio specific styles */
+@layer components {
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Professional gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 50%, #3d3225 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #6AA84F 0%, #4a7a38 50%, #3d632e 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #D4AF37 0%, #b8962f 50%, #9a7d27 100%);
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(180deg, rgba(163, 123, 92, 0.95) 0%, rgba(94, 74, 53, 0.98) 100%);
+  }
+  
+  .gradient-bg-main {
+    background: linear-gradient(135deg, #F5F1E8 0%, #d1ac92 50%, #c9a07a 100%);
+  }
+  
+  /* Card with borders and shadows */
+  .card-professional {
+    @apply bg-white rounded-xl border-2 shadow-lg transition-all duration-300;
+    border-color: rgba(163, 123, 92, 0.3);
+  }
+  
+  .card-professional:hover {
+    @apply shadow-2xl -translate-y-1;
+    border-color: rgba(163, 123, 92, 0.6);
+  }
+  
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Section with borders */
+  .section-bordered {
+    @apply relative border-2 rounded-2xl bg-white/95 backdrop-blur-sm;
+    border-color: rgba(163, 123, 92, 0.25);
+  }
+  
+  .section-bordered::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl pointer-events-none;
+    background: linear-gradient(135deg, rgba(163, 123, 92, 0.05) 0%, transparent 50%);
+  }
+  
+  /* Icon container with border */
+  .icon-container {
+    @apply p-3 rounded-full border-2 transition-all duration-300;
+    border-color: rgba(163, 123, 92, 0.3);
+  }
+  
+  .icon-container:hover {
+    @apply scale-110;
+    border-color: rgba(163, 123, 92, 0.6);
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    @apply text-white font-semibold rounded-lg shadow-lg transition-all duration-300;
+    background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-primary:hover {
+    @apply shadow-xl scale-[1.02];
+    background: linear-gradient(135deg, #8a6750 0%, #4a3a2a 100%);
+  }
+  
+  .btn-outline {
+    @apply bg-transparent font-semibold rounded-lg transition-all duration-300;
+    border: 2px solid #A37B5C;
+    color: #5E4A35;
+  }
+  
+  .btn-outline:hover {
+    background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 100%);
+    color: white;
+  }
+  
+  /* Badge styling */
+  .badge-primary {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border;
+    background: linear-gradient(135deg, rgba(163, 123, 92, 0.15) 0%, rgba(94, 74, 53, 0.15) 100%);
+    border-color: rgba(163, 123, 92, 0.3);
+    color: #5E4A35;
+  }
+  
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border text-white;
+    background: linear-gradient(135deg, #6AA84F 0%, #4a7a38 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Divider with gradient */
+  .divider-gradient {
+    @apply h-0.5 w-full rounded-full;
+    background: linear-gradient(90deg, transparent 0%, #A37B5C 50%, transparent 100%);
+  }
+  
+  /* Hover card effect */
+  .hover-card {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-card:hover {
+    @apply shadow-xl -translate-y-1;
+    box-shadow: 0 20px 40px -15px rgba(163, 123, 92, 0.3);
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(163, 123, 92, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(163, 123, 92, 0.5);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #8a6750 0%, #4a3a2a 100%);
+}
+
+/* Standard text sizes */
+.text-xs-standard { font-size: 0.75rem; line-height: 1rem; }
+.text-sm-standard { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base-standard { font-size: 1rem; line-height: 1.5rem; }
+.text-lg-standard { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl-standard { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl-standard { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl-standard { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl-standard { font-size: 2.25rem; line-height: 2.5rem; }
