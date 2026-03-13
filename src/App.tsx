@@ -28,8 +28,12 @@ const App = () => (
           <ScrollToTop />
           <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#d1ac92' }}>
             <Navigation />
+<<<<<<< HEAD
             {/* Add left margin for static sidebar on large screens */}
             <main className="flex-grow lg:ml-72">
+=======
+            <main className="flex-grow">
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />

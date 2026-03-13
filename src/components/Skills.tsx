@@ -12,8 +12,12 @@ import {
   Target,
   Puzzle,
   PenTool,
+<<<<<<< HEAD
   Shield,
   Briefcase
+=======
+  Shield
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
 } from 'lucide-react';
 
 const Skills = () => {
@@ -86,6 +90,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<<<<<<< HEAD
         {/* Work Experience Hero Header */}
         <div className="text-center mb-16">
           <Card className="max-w-5xl mx-auto bg-gradient-to-br from-emerald-50 via-white to-blue-50 border border-emerald-200/50 shadow-xl rounded-2xl p-12">
@@ -108,6 +113,13 @@ const Skills = () => {
               Comprehensive skill set cultivated through years of dedication to educational excellence and continuous professional growth
             </p>
           </Card>
+=======
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Skills & Expertise</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            A comprehensive skill set developed through years of educational leadership and innovation
+          </p>
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

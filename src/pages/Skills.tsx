@@ -12,13 +12,19 @@ import {
 interface CardProps {
   children: React.ReactNode;
   className?: string;
+<<<<<<< HEAD
   style?: React.CSSProperties;
+=======
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
 }
 
 interface CardHeaderProps {
   children: React.ReactNode;
   className?: string;
+<<<<<<< HEAD
   style?: React.CSSProperties;
+=======
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
 }
 
 interface CardTitleProps {
@@ -297,6 +303,7 @@ const Skills = () => {
   ];
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen font-['Inter'] relative" style={{ 
       background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #f0e6d2 100%)`,
       backgroundAttachment: 'fixed'
@@ -309,10 +316,22 @@ const Skills = () => {
           <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: COLORS.GOLD }}></div>
           <div className="absolute bottom-10 right-10 w-28 h-28 sm:w-48 sm:h-48 rounded-full animate-pulse" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
           <div className="absolute top-1/2 left-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full animate-pulse" style={{ backgroundColor: COLORS.CREAM }}></div>
+=======
+    <div className="min-h-screen font-['Inter']" style={{ 
+      backgroundColor: COLORS.CREAM
+    }}>
+      {/* HEADER SECTION */}
+      <header className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-6 sm:pb-8">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: COLORS.GOLD }}></div>
+          <div className="absolute bottom-10 right-10 w-28 h-28 sm:w-48 sm:h-48 rounded-full animate-pulse" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
+          <div className="absolute top-1/2 left-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full animate-pulse" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-6 sm:mb-8">
+<<<<<<< HEAD
             {/* Profile Icon Container with Border */}
             <div className="relative inline-block mb-4 sm:mb-5">
               <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: COLORS.GOLD }}></div>
@@ -356,6 +375,22 @@ const Skills = () => {
                 <Award className="inline h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                 4+ Certifications
               </div>
+=======
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-4 sm:mb-5 shadow-xl bg-gradient-to-br from-blue-400 to-blue-600">
+              <Brain className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 sm:mb-4" style={{ color: COLORS.BRONZE_DARK }}>
+              Professional Skills & Expertise
+            </h1>
+            <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
+              Comprehensive skill set cultivated through years of dedication to educational excellence and continuous professional growth
+            </p>
+            
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
+              <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
+              <div className="w-12 h-1 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
             </div>
           </div>
         </div>
@@ -516,6 +551,7 @@ const Skills = () => {
         </Card>
 
         {/* CTA Section */}
+<<<<<<< HEAD
         <Card className="relative overflow-hidden shadow-3xl border-4 animate-pulse-border [animation-duration:4s] backdrop-blur-xl" style={{ 
           borderColor: `linear-gradient(45deg, ${COLORS.BRONZE_LIGHT}, ${COLORS.GOLD}, ${COLORS.FOREST_GREEN})`,
           background: `linear-gradient(135deg, #ffffff 0%, ${COLORS.CREAM} 30%, ${COLORS.BEIGE} 60%, #f8f4f0 100%)`,
@@ -548,6 +584,24 @@ const Skills = () => {
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-8 sm:leading-9 text-gray-900 bg-gradient-to-r from-transparent via-gray-100/50 to-transparent px-4 py-2 rounded-2xl backdrop-blur-sm border border-gray-200/50 shadow-xl animate-fade-in-up">
+=======
+        <Card className="bg-gradient-to-br from-white to-gray-50 relative overflow-hidden shadow-2xl border-2" style={{ borderColor: COLORS.BEIGE }}>
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
+            <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
+          </div>
+
+          <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 text-center relative z-10">
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-4 sm:mb-5 md:mb-6 shadow-xl bg-gradient-to-br from-purple-400 to-purple-600">
+              <FileText className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+            </div>
+
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
+              <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+              <span className="break-words">Ready to Explore My Full Profile?</span>
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: COLORS.BRONZE_LIGHT }}>
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               Discover how my comprehensive skill set can contribute to your educational institution's success
             </p>
             
@@ -555,6 +609,7 @@ const Skills = () => {
               <a
                 href="/MAUTIA%20ELIUD%20RESUME.pdf"
                 download
+<<<<<<< HEAD
                 className="group/button text-white hover:scale-110 focus:scale-110 active:scale-105 focus-visible:ring-4 ring-gold/50 transition-all duration-300 flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-6 rounded-2xl shadow-2xl font-bold text-base sm:text-lg md:text-xl border-2 backdrop-blur-md hover:backdrop-blur-none relative overflow-hidden focus:outline-none"
                 style={{ 
                   background: 'rgba(255,255,255,0.2)',
@@ -596,6 +651,29 @@ const Skills = () => {
                 </div>
                 <span className="text-xs sm:text-sm md:text-base font-bold text-gray-900 whitespace-nowrap relative z-10 tracking-wide">Team Leader</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity -skew-x-12 transform -translate-x-full group-hover:translate-x-full duration-1000 animate-shimmer-slow"></div>
+=======
+                className="text-white hover:scale-105 transition-transform flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl shadow-xl group font-semibold text-sm sm:text-base"
+                style={{ backgroundColor: COLORS.BRONZE_DARK }}
+              >
+                <Download className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
+                <span className="whitespace-nowrap">Download Resume</span>
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </a>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Shield className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Verified Credentials</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Trophy className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.GOLD }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Award-Winning Educator</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 rounded-full shadow-md border-2" style={{ borderColor: COLORS.BEIGE }}>
+                <Users className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_DARK }} />
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Team Leader</span>
+>>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               </div>
             </div>
           </CardContent>
