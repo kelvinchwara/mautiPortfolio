@@ -210,7 +210,6 @@ const DecorativeBackground = () => (
 );
 
 const PageHeader = () => (
-<<<<<<< HEAD
   <div className="text-center mb-8 sm:mb-12 px-4 py-8 sm:py-12 rounded-2xl mx-2 sm:mx-4" style={{
     background: `linear-gradient(180deg, ${COLORS.secondary} 0%, ${COLORS.primary} 50%, transparent 100%)`,
     borderRadius: '1.5rem'
@@ -248,19 +247,6 @@ const PageHeader = () => (
         4+ Institutions
       </div>
     </div>
-=======
-  <div className="text-center mb-8 sm:mb-12 px-4">
-    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4 sm:mb-6 shadow-lg bg-white">
-      <Briefcase className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: COLORS.primary }} />
-    </div>
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.secondary }}>
-      <Activity className="h-8 w-8 sm:h-10 sm:w-10" style={{ color: COLORS.primary }} />
-      <span>Work Experience</span>
-    </h1>
-    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 px-4" style={{ color: COLORS.secondary }}>
-      A proven track record of excellence in international mathematics education
-    </p>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
   </div>
 );
 
@@ -453,7 +439,6 @@ const CareerHighlights = () => (
 
 const CTASection = () => (
   <Card 
-<<<<<<< HEAD
     className="mt-8 sm:mt-12 hover:shadow-2xl transition-all duration-300 border-2"
     style={{ 
       borderColor: COLORS.secondary,
@@ -466,21 +451,10 @@ const CTASection = () => (
         <div className="absolute top-0 left-0 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: '#D4AF37' }} />
         <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-40 sm:h-40 rounded-full animate-pulse" style={{ backgroundColor: COLORS.success }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 rounded-full animate-pulse" style={{ backgroundColor: COLORS.lightBg }} />
-=======
-    className="mt-8 sm:mt-12 bg-gradient-to-br from-white to-gray-50 hover:shadow-2xl transition-all duration-300 border-2"
-    style={{ borderColor: COLORS.primary }}
-  >
-    <CardContent className="p-6 sm:p-8 md:p-10 text-center relative overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-24 h-24 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: COLORS.secondary }} />
-        <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: COLORS.primary }} />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       </div>
 
       <div className="relative z-10">
         <div 
-<<<<<<< HEAD
           className="inline-flex items-center justify-center w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full mb-4 sm:mb-6 border-4 shadow-2xl"
           style={{ 
             background: `linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%)`,
@@ -498,20 +472,6 @@ const CTASection = () => (
         </h3>
         
         <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-white/90">
-=======
-          className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6"
-          style={{ backgroundColor: COLORS.lightBg }}
-        >
-          <FileText className="h-6 w-6 sm:h-8 sm:w-8" style={{ color: COLORS.primary }} />
-        </div>
-
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-4" style={{ color: COLORS.secondary }}>
-          <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 flex-shrink-0" style={{ color: COLORS.primary }} />
-          <span className="break-words">Interested in My Professional Background?</span>
-        </h3>
-        
-        <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4" style={{ color: COLORS.primary }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
           Explore my complete work history, achievements, and educational philosophy. 
           Download my comprehensive CV or connect with my professional references.
         </p>
@@ -521,13 +481,8 @@ const CTASection = () => (
           <a href="/MAUTIA%20ELIUD%20RESUME.pdf" download className="inline-flex w-full sm:w-auto">
             <Button
               size="lg"
-<<<<<<< HEAD
               className="w-full sm:w-auto text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg border-2"
               style={{ backgroundColor: COLORS.success, borderColor: 'rgba(255,255,255,0.3)' }}
-=======
-              className="w-full sm:w-auto text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
-              style={{ backgroundColor: COLORS.primary }}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
             >
               <Download className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
               <span className="whitespace-nowrap">Download Full CV</span>
@@ -539,11 +494,7 @@ const CTASection = () => (
             <Button
               size="lg"
               variant="outline"
-<<<<<<< HEAD
               className="w-full sm:w-auto flex items-center justify-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg bg-white/90"
-=======
-              className="w-full sm:w-auto flex items-center justify-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               style={{ borderColor: COLORS.secondary, color: COLORS.secondary }}
             >
               <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
@@ -554,19 +505,11 @@ const CTASection = () => (
         </div>
 
         {/* Trust Indicators */}
-<<<<<<< HEAD
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t px-4" style={{ borderColor: 'rgba(255,255,255,0.2)' }}>
           {trustIndicators.map((indicator, idx) => (
             <div key={idx} className="flex items-center justify-center gap-2">
               <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-green-400" />
               <span className="text-xs sm:text-sm font-medium whitespace-nowrap text-white">
-=======
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t px-4" style={{ borderColor: COLORS.lightBg }}>
-          {trustIndicators.map((indicator, idx) => (
-            <div key={idx} className="flex items-center justify-center gap-2">
-              <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" style={{ color: COLORS.success }} />
-              <span className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: COLORS.secondary }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                 {indicator}
               </span>
             </div>
@@ -583,14 +526,10 @@ const CTASection = () => (
 
 const Experience = () => {
   return (
-<<<<<<< HEAD
     <div className="min-h-screen relative" style={{ 
       background: `linear-gradient(135deg, ${COLORS.lightBg} 0%, ${COLORS.background} 50%, #f0e6d2 100%)`,
       backgroundAttachment: 'fixed'
     }}>
-=======
-    <div className="min-h-screen" style={{ backgroundColor: COLORS.background }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       <div className="relative overflow-hidden">
         <DecorativeBackground />
 

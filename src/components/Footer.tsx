@@ -2,11 +2,7 @@ import React from 'react';
 import {
   Mail, Phone, MapPin, Linkedin, Heart, Send, ArrowRight,
   Globe, Award, BookOpen, Users, Target, Sparkles, Star,
-<<<<<<< HEAD
   ExternalLink, Twitter, Instagram, Youtube,
-=======
-  ExternalLink, Facebook, Twitter, Instagram, Youtube,
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
   Clock, TrendingUp, Zap, MessageCircle, Download,
   GraduationCap, Briefcase, Coffee, Rocket, Palette,
   ChevronRight, Shield, CheckCircle
@@ -42,11 +38,7 @@ const FOOTER_DATA = {
   stats: [
     { icon: Award, value: '10+', label: 'Years Experience' },
     { icon: Users, value: '1000+', label: 'Students Taught' },
-<<<<<<< HEAD
     { icon: Globe, value: '3', label: 'Countries' },
-=======
-    { icon: Globe, value: '2', label: 'Languages' },
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
     { icon: Star, value: 'IB', label: 'Certified' },
   ],
 
@@ -66,30 +58,9 @@ const FOOTER_DATA = {
   ],
 
   socialLinks: [
-<<<<<<< HEAD
     { icon: Linkedin, href: 'https://www.linkedin.com/in/eliud-mautia-5245274b?lipi=urn%3Ali', label: 'LinkedIn', color: COLORS.BLUE },
     { icon: Twitter, href: '#', label: 'Twitter', color: COLORS.BRONZE_LIGHT },
     { icon: Youtube, href: '#', label: 'YouTube', color: COLORS.BRONZE_DARK },
-=======
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/eliud-mautia-5245274b?lipi=urn%3Ali',
-      label: 'LinkedIn',
-      color: COLORS.BLUE
-    },
-    {
-      icon: Twitter,
-      href: '#',
-      label: 'Twitter',
-      color: COLORS.BRONZE_LIGHT
-    },
-    {
-      icon: Youtube,
-      href: '#',
-      label: 'YouTube',
-      color: COLORS.BRONZE_DARK
-    },
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
   ],
 
   contact: {
@@ -105,10 +76,6 @@ const FOOTER_DATA = {
     { icon: Users, text: '1000+ Students Impacted' },
     { icon: Coffee, text: 'Passionate About Mathematics' },
   ],
-<<<<<<< HEAD
-=======
-
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
 };
 
 // ============================================================================
@@ -119,34 +86,17 @@ const FOOTER_DATA = {
 const DecorativeBackground = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
     <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-white animate-pulse" />
-<<<<<<< HEAD
     <div className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-white animate-pulse" style={{ animationDelay: '1s' }} />
     <div className="absolute top-1/2 left-1/4 w-48 h-48 rounded-full bg-white animate-pulse" style={{ animationDelay: '2s' }} />
-=======
-    <div 
-      className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-white animate-pulse" 
-      style={{ animationDelay: '1s' }} 
-    />
-    <div 
-      className="absolute top-1/2 left-1/4 w-48 h-48 rounded-full bg-white animate-pulse" 
-      style={{ animationDelay: '2s' }} 
-    />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
   </div>
 );
 
 // Wave Divider Component
 const WaveDivider = () => (
   <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-<<<<<<< HEAD
     <svg className="relative block w-full h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path
         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-=======
-    <svg className="relative block w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path 
-        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" 
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         className="fill-current"
         style={{ color: COLORS.CREAM }}
       />
@@ -164,19 +114,10 @@ interface FooterLinkProps {
 const FooterLink: React.FC<FooterLinkProps> = ({ to, icon: Icon, children }) => (
   <Link 
     to={to}
-<<<<<<< HEAD
     className="flex items-center gap-2 text-gray-100 hover:text-white transition-all duration-300 group py-2 border-b-2 border-transparent hover:border-white/30"
   >
     <Icon className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
     <span className="group-hover:translate-x-1 transition-transform duration-300 flex-1 text-sm">{children}</span>
-=======
-    className="flex items-center gap-2 text-gray-100 hover:text-white transition-all duration-300 group py-2 border-b border-transparent hover:border-white/20"
-  >
-    <Icon className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-    <span className="group-hover:translate-x-1 transition-transform duration-300 flex-1">
-      {children}
-    </span>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
     <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all duration-300" />
   </Link>
 );
@@ -190,15 +131,9 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, href, children }) => {
   const content = (
-<<<<<<< HEAD
     <div className="flex items-center gap-2 sm:gap-3 text-gray-100 hover:text-white transition-all duration-300 group py-1.5 sm:py-2">
       <div className="p-1.5 sm:p-2 rounded-lg bg-white/10 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300 flex-shrink-0 border border-white/20">
         <Icon className="h-3.5 sm:h-4 w-3.5 sm:w-4" />
-=======
-    <div className="flex items-center gap-2 sm:gap-3 text-gray-100 hover:text-white transition-all duration-300 group py-1 sm:py-2">
-      <div className="p-1.5 sm:p-2 rounded-lg bg-white/10 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
-        <Icon className="h-3 sm:h-4 w-3 sm:w-4" />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       </div>
       <span className="text-xs sm:text-sm break-all">{children}</span>
     </div>
@@ -223,17 +158,10 @@ const SocialButton: React.FC<SocialButtonProps> = ({ icon: Icon, href, label }) 
     className="group relative"
     title={label}
   >
-<<<<<<< HEAD
     <div className="p-3 rounded-full bg-white/10 hover:bg-white transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-lg border-2 border-white/20 hover:border-white">
       <Icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
     </div>
     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-white text-gray-800 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg border border-gray-100">
-=======
-    <div className="p-3 rounded-full bg-white/10 hover:bg-white transition-all duration-300 hover:scale-110 hover:rotate-6 shadow-lg border border-white/20">
-      <Icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
-    </div>
-    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-white text-gray-800 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       {label}
     </div>
   </a>
@@ -247,19 +175,11 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ icon: Icon, value, label }) => (
-<<<<<<< HEAD
   <div className="text-center p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 group border-2 border-white/10 hover:border-white/30">
     <div className="flex justify-center mb-1.5 sm:mb-2 group-hover:scale-110 transition-transform">
       <Icon className="h-5 sm:h-6 w-5 sm:w-6 text-white" />
     </div>
     <div className="text-xl sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">{value}</div>
-=======
-  <div className="text-center p-2 sm:p-4 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 hover:scale-105 group border border-white/10">
-    <div className="flex justify-center mb-1 sm:mb-2 group-hover:scale-110 transition-transform">
-      <Icon className="h-4 sm:h-6 w-4 sm:w-6 text-white" />
-    </div>
-    <div className="text-lg sm:text-2xl font-bold text-white mb-0.5 sm:mb-1">{value}</div>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
     <div className="text-xs text-gray-200">{label}</div>
   </div>
 );
@@ -269,26 +189,15 @@ const ProfileSection = () => (
   <div className="lg:col-span-1">
     <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
       <div 
-<<<<<<< HEAD
         className="w-12 sm:h-14 h-12 sm:w-14 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30 flex-shrink-0"
         style={{ background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK}, ${COLORS.FOREST_GREEN})` }}
       >
         <GraduationCap className="h-6 sm:h-7 w-6 sm:w-7 text-white" />
-=======
-        className="w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center shadow-lg border-2 border-white/30 flex-shrink-0"
-        style={{ background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK}, ${COLORS.FOREST_GREEN})` }}
-      >
-        <GraduationCap className="h-5 sm:h-7 w-5 sm:w-7 text-white" />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       </div>
       <div className="min-w-0">
         <h3 className="text-base sm:text-xl font-bold text-white">{FOOTER_DATA.profile.name}</h3>
         <div className="flex items-center gap-1 text-xs text-gray-200">
-<<<<<<< HEAD
           <Sparkles className="h-3 w-3 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-=======
-          <Sparkles className="h-3 w-3 flex-shrink-0" />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
           <span className="truncate">{FOOTER_DATA.profile.title}</span>
         </div>
       </div>
@@ -303,18 +212,10 @@ const ProfileSection = () => (
       {FOOTER_DATA.profile.badges.map((badge, idx) => (
         <div 
           key={idx}
-<<<<<<< HEAD
           className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs font-medium text-white flex items-center gap-1 sm:gap-1.5 border-2 border-white/20 text-nowrap"
         >
           <badge.icon className="h-3 w-3 flex-shrink-0" />
           <span>{badge.label}</span>
-=======
-          className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs font-medium text-white flex items-center gap-1 sm:gap-1.5 border border-white/20 text-nowrap"
-        >
-          <badge.icon className="h-3 w-3 flex-shrink-0" />
-          <span className="hidden sm:inline">{badge.label}</span>
-          <span className="sm:hidden">{badge.label.substring(0, 1)}</span>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         </div>
       ))}
     </div>
@@ -331,19 +232,11 @@ const ProfileSection = () => (
 // Quick Links Section
 const QuickLinksSection = () => (
   <div>
-<<<<<<< HEAD
     <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b-2 border-white/20">
       <Zap className="h-5 w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
       <span className="text-nowrap">Quick Links</span>
     </h3>
     <ul className="space-y-0.5 text-sm">
-=======
-    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <Zap className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-      <span className="text-nowrap">Quick Links</span>
-    </h3>
-    <ul className="space-y-1 text-xs sm:text-sm">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       {FOOTER_DATA.quickLinks.map((link) => (
         <li key={link.name}>
           <FooterLink to={link.to} icon={link.icon}>
@@ -358,19 +251,11 @@ const QuickLinksSection = () => (
 // Resources Section
 const ResourcesSection = () => (
   <div>
-<<<<<<< HEAD
     <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b-2 border-white/20">
       <BookOpen className="h-5 w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
       <span className="text-nowrap">Resources</span>
     </h3>
     <ul className="space-y-0.5 text-sm mb-3 sm:mb-6">
-=======
-    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <BookOpen className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-      <span className="text-nowrap">Resources</span>
-    </h3>
-    <ul className="space-y-1 text-xs sm:text-sm mb-3 sm:mb-6">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       {FOOTER_DATA.resources.map((link) => (
         <li key={link.name}>
           <FooterLink to={link.to} icon={link.icon}>
@@ -385,19 +270,11 @@ const ResourcesSection = () => (
       <a
         href="/MAUTIA%20ELIUD%20RESUME.pdf"
         download
-<<<<<<< HEAD
         className="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-white text-gray-800 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg text-xs sm:text-sm font-semibold group border-2 border-white/30"
       >
         <Download className="h-4 w-4 group-hover:animate-bounce" />
         <span>Download CV</span>
         <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block" />
-=======
-        className="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2 sm:py-3 bg-white text-gray-800 rounded-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg text-xs sm:text-sm font-semibold group border border-white/30"
-      >
-        <Download className="h-3 sm:h-4 w-3 sm:w-4 group-hover:animate-bounce" />
-        <span className="sm:inline">Download CV</span>
-        <span className="hidden sm:inline"><ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></span>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       </a>
     </div>
   </div>
@@ -406,19 +283,11 @@ const ResourcesSection = () => (
 // Contact Section
 const ContactSection = () => (
   <div>
-<<<<<<< HEAD
     <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b-2 border-white/20">
       <MessageCircle className="h-5 w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
       <span className="text-nowrap">Get in Touch</span>
     </h3>
     <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-6">
-=======
-    <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2 pb-2 border-b border-white/20">
-      <MessageCircle className="h-4 sm:h-5 w-4 sm:w-5 flex-shrink-0" style={{ color: COLORS.GOLD }} />
-      <span className="text-nowrap">Get in Touch</span>
-    </h3>
-    <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-6">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       <ContactItem icon={Mail} href={`mailto:${FOOTER_DATA.contact.email}`}>
         {FOOTER_DATA.contact.email}
       </ContactItem>
@@ -435,30 +304,15 @@ const ContactSection = () => (
   </div>
 );
 
-<<<<<<< HEAD
 // Bottom Bar Component
 const BottomBar = () => (
   <div className="pt-6 sm:pt-8 border-t-2 border-white/20">
     <div className="flex flex-col gap-4 sm:gap-6 items-center">
       {/* Copyright and Designer Credit */}
-=======
-
-
-// Bottom Bar Component
-const BottomBar = () => (
-  <div className="pt-6 sm:pt-8">
-    <div className="flex flex-col gap-4 sm:gap-6 items-center">
-      {/* Copyright and Designer Credit - Centered */}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       <div className="flex flex-col items-center gap-1 sm:gap-2 text-center">
         <div className="flex items-center gap-1 text-gray-200 text-xs sm:text-sm">
           <span>© Eliud Mautia 2026 All Rights Reserved</span>
         </div>
-<<<<<<< HEAD
-=======
-
-        {/* Designer Credit - WhatsApp Link */}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         <div className="flex items-center gap-1 sm:gap-2 text-gray-300 text-xs">
           <Palette className="h-3 w-3 flex-shrink-0" style={{ color: COLORS.GOLD }} />
           <span>Designed by</span>
@@ -467,10 +321,7 @@ const BottomBar = () => (
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold hover:text-white transition-colors cursor-pointer underline hover:no-underline"
-<<<<<<< HEAD
             style={{ color: COLORS.GOLD }}
-=======
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
           >
             One-Tech Solutions Ltd
           </a>
@@ -481,15 +332,9 @@ const BottomBar = () => (
       <div className="flex justify-center">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-<<<<<<< HEAD
           className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white text-xs sm:text-sm font-medium border-2 border-white/20 hover:scale-105"
         >
           <ArrowRight className="h-4 w-4 rotate-[-90deg]" />
-=======
-          className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all text-white text-xs sm:text-sm font-medium border border-white/20 hover:scale-105"
-        >
-          <ArrowRight className="h-3 sm:h-4 w-3 sm:w-4 rotate-[-90deg]" />
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
           <span>Back to Top</span>
         </button>
       </div>
@@ -504,15 +349,9 @@ const BottomBar = () => (
 const Footer = () => {
   return (
     <footer 
-<<<<<<< HEAD
       className="relative overflow-hidden pt-16 lg:ml-72"
       style={{ 
         background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK} 0%, ${COLORS.BRONZE_LIGHT} 40%, ${COLORS.BEIGE} 100%)` 
-=======
-      className="relative overflow-hidden pt-20" 
-      style={{ 
-        background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK} 0%, ${COLORS.BRONZE_LIGHT} 50%, ${COLORS.BEIGE} 100%)` 
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       }}
     >
       <DecorativeBackground />
@@ -536,10 +375,6 @@ const Footer = () => {
         </div>
 
         <BottomBar />
-<<<<<<< HEAD
-=======
-        
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       </div>
     </footer>
   );

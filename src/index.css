@@ -107,7 +107,6 @@
     @apply py-16 px-4 sm:px-6 lg:px-8;
   }
   
-<<<<<<< HEAD
   /* Professional gradient backgrounds */
   .gradient-primary {
     background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 50%, #3d3225 100%);
@@ -143,23 +142,10 @@
   /* Text gradient */
   .text-gradient {
     background: linear-gradient(135deg, #A37B5C 0%, #5E4A35 100%);
-=======
-  .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-  
-  .text-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-<<<<<<< HEAD
   
   /* Section with borders */
   .section-bordered {
@@ -236,8 +222,6 @@
     @apply shadow-xl -translate-y-1;
     box-shadow: 0 20px 40px -15px rgba(163, 123, 92, 0.3);
   }
-=======
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
 }
 
 /* Smooth scrolling for anchor links */
@@ -257,7 +241,6 @@ html {
   }
 }
 
-<<<<<<< HEAD
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -317,8 +300,3 @@ html {
 .text-2xl-standard { font-size: 1.5rem; line-height: 2rem; }
 .text-3xl-standard { font-size: 1.875rem; line-height: 2.25rem; }
 .text-4xl-standard { font-size: 2.25rem; line-height: 2.5rem; }
-=======
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8

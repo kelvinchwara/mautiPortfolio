@@ -165,7 +165,6 @@ const Resources = () => {
   return (
     <div className="min-h-screen font-['Inter']" style={{ backgroundColor: COLORS.CREAM }}>
       {/* HEADER SECTION */}
-<<<<<<< HEAD
       <header className="relative overflow-hidden px-4 sm:px-6 lg:px-8" style={{ background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE}80 50%, ${COLORS.CREAM} 100%)` }}>
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 right-10 w-32 sm:w-64 h-32 sm:h-64 rounded-full animate-spin-slow" style={{ backgroundColor: COLORS.GOLD }} />
@@ -210,34 +209,6 @@ const Resources = () => {
           backgroundImage: `linear-gradient(90deg, ${COLORS.GOLD}, ${COLORS.FOREST_GREEN}, ${COLORS.BRONZE_LIGHT})`,
           boxShadow: `0 4px 12px ${COLORS.GOLD}40`
         }}></div>
-=======
-      <header className="relative overflow-hidden px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 right-10 w-32 sm:w-64 h-32 sm:h-64 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
-          <div className="absolute bottom-10 left-10 w-24 sm:w-48 h-24 sm:h-48 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto py-8 sm:py-12 md:py-16 relative z-10">
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4" style={{ backgroundColor: `${COLORS.BRONZE_LIGHT}20` }}>
-              <Award className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
-              <span className="text-xs sm:text-sm font-medium" style={{ color: COLORS.BRONZE_DARK }}>Professional Development Hub</span>
-            </div>
-            
-            <h1 
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 sm:mb-4"
-              style={{ color: COLORS.BRONZE_DARK }}
-            >
-              My Professional Resources
-            </h1>
-            <p 
-              className="text-base sm:text-lg lg:text-xl font-medium max-w-3xl mx-auto px-2"
-              style={{ color: COLORS.BRONZE_LIGHT }}
-            >
-              A curated collection of my achievements, certifications, teaching resources, and professional development materials.
-            </p>
-            <div className="h-0.5 sm:h-1 w-16 sm:w-24 mx-auto mt-4 sm:mt-6 rounded-full" style={{ backgroundColor: COLORS.GOLD }}></div>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
           </div>
 
           {/* Stats Section */}
@@ -245,16 +216,11 @@ const Resources = () => {
             {statsData.map((stat, index) => (
               <div 
                 key={index} 
-<<<<<<< HEAD
                 className="text-center p-4 sm:p-5 lg:p-6 rounded-2xl bg-white/70 backdrop-blur-md shadow-2xl border transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:-translate-y-2 border-opacity-70"
                 style={{ 
                   borderColor: `${COLORS.BEIGE}80`,
                   boxShadow: `0 25px 50px -12px ${COLORS.BRONZE_LIGHT}40, 0 0 0 1px ${COLORS.BEIGE}40, inset 0 1px 0 ${COLORS.GOLD}20`
                 }}
-=======
-                className="text-center p-3 sm:p-4 rounded-xl bg-white shadow-lg border-2 transition-all hover:scale-105"
-                style={{ borderColor: COLORS.BEIGE }}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               >
                 <div className="flex justify-center mb-1.5 sm:mb-2">
                   <div className="p-1.5 sm:p-2 rounded-full" style={{ backgroundColor: `${COLORS.FOREST_GREEN}20` }}>
@@ -511,7 +477,6 @@ const Resources = () => {
                         </a>
                       ) : (
                         <button
-<<<<<<< HEAD
                           className="mt-auto px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg text-white font-semibold self-start transition duration-200 hover:bg-opacity-80 active:scale-[0.98] shadow-md flex items-center justify-center"
                           style={{ backgroundColor: COLORS.FOREST_GREEN, minWidth: '130px' }}
                           disabled
@@ -519,22 +484,12 @@ const Resources = () => {
                           <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                           <span className="hidden sm:inline">Download Certificate</span>
                           <span className="sm:hidden">Download</span>
-=======
-                          disabled
-                          className="mt-auto px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg text-white font-semibold self-start opacity-50 cursor-not-allowed flex items-center justify-center"
-                          style={{ backgroundColor: COLORS.BRONZE_LIGHT, minWidth: '130px' }}
-                        >
-                          Coming Soon
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                         </button>
                       )}
                     </div>
                   );
                 })}
-<<<<<<< HEAD
 
-=======
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               </div>
             ) : (
               <div className="text-center py-8 sm:py-12 bg-white rounded-xl border-2 px-4" style={{ borderColor: COLORS.BEIGE }}>
@@ -632,8 +587,4 @@ const Resources = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Resources;
-=======
-export default Resources;
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8

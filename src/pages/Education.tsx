@@ -324,11 +324,7 @@ const Education = () => {
 
   return (
     <div className="min-h-screen relative" style={{ 
-<<<<<<< HEAD
       background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #e8dcc8 100%)`,
-=======
-      background: `linear-gradient(135deg, ${COLORS.CREAM} 0%, ${COLORS.BEIGE} 50%, #f0e6d2 100%)`,
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
       backgroundAttachment: 'fixed'
     }}>
       {/* Decorative floating elements */}
@@ -342,7 +338,6 @@ const Education = () => {
         <div className="max-w-6xl mx-auto">
           
           {/* Enhanced Header */}
-<<<<<<< HEAD
           <div className="text-center mb-8 sm:mb-12 md:mb-16 relative px-4 py-8 sm:py-12 rounded-2xl mx-2 sm:mx-4" style={{
             background: `linear-gradient(180deg, ${COLORS.BRONZE_DARK} 0%, ${COLORS.BRONZE_LIGHT} 50%, transparent 100%)`,
             borderRadius: '1.5rem'
@@ -363,23 +358,11 @@ const Education = () => {
               <span className="break-words">Education & Development</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-white/90">
-=======
-          <div className="text-center mb-8 sm:mb-12 md:mb-16 relative px-4">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-4 sm:mb-6 shadow-2xl bg-gradient-to-br from-yellow-400 to-yellow-600 animate-bounce">
-              <GraduationCap className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3" style={{ color: COLORS.BRONZE_DARK }}>
-              <Sparkles className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12" style={{ color: COLORS.GOLD }} />
-              <span className="break-words">Education & Development</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto" style={{ color: COLORS.BRONZE_LIGHT }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
               Academic qualifications and professional development journey towards educational excellence
             </p>
             
             {/* Decorative line */}
             <div className="flex items-center justify-center gap-3 mt-4 sm:mt-6">
-<<<<<<< HEAD
               <div className="w-12 h-0.5 sm:w-16 sm:h-1 rounded-full bg-white/50"></div>
               <div className="p-1.5 sm:p-2 rounded-full border-2 border-white/50" style={{ backgroundColor: COLORS.GOLD }}>
                 <Star className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
@@ -401,11 +384,6 @@ const Education = () => {
                 <Users className="inline h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                 2 Active Roles
               </div>
-=======
-              <div className="w-12 h-0.5 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-              <Star className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: COLORS.GOLD }} />
-              <div className="w-12 h-0.5 sm:w-16 sm:h-1 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
             </div>
           </div>
 
@@ -569,7 +547,6 @@ const Education = () => {
           </Card>
 
           {/* CTA Section */}
-<<<<<<< HEAD
           <Card className="relative overflow-hidden shadow-2xl border-2" style={{ 
             borderColor: COLORS.BRONZE_DARK,
             background: `linear-gradient(135deg, ${COLORS.BRONZE_DARK} 0%, ${COLORS.BRONZE_LIGHT} 50%, ${COLORS.BEIGE} 100%)`
@@ -595,36 +572,13 @@ const Education = () => {
                 <span className="break-words">Explore My Academic Journey</span>
               </h3>
               <p className="text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4 text-black">
-=======
-          <Card className="bg-gradient-to-br from-white to-gray-50 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 opacity-5 pointer-events-none">
-              <div className="absolute top-0 left-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: COLORS.BRONZE_LIGHT }}></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: COLORS.FOREST_GREEN }}></div>
-            </div>
-
-            <CardContent className="p-6 sm:p-8 md:p-12 text-center relative z-10">
-              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6 shadow-xl bg-gradient-to-br from-yellow-400 to-yellow-600">
-                <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-4" style={{ color: COLORS.BRONZE_DARK }}>
-                <Sparkles className="h-6 w-6 sm:h-8 sm:w-8" style={{ color: COLORS.GOLD }} />
-                <span className="break-words">Explore My Academic Journey</span>
-              </h3>
-              <p className="text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4" style={{ color: COLORS.BRONZE_LIGHT }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                 Discover my complete academic background, certifications, and professional development achievements that shape my educational philosophy.
               </p>
               
               <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
                 <Button 
-<<<<<<< HEAD
                   className="text-white hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-2xl group w-full sm:w-auto border-2"
                   style={{ backgroundColor: COLORS.FOREST_GREEN, borderColor: 'rgba(255,255,255,0.3)' }}
-=======
-                  className="text-white hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-xl group w-full sm:w-auto"
-                  style={{ backgroundColor: COLORS.BRONZE_DARK }}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                 >
                   <Download className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce" />
                   <span className="whitespace-nowrap">Download Transcripts</span>
@@ -632,13 +586,8 @@ const Education = () => {
                 </Button>
                 <Button 
                   variant="outline" 
-<<<<<<< HEAD
                   className="flex items-center justify-center gap-2 border-2 hover:scale-105 transition-transform shadow-2xl group bg-white/95 w-full sm:w-auto"
                   style={{ borderColor: COLORS.BRONZE_DARK, color: COLORS.BRONZE_DARK }}
-=======
-                  className="flex items-center justify-center gap-2 border-2 hover:scale-105 transition-transform shadow-xl group bg-white w-full sm:w-auto"
-                  style={{ borderColor: COLORS.FOREST_GREEN, color: COLORS.FOREST_GREEN }}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                 >
                   <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span className="whitespace-nowrap">View Certifications</span>
@@ -648,19 +597,11 @@ const Education = () => {
 
               {/* Additional info */}
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
-<<<<<<< HEAD
                 <div className="flex items-center justify-center gap-2 bg-white/90 px-3 sm:px-4 py-2 rounded-full shadow-lg border-2" style={{ borderColor: COLORS.FOREST_GREEN }}>
                   <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
                   <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Verified Credentials</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 bg-white/90 px-3 sm:px-4 py-2 rounded-full shadow-lg border-2" style={{ borderColor: COLORS.BRONZE_LIGHT }}>
-=======
-                <div className="flex items-center justify-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-full shadow-md">
-                  <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.FOREST_GREEN }} />
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">Verified Credentials</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 bg-white px-3 sm:px-4 py-2 rounded-full shadow-md">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                   <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" style={{ color: COLORS.BRONZE_LIGHT }} />
                   <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">International Recognition</span>
                 </div>
@@ -674,7 +615,3 @@ const Education = () => {
 };
 
 export default Education;
-<<<<<<< HEAD
-=======
-
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8

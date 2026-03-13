@@ -97,7 +97,6 @@ const Contact = () => {
   ];
 
   return (
-<<<<<<< HEAD
     <div className="min-h-screen relative" style={{ 
       background: `linear-gradient(135deg, #F5F1E8 0%, #d1ac92 50%, #e8dcc8 100%)`,
       backgroundAttachment: 'fixed'
@@ -108,22 +107,12 @@ const Contact = () => {
           <div className="absolute top-5 sm:top-10 md:top-20 left-5 sm:left-10 md:left-20 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full animate-pulse" style={{ backgroundColor: '#5E4A35' }}></div>
           <div className="absolute bottom-5 sm:bottom-10 md:bottom-20 right-5 sm:right-10 md:right-20 w-24 h-24 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full animate-pulse" style={{ backgroundColor: '#A37B5C' }}></div>
           <div className="absolute top-1/3 right-1/4 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full animate-pulse" style={{ backgroundColor: '#D4AF37' }}></div>
-=======
-    <div className="min-h-screen" style={{ backgroundColor: '#d1ac92' }}>
-      {/* Hero Section with decorative elements */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-5 sm:top-10 md:top-20 left-5 sm:left-10 md:left-20 w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
-          <div className="absolute bottom-5 sm:bottom-10 md:bottom-20 right-5 sm:right-10 md:right-20 w-24 h-24 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full" style={{ backgroundColor: '#A37B5C' }}></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
         </div>
 
         <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-16 relative z-10">
           <div className="max-w-6xl mx-auto">
 
             {/* Header with Icon */}
-<<<<<<< HEAD
             <div className="text-center mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4 py-8 sm:py-12 rounded-2xl mx-2 sm:mx-4" style={{
               background: `linear-gradient(180deg, #5E4A35 0%, #A37B5C 50%, transparent 100%)`,
               borderRadius: '1.5rem'
@@ -147,22 +136,6 @@ const Contact = () => {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
                 {quickStats.map((stat, index) => (
                   <Card key={index} className="bg-white/95 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2" style={{ borderColor: 'rgba(163, 123, 92, 0.3)' }}>
-=======
-            <div className="text-center mb-6 sm:mb-8 md:mb-12 px-2 sm:px-4">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full mb-3 sm:mb-4 md:mb-6 shadow-lg bg-white">
-                <Sparkles className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10" style={{ color: '#A37B5C' }} />
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3" style={{ color: '#5E4A35' }}>
-                <Mail className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" style={{ color: '#A37B5C' }} />
-                <span className="break-words">Contact Information</span>
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4" style={{ color: '#5E4A35' }}>Let's connect and create something amazing together</p>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto mb-4 sm:mb-6 md:mb-8">
-                {quickStats.map((stat, index) => (
-                  <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                     <CardContent className="p-3 sm:p-4 md:p-6 text-center">
                       <div className="flex justify-center mb-1 sm:mb-2" style={{ color: stat.color }}>
                         {stat.icon}
@@ -468,7 +441,6 @@ const Contact = () => {
             </Card>
 
             {/* CTA Section - Enhanced */}
-<<<<<<< HEAD
             <Card className="hover:shadow-2xl transition-all duration-300 border-2" style={{ 
               borderColor: '#5E4A35',
               background: `linear-gradient(135deg, #5E4A35 0%, #A37B5C 50%, #d1ac92 100%)`
@@ -497,27 +469,6 @@ const Contact = () => {
                   </h3>
                   
                   <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-4 text-white/90">
-=======
-            <Card className="bg-gradient-to-br from-white to-gray-50 hover:shadow-2xl transition-all duration-300 border-2" style={{ borderColor: '#A37B5C' }}>
-              <CardContent className="p-6 sm:p-8 md:p-12 text-center relative overflow-hidden">
-                {/* Decorative background elements */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute top-0 left-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: '#5E4A35' }}></div>
-                  <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full" style={{ backgroundColor: '#A37B5C' }}></div>
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full mb-4 sm:mb-6" style={{ backgroundColor: '#f5f1ed' }}>
-                    <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: '#A37B5C' }} />
-                  </div>
-                  
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-2" style={{ color: '#5E4A35' }}>
-                    <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" style={{ color: '#A37B5C' }} />
-                    <span className="break-words text-center">Ready to Start a Conversation?</span>
-                  </h3>
-                  
-                  <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-4" style={{ color: '#A37B5C' }}>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                     Whether you're looking for collaboration, consultation, or just want to connect, 
                     I'd love to hear from you and explore how we can work together.
                   </p>
@@ -525,13 +476,8 @@ const Contact = () => {
                   <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-2">
                     <Button
                       size="lg"
-<<<<<<< HEAD
                       className="text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg w-full sm:w-auto border-2"
                       style={{ backgroundColor: '#6AA84F', borderColor: 'rgba(255,255,255,0.3)' }}
-=======
-                      className="text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg w-full sm:w-auto"
-                      style={{ backgroundColor: '#A37B5C' }}
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                     >
                       <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
                       <span className="whitespace-nowrap">Start a Conversation</span>
@@ -540,11 +486,7 @@ const Contact = () => {
                     <Button
                       size="lg"
                       variant="outline"
-<<<<<<< HEAD
                       className="flex items-center justify-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg w-full sm:w-auto bg-white/95"
-=======
-                      className="flex items-center justify-center gap-2 border-2 hover:bg-opacity-10 transition-all hover:scale-105 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg w-full sm:w-auto"
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                       style={{ borderColor: '#5E4A35', color: '#5E4A35' }}
                     >
                       <Send className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
@@ -554,7 +496,6 @@ const Contact = () => {
                   </div>
 
                   {/* Trust indicators */}
-<<<<<<< HEAD
                   <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-8 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 border-t" style={{ borderColor: 'rgba(255,255,255,0.2)' }}>
                     <div className="flex items-center justify-center gap-2">
                       <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-green-400" />
@@ -567,20 +508,6 @@ const Contact = () => {
                     <div className="flex items-center justify-center gap-2">
                       <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-green-400" />
                       <span className="text-xs sm:text-sm font-medium whitespace-nowrap text-white">Global Reach</span>
-=======
-                  <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-8 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 border-t" style={{ borderColor: '#f5f1ed' }}>
-                    <div className="flex items-center justify-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" style={{ color: '#4caf50' }} />
-                      <span className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: '#5E4A35' }}>Quick Response</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" style={{ color: '#4caf50' }} />
-                      <span className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: '#5E4A35' }}>Professional Service</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" style={{ color: '#4caf50' }} />
-                      <span className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: '#5E4A35' }}>Global Reach</span>
->>>>>>> 499e8e803f0f996e3d423d586da336a6eb8bc0e8
                     </div>
                   </div>
                 </div>
